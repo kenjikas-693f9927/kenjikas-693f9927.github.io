@@ -1,0 +1,1296 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>女王木乃伊强制坐脸VK - 木乃伊题材视觉作品聚合</title>
+  <meta name="description" content="女王木乃伊强制坐脸VK 是聚焦木乃伊题材视觉作品的聚合页，收录强制坐脸、女王木乃伊、绷带束缚等场景的插画、短片与图文解析，适合喜欢异域恐怖与权力反转设定的观众查阅。">
+  <meta name="keywords" content="女王木乃伊强制坐脸VK">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231a1a1a'/%3E%3Ccircle cx='50' cy='38' r='18' fill='%23d4af37'/%3E%3Crect x='35' y='58' width='30' height='28' rx='4' fill='%23d4af37'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --primary: #b8860b;
+      --primary-light: #d4a017;
+      --primary-dark: #8b6508;
+      --bg: #0e0e0e;
+      --bg-panel: #1a1a1a;
+      --bg-card: #222222;
+      --text-primary: #e8e0d0;
+      --text-secondary: #a89f8f;
+      --text-muted: #6e665a;
+      --border: #3a352e;
+      --radius-card: 10px;
+      --radius-btn: 6px;
+      --radius-tag: 20px;
+      --shadow-default: 0 2px 8px rgba(0,0,0,0.6);
+      --shadow-hover: 0 4px 16px rgba(184,134,11,0.25);
+      --font-heading: 'Georgia', 'Noto Serif SC', serif;
+      --font-body: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      --header-height: 56px;
+      --notice-height: 40px;
+      --total-sticky: calc(var(--notice-height) + var(--header-height));
+      --max-width: 1380px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--total-sticky) + 16px); }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+    a { color: var(--primary-light); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--primary); }
+
+    /* 吸顶公告条 */
+    .notice-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--notice-height);
+      background: linear-gradient(90deg, #1a1200, #2a1f00, #1a1200);
+      border-bottom: 1px solid var(--primary-dark);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      font-size: 13px;
+      color: var(--primary-light);
+      gap: 24px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .notice-bar .brand-mini { font-weight: 700; letter-spacing: 0.5px; color: var(--primary); }
+    .notice-bar .notice-item { display: inline-flex; align-items: center; gap: 6px; }
+    .notice-bar .notice-date { color: var(--text-secondary); font-size: 12px; }
+    .notice-bar .notice-tag { background: var(--primary); color: #0e0e0e; padding: 1px 8px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+
+    /* 吸顶页头 */
+    .site-header {
+      position: sticky;
+      top: var(--notice-height);
+      z-index: 99;
+      height: var(--header-height);
+      background: rgba(14,14,14,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      gap: 28px;
+    }
+    .logo-area { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .logo-icon { width: 32px; height: 32px; }
+    .logo-text { font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: var(--primary-light); letter-spacing: 0.5px; white-space: nowrap; }
+    .header-nav { display: flex; gap: 4px; overflow-x: auto; flex: 1; }
+    .header-nav a {
+      padding: 6px 14px;
+      border-radius: var(--radius-btn);
+      font-size: 14px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .header-nav a:hover, .header-nav a.active { background: rgba(184,134,11,0.15); color: var(--primary-light); }
+    .header-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+    .header-actions .btn-upload {
+      padding: 6px 16px;
+      background: var(--primary);
+      color: #0e0e0e;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      font-size: 13px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .header-actions .btn-upload:hover { background: var(--primary-light); }
+
+    /* 汉堡按钮（移动端） */
+    .hamburger {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 22px;
+      padding: 4px 10px;
+      border-radius: var(--radius-btn);
+      cursor: pointer;
+      line-height: 1;
+    }
+    .hamburger:focus-visible { outline: 2px solid var(--primary); }
+
+    /* 移动端抽屉 */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: var(--total-sticky);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 98;
+    }
+    .mobile-drawer.open { display: block; }
+    .mobile-drawer-inner {
+      background: var(--bg-panel);
+      width: 280px;
+      max-width: 80vw;
+      height: 100%;
+      padding: 16px;
+      overflow-y: auto;
+      border-right: 1px solid var(--border);
+    }
+    .mobile-drawer-inner a {
+      display: block;
+      padding: 10px 12px;
+      color: var(--text-secondary);
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+    }
+    .mobile-drawer-inner a:hover { background: rgba(184,134,11,0.12); color: var(--primary-light); }
+    .drawer-close {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 6px 14px;
+      border-radius: var(--radius-btn);
+      cursor: pointer;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    /* 首屏 */
+    .hero {
+      position: relative;
+      background: radial-gradient(ellipse at 30% 40%, #2a1f00 0%, #0e0e0e 70%);
+      padding: 64px 24px 56px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-text h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 4vw, 44px);
+      color: var(--primary-light);
+      line-height: 1.25;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+    .hero-text p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin-bottom: 28px;
+      line-height: 1.8;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      padding: 10px 28px;
+      background: var(--primary);
+      color: #0e0e0e;
+      font-weight: 700;
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--primary-light); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-block;
+      padding: 10px 28px;
+      border: 1px solid var(--primary);
+      color: var(--primary-light);
+      font-weight: 600;
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+      background: transparent;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--primary-light); background: rgba(184,134,11,0.1); }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .hero-svg { width: 100%; max-width: 360px; height: auto; animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @media (prefers-reduced-motion: reduce) { .hero-svg { animation: none; } }
+
+    /* 三栏主体 */
+    .main-layout {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 180px 1fr 240px;
+      gap: 28px;
+      padding: 32px 24px 64px;
+    }
+    /* 左频道索引 */
+    .sidebar-left {
+      position: sticky;
+      top: calc(var(--total-sticky) + 20px);
+      align-self: start;
+      max-height: calc(100vh - var(--total-sticky) - 40px);
+      overflow-y: auto;
+    }
+    .sidebar-left h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      padding-left: 12px;
+      font-weight: 600;
+    }
+    .channel-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .channel-list a {
+      display: block;
+      padding: 8px 12px;
+      border-radius: var(--radius-btn);
+      color: var(--text-secondary);
+      font-size: 14px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .channel-list a:hover, .channel-list a.current { background: rgba(184,134,11,0.12); color: var(--primary-light); }
+    .channel-list a.current { border-left: 3px solid var(--primary); }
+
+    /* 中间主内容 */
+    .main-content { min-width: 0; }
+    .section-block { margin-bottom: 48px; }
+    .section-block h2 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      color: var(--primary-light);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-block h2 .count { font-size: 13px; color: var(--text-muted); font-weight: 400; }
+
+    /* 概览 */
+    .overview-text { font-size: 15px; color: var(--text-secondary); line-height: 1.85; }
+    .overview-text p { margin-bottom: 12px; }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-default);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--primary-dark); }
+    .card-img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .card-body { padding: 14px; }
+    .card-body h4 { font-size: 16px; color: var(--text-primary); margin-bottom: 6px; line-height: 1.4; }
+    .card-body .card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px; }
+    .card-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; color: var(--text-muted); }
+    .tag { display: inline-block; padding: 2px 9px; border-radius: var(--radius-tag); background: rgba(184,134,11,0.15); color: var(--primary-light); font-size: 11px; font-weight: 600; }
+    .tag-outline { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+
+    /* 更新列表 */
+    .update-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .update-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 12px 4px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .update-item:last-child { border-bottom: none; }
+    .update-date { color: var(--text-muted); font-size: 12px; white-space: nowrap; min-width: 70px; }
+    .update-title { color: var(--text-primary); font-weight: 600; }
+    .update-desc { color: var(--text-secondary); font-size: 13px; }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+    .category-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 16px 14px;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+    .category-item:hover { border-color: var(--primary); background: rgba(184,134,11,0.06); }
+    .category-item .cat-name { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+    .category-item .cat-count { font-size: 12px; color: var(--text-muted); }
+    .category-item.filter-active { border-color: var(--primary); background: rgba(184,134,11,0.12); }
+
+    /* 深度解析 */
+    .deep-dive { background: var(--bg-panel); border-radius: var(--radius-card); padding: 28px; border: 1px solid var(--border); }
+    .deep-dive h3 { font-family: var(--font-heading); font-size: 18px; color: var(--primary-light); margin: 24px 0 12px; }
+    .deep-dive h3:first-of-type { margin-top: 0; }
+    .deep-dive p { font-size: 14px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 12px; }
+    .deep-dive ul { margin: 8px 0 16px 20px; color: var(--text-secondary); font-size: 14px; line-height: 1.8; }
+    .deep-dive li { margin-bottom: 6px; }
+    .deep-dive .data-table { width: 100%; border-collapse: collapse; margin: 12px 0 16px; font-size: 13px; }
+    .deep-dive .data-table th, .deep-dive .data-table td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; color: var(--text-secondary); }
+    .deep-dive .data-table th { background: rgba(184,134,11,0.1); color: var(--primary-light); font-weight: 600; }
+
+    /* 指南步骤 */
+    .guide-steps { display: flex; flex-direction: column; gap: 14px; counter-reset: step; }
+    .guide-step {
+      display: flex;
+      gap: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 18px;
+      counter-increment: step;
+    }
+    .guide-step::before {
+      content: counter(step);
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: var(--primary);
+      color: #0e0e0e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .guide-step .step-content h4 { font-size: 15px; color: var(--text-primary); margin-bottom: 4px; }
+    .guide-step .step-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+    .faq-list details {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+    .faq-list summary {
+      padding: 14px 18px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: '+'; font-size: 20px; color: var(--primary); font-weight: 400; }
+    .faq-list details[open] summary::after { content: '−'; }
+    .faq-list summary:hover { background: rgba(184,134,11,0.06); }
+    .faq-list .faq-answer { padding: 0 18px 16px; font-size: 14px; color: var(--text-secondary); line-height: 1.8; }
+
+    /* 评论 */
+    .comment-list { display: flex; flex-direction: column; gap: 10px; }
+    .comment-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 14px 16px;
+    }
+    .comment-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .comment-avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--primary-dark); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--text-primary); flex-shrink: 0; }
+    .comment-name { font-size: 13px; font-weight: 600; color: var(--primary-light); }
+    .comment-time { font-size: 11px; color: var(--text-muted); margin-left: auto; }
+    .comment-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    .comment-meta { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+
+    /* 相关资讯 */
+    .news-list { display: flex; flex-direction: column; gap: 14px; }
+    .news-item { display: flex; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 14px; transition: border-color 0.2s; }
+    .news-item:hover { border-color: var(--primary-dark); }
+    .news-img { width: 120px; height: 80px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+    .news-body { min-width: 0; }
+    .news-body h4 { font-size: 15px; color: var(--text-primary); margin-bottom: 4px; }
+    .news-body .news-date { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+    .news-body .news-summary { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* 相关推荐标签云 */
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-cloud a {
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-tag);
+      font-size: 13px;
+      color: var(--text-secondary);
+      background: var(--bg-card);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tag-cloud a:hover { border-color: var(--primary); color: var(--primary-light); }
+
+    /* 榜单 */
+    .rank-list { list-style: none; counter-reset: rank; }
+    .rank-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 4px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      counter-increment: rank;
+    }
+    .rank-list li::before {
+      content: counter(rank);
+      width: 24px; height: 24px;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary-light);
+      flex-shrink: 0;
+    }
+    .rank-list li:nth-child(1)::before { background: var(--primary); color: #0e0e0e; border-color: var(--primary); }
+    .rank-list li:nth-child(2)::before { background: var(--primary-dark); color: #0e0e0e; border-color: var(--primary-dark); }
+    .rank-list li:nth-child(3)::before { background: #5a4a2a; color: var(--text-primary); border-color: #5a4a2a; }
+    .rank-list .rank-title { font-weight: 600; color: var(--text-primary); flex: 1; }
+    .rank-list .rank-score { font-size: 12px; color: var(--text-muted); }
+
+    /* 右辅助栏 */
+    .sidebar-right {
+      position: sticky;
+      top: calc(var(--total-sticky) + 20px);
+      align-self: start;
+      max-height: calc(100vh - var(--total-sticky) - 40px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .side-panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 18px;
+    }
+    .side-panel h3 {
+      font-size: 14px;
+      color: var(--primary-light);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 700;
+    }
+    .side-panel .mini-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .side-panel .mini-list li { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    .side-panel .mini-list li a { color: var(--text-secondary); }
+    .side-panel .mini-list li a:hover { color: var(--primary-light); }
+    .side-panel .mini-list .mini-meta { font-size: 11px; color: var(--text-muted); }
+
+    /* 页脚 */
+    .site-footer {
+      background: #080808;
+      border-top: 1px solid var(--border);
+      padding: 48px 24px 24px;
+      margin-top: 0;
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 32px;
+    }
+    .footer-brand .footer-logo { font-family: var(--font-heading); font-size: 20px; color: var(--primary-light); font-weight: 700; margin-bottom: 10px; }
+    .footer-brand p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; max-width: 300px; }
+    .footer-col h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 12px; font-weight: 600; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a { font-size: 13px; color: var(--text-muted); }
+    .footer-col ul a:hover { color: var(--primary-light); }
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* 回到顶部 */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px; height: 44px;
+      background: var(--primary);
+      color: #0e0e0e;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow-default);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .back-to-top.visible { opacity: 1; visibility: visible; }
+    .back-to-top:hover { transform: translateY(-3px); }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .main-layout { grid-template-columns: 1fr 220px; }
+      .sidebar-left { display: none; }
+      .hero-inner { grid-template-columns: 1fr 280px; gap: 28px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 740px) {
+      .main-layout { grid-template-columns: 1fr; padding: 20px 16px 48px; }
+      .sidebar-right { position: static; max-height: none; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-text p { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { order: -1; }
+      .hero-svg { max-width: 220px; }
+      .header-nav { display: none; }
+      .hamburger { display: block; }
+      .site-header { padding: 0 16px; gap: 12px; }
+      .header-actions .btn-upload { display: none; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .card-grid { grid-template-columns: 1fr; }
+      .news-item { flex-direction: column; }
+      .news-img { width: 100%; height: 140px; }
+      .notice-bar { font-size: 12px; gap: 14px; padding: 0 12px; }
+    }
+    @media (max-width: 360px) {
+      .hero-text h1 { font-size: 24px; }
+      .btn-primary, .btn-outline { padding: 8px 18px; font-size: 14px; }
+    }
+    /* 焦点样式 */
+    :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+    /* 筛选无结果 */
+    .no-result { display: none; text-align: center; padding: 32px; color: var(--text-muted); font-size: 14px; }
+    .no-result.show { display: block; }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="notice-bar" id="noticeBar">
+  <span class="brand-mini">女王木乃伊强制坐脸VK</span>
+  <span class="notice-item"><span class="notice-date">2026-11-08</span><span class="notice-tag">新</span>《冥府王座·坐脸仪式》第4章更新</span>
+  <span class="notice-item"><span class="notice-date">2026-11-07</span>插画师“绷带与权杖”新增8张强制坐脸构图</span>
+  <span class="notice-item"><span class="notice-date">2026-11-06</span>短片《法老之膝》播放量破12万</span>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-header">
+  <div class="logo-area">
+    <svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <rect x="2" y="2" width="36" height="36" rx="8" stroke="#b8860b" stroke-width="2"/>
+      <circle cx="20" cy="14" r="7" fill="#b8860b"/>
+      <rect x="12" y="24" width="16" height="10" rx="2" fill="#b8860b"/>
+      <line x1="16" y1="12" x2="24" y2="12" stroke="#0e0e0e" stroke-width="1.5"/>
+      <line x1="20" y1="8" x2="20" y2="20" stroke="#0e0e0e" stroke-width="1.5"/>
+    </svg>
+    <span class="logo-text">女王木乃伊强制坐脸VK</span>
+  </div>
+  <nav class="header-nav" aria-label="主导航">
+    <a href="/#overview" class="active">概览</a>
+    <a href="/#featured">精选</a>
+    <a href="/#updates">动态</a>
+    <a href="/#categories">分类</a>
+    <a href="/#deepdive">解析</a>
+    <a href="/#guide">指南</a>
+    <a href="/#faq">问答</a>
+    <a href="/#comments">评论</a>
+    <a href="/#news">资讯</a>
+  </nav>
+  <div class="header-actions">
+    <button class="btn-upload" type="button">投稿</button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<!-- 移动端抽屉 -->
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="移动导航">
+  <div class="mobile-drawer-inner">
+    <button class="drawer-close" id="drawerClose" aria-label="关闭菜单">✕ 关闭</button>
+    <a href="/#overview">概览</a>
+    <a href="/#featured">精选内容</a>
+    <a href="/#updates">最新更新</a>
+    <a href="/#categories">分类入口</a>
+    <a href="/#deepdive">深度解析</a>
+    <a href="/#guide">体验指南</a>
+    <a href="/#faq">常见问答</a>
+    <a href="/#comments">用户评论</a>
+    <a href="/#news">相关资讯</a>
+    <a href="/#recommend">相关推荐</a>
+    <a href="/#rank">热门榜单</a>
+  </div>
+</div>
+
+<!-- 首屏 -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>女王木乃伊强制坐脸VK</h1>
+      <p>汇聚女王木乃伊题材下的强制坐脸场景插画、分镜短片与图文解析，覆盖绷带束缚、王座压制、权力反转等细分方向。收录近期更新的条目与创作者投稿，提供按类型和热度查找的入口。</p>
+      <div class="hero-actions">
+        <a href="/#featured" class="btn-primary">浏览精选</a>
+        <a href="/#guide" class="btn-outline">阅读指南</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg class="hero-svg" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="180" cy="180" r="160" stroke="#b8860b" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="180" cy="180" r="120" stroke="#b8860b" stroke-width="1" opacity="0.2"/>
+        <ellipse cx="180" cy="140" rx="55" ry="65" fill="#2a1f00" stroke="#b8860b" stroke-width="2"/>
+        <path d="M125 140 Q180 100 235 140" stroke="#d4a017" stroke-width="1.5" fill="none"/>
+        <rect x="145" y="195" width="70" height="80" rx="8" fill="#2a1f00" stroke="#b8860b" stroke-width="2"/>
+        <line x1="155" y1="215" x2="205" y2="215" stroke="#d4a017" stroke-width="1.5"/>
+        <line x1="155" y1="235" x2="205" y2="235" stroke="#d4a017" stroke-width="1.5"/>
+        <line x1="155" y1="255" x2="205" y2="255" stroke="#d4a017" stroke-width="1.5"/>
+        <circle cx="165" cy="130" r="6" fill="#d4a017"/>
+        <circle cx="195" cy="130" r="6" fill="#d4a017"/>
+        <path d="M165 155 Q180 165 195 155" stroke="#d4a017" stroke-width="1.5" fill="none"/>
+        <path d="M100 280 L180 240 L260 280" stroke="#5a4a2a" stroke-width="2" fill="none"/>
+        <circle cx="180" cy="240" r="4" fill="#b8860b"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 三栏主体 -->
+<div class="main-layout">
+
+  <!-- 左频道索引 -->
+  <aside class="sidebar-left" aria-label="频道索引">
+    <h3>频道索引</h3>
+    <ul class="channel-list">
+      <li><a href="/#overview" class="current">领域概览</a></li>
+      <li><a href="/#featured">精选内容</a></li>
+      <li><a href="/#updates">最新更新</a></li>
+      <li><a href="/#categories">分类入口</a></li>
+      <li><a href="/#deepdive">深度解析</a></li>
+      <li><a href="/#guide">体验指南</a></li>
+      <li><a href="/#faq">常见问答</a></li>
+      <li><a href="/#comments">用户评论</a></li>
+      <li><a href="/#news">相关资讯</a></li>
+      <li><a href="/#recommend">相关推荐</a></li>
+      <li><a href="/#rank">热门榜单</a></li>
+      <li><a href="/#submit">投稿交流</a></li>
+    </ul>
+  </aside>
+
+  <!-- 中间主内容 -->
+  <main class="main-content">
+
+    <!-- 领域概览 -->
+    <section class="section-block" id="overview">
+      <h2>木乃伊题材视觉作品概览</h2>
+      <div class="overview-text">
+        <p>女王木乃伊强制坐脸这一场景组合，在近年的插画与短片创作中逐渐形成独立分支。核心要素通常包含三样：木乃伊化的女性统治者形象、绷带与王座的权力符号、以及坐脸姿势带来的压迫与臣服关系。创作者多从古埃及神话中的塞赫麦特、奈斯等神祇形象取材，再叠加强制坐脸这一亚文化构图，形成辨识度较高的视觉语言。</p>
+        <p>当前该方向的内容主要有几类形态：单幅插画（以构图和质感取胜）、多格分镜（强调动作连贯与情绪递进）、短动画（10秒至60秒的循环片段）、以及图文解析（拆解角色设定与场景逻辑）。在VK等平台，创作者常以“绷带女王”“法老膝下”“王座压制”等标签组织内容，单条热门帖的互动量从几百到数千不等。值得关注的具体条目包括《冥府王座·坐脸仪式》系列、《法老之膝》短片、《绷带权杖》插画集，以及“阿努比斯之女”角色设定稿。</p>
+      </div>
+    </section>
+
+    <!-- 精选内容推荐 -->
+    <section class="section-block" id="featured">
+      <h2>精选内容推荐 <span class="count">8 个条目</span></h2>
+      <div class="card-grid">
+        <article class="card">
+          <img class="card-img" src="https://picsum.photos/seed/mummy1/400/300" alt="冥府王座系列插画封面" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h4>冥府王座·坐脸仪式 第4章</h4>
+            <div class="card-desc">女王木乃伊端坐于黑曜石王座，以绷带牵引跪姿臣服者。本章新增三张跨页构图，绷带缠绕密度较前章提升约40%。</div>
+            <div class="card-meta"><span class="tag">连载插画</span><span class="tag-outline">绷带束缚</span><span class="tag-outline">王座</span><span>更新于11-08</span><span>热度 2.3k</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img class="card-img" src="https://picsum.photos/seed/mummy2/400/300" alt="法老之膝短片截图" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h4>法老之膝 短片</h4>
+            <div class="card-desc">28秒循环动画，镜头从脚踝上摇至面部，坐脸动作以阴影和绷带飘动暗示。配乐使用奈伊笛与低频鼓点。</div>
+            <div class="card-meta"><span class="tag">短片</span><span class="tag-outline">影像</span><span class="tag-outline">循环</span><span>播放 12.4k</span><span>评分 8.9</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img class="card-img" src="https://picsum.photos/seed/mummy3/400/300" alt="绷带权杖插画集封面" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h4>绷带权杖 插画集</h4>
+            <div class="card-desc">收录12张以权杖为支点的坐脸构图，创作者“绷带与权杖”自2026年10月起在VK连载，每张附构图草稿对比。</div>
+            <div class="card-meta"><span class="tag">插画集</span><span class="tag-outline">构图</span><span class="tag-outline">草稿</span><span>更新于11-07</span><span>收藏 890</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img class="card-img" src="https://picsum.photos/seed/mummy4/400/300" alt="阿努比斯之女角色设定" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h4>阿努比斯之女 角色设定稿</h4>
+            <div class="card-desc">胡狼耳女王形象，设定笔记写明了绷带层数（7层）、王座高度（2.4米）与坐脸时裙摆垂落的物理逻辑。</div>
+            <div class="card-meta"><span class="tag">角色设定</span><span class="tag-outline">设定稿</span><span class="tag-outline">胡狼耳</span><span>发布 11-05</span><span>热度 1.8k</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img class="card-img" src="https://picsum.photos/seed/mummy5/400/300" alt="塞赫麦特之怒分镜" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h4>塞赫麦特之怒 分镜</h4>
+            <div class="card-desc">六格分镜，从狮首女王从石棺起身，到俯身压制，每一格标注了视线方向与绷带张力值，适合研究动作分解。</div>
+            <div class="card-meta"><span class="tag">分镜</span><span class="tag-outline">狮首</span><span class="tag-outline">动作分解</span><span>发布 11-04</span><span>评分 9.1</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img class="card-img" src="https://picsum.photos/seed/mummy6/400/300" alt="石棺之下图文解析" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h4>石棺之下 图文解析</h4>
+            <div class="card-desc">3千字长文，拆解强制坐脸构图中“视角高度差”如何制造权力感，附7组不同画师的作品对比截图。</div>
+            <div class="card-meta"><span class="tag">图文解析</span><span class="tag-outline">视角</span><span class="tag-outline">权力感</span><span>发布 11-03</span><span>阅读 4.2k</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img class="card-img" src="https://picsum.photos/seed/mummy7/400/300" alt="奈斯女神的膝枕插画" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h4>奈斯女神的膝枕 插画</h4>
+            <div class="card-desc">以奈斯女神为原型，将坐脸姿势处理为“膝枕+绷带帘幕”，色调偏青金与赭石，画面左侧有象形文字装饰。</div>
+            <div class="card-meta"><span class="tag">单幅插画</span><span class="tag-outline">奈斯</span><span class="tag-outline">青金石</span><span>发布 11-02</span><span>热度 1.5k</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img class="card-img" src="https://picsum.photos/seed/mummy8/400/300" alt="绷带缠绕教程封面" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h4>绷带缠绕 画法教程</h4>
+            <div class="card-desc">12分钟视频，演示从锁骨到脚踝的绷带走向，重点讲解坐脸场景中绷带如何从肩部垂落形成视觉引导线。</div>
+            <div class="card-meta"><span class="tag">教程</span><span class="tag-outline">画法</span><span class="tag-outline">绷带</span><span>发布 11-01</span><span>播放 6.7k</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 最新更新 -->
+    <section class="section-block" id="updates">
+      <h2>最新更新与动态</h2>
+      <ul class="update-list">
+        <li class="update-item"><span class="update-date">11-08</span><span class="update-title">《冥府王座·坐脸仪式》第4章</span><span class="update-desc">新增3张跨页，绷带密度提升，王座背景加入圣甲虫浮雕</span></li>
+        <li class="update-item"><span class="update-date">11-08</span><span class="update-title">“绷带与权杖”插画集</span><span class="update-desc">更新第9-12张，每张附构图草稿与配色板</span></li>
+        <li class="update-item"><span class="update-date">11-07</span><span class="update-title">《法老之膝》短片</span><span class="update-desc">播放量突破12万，创作者追加幕后分镜手稿6页</span></li>
+        <li class="update-item"><span class="update-date">11-07</span><span class="update-title">“阿努比斯之女”设定稿</span><span class="update-desc">补充绷带层数说明与王座尺寸标注</span></li>
+        <li class="update-item"><span class="update-date">11-06</span><span class="update-title">《塞赫麦特之怒》分镜</span><span class="update-desc">上传第5-6格，加入视线方向标注</span></li>
+        <li class="update-item"><span class="update-date">11-06</span><span class="update-title">投票：本月最佳坐脸构图</span><span class="update-desc">参与人数437，前三名将在11-10公布</span></li>
+        <li class="update-item"><span class="update-date">11-05</span><span class="update-title">“石棺之下”图文解析</span><span class="update-desc">新增第7组对比案例，来自画师Khet-Amun</span></li>
+        <li class="update-item"><span class="update-date">11-04</span><span class="update-title">奈斯女神膝枕插画</span><span class="update-desc">发布高清版，象形文字注释同步上传</span></li>
+        <li class="update-item"><span class="update-date">11-03</span><span class="update-title">绷带缠绕画法教程</span><span class="update-desc">视频第2集上线，讲解垂落引导线</span></li>
+        <li class="update-item"><span class="update-date">11-02</span><span class="update-title">创作者“黑土与金”入驻</span><span class="update-desc">首帖发布3张女王木乃伊速写，标签#强制坐脸</span></li>
+        <li class="update-item"><span class="update-date">11-01</span><span class="update-title">专题：王座与膝的构图差异</span><span class="update-desc">编辑整理5组对照，涵盖插画与短片</span></li>
+        <li class="update-item"><span class="update-date">10-30</span><span class="update-title">《冥府王座》第3章回顾</span><span class="update-desc">单章收藏量突破1.2k，评论区讨论绷带张力</span></li>
+      </ul>
+    </section>
+
+    <!-- 分类入口 -->
+    <section class="section-block" id="categories">
+      <h2>分类入口 <span class="count">点击筛选</span></h2>
+      <div class="category-grid" id="categoryGrid">
+        <div class="category-item" data-category="插画" role="button" tabindex="0"><div class="cat-name">女王插画</div><div class="cat-count">42 条目</div></div>
+        <div class="category-item" data-category="短片" role="button" tabindex="0"><div class="cat-name">强制坐脸短片</div><div class="cat-count">18 条目</div></div>
+        <div class="category-item" data-category="分镜" role="button" tabindex="0"><div class="cat-name">分镜与动作分解</div><div class="cat-count">15 条目</div></div>
+        <div class="category-item" data-category="设定" role="button" tabindex="0"><div class="cat-name">角色设定稿</div><div class="cat-count">9 条目</div></div>
+        <div class="category-item" data-category="解析" role="button" tabindex="0"><div class="cat-name">图文解析</div><div class="cat-count">11 条目</div></div>
+        <div class="category-item" data-category="教程" role="button" tabindex="0"><div class="cat-name">画法教程</div><div class="cat-count">7 条目</div></div>
+        <div class="category-item" data-category="绷带" role="button" tabindex="0"><div class="cat-name">绷带束缚专题</div><div class="cat-count">23 条目</div></div>
+        <div class="category-item" data-category="王座" role="button" tabindex="0"><div class="cat-name">王座与权力符号</div><div class="cat-count">14 条目</div></div>
+      </div>
+      <div class="no-result" id="noResult">没有匹配的条目，试试其他分类。</div>
+    </section>
+
+    <!-- 深度解析 -->
+    <section class="section-block" id="deepdive">
+      <h2>深度解析：坐脸构图里的权力语法</h2>
+      <div class="deep-dive">
+        <h3>视角高度差如何决定压迫感</h3>
+        <p>强制坐脸场景的核心视觉变量不是绷带数量，而是镜头高度与人物视线的夹角。以《冥府王座》第4章为例，跨页构图中镜头位于跪者视线下方约30厘米处，女王面部被裁切至只露下颌线，读者被迫以臣服者视角仰视。同系列第2章采用平视构图，评论区有读者指出“压迫感弱了一半”——这条评论获赞89次，说明高度差是多数观众能感知的具体指标。</p>
+        <p>对比《法老之膝》短片的处理：镜头从脚踝位置以每秒2厘米速度上摇，28秒内完成从脚部到面部的移动，坐脸动作在最后6秒才出现。速度数据来自创作者在VK帖文中附的帧率说明（24fps，共672帧）。这种延迟呈现让压迫感逐步积累，与插画的一次性冲击形成两种路径。</p>
+
+        <h3>绷带层数与权力符号的对应关系</h3>
+        <p>“阿努比斯之女”设定稿明确标注绷带为7层，并说明第1-3层为装饰性缠绕，第4-5层固定王座扶手，第6-7层垂落至跪者肩部。创作者“黑土与金”在11月2日的速写帖里采用5层绷带，评论区有用户追问“少两层是不是权力感不够”，创作者回复称层数减少是为了让坐脸动作更清晰，属于取舍而非降级。</p>
+        <table class="data-table">
+          <thead><tr><th>作品</th><th>绷带层数</th><th>王座高度</th><th>镜头高度差</th><th>公开来源</th></tr></thead>
+          <tbody>
+            <tr><td>冥府王座·第4章</td><td>9层</td><td>2.8米</td><td>仰视30cm</td><td>创作者帖文 11-08</td></tr>
+            <tr><td>阿努比斯之女</td><td>7层</td><td>2.4米</td><td>仰视25cm</td><td>设定稿 11-05</td></tr>
+            <tr><td>塞赫麦特之怒</td><td>6层</td><td>2.1米</td><td>平视偏下10cm</td><td>分镜标注 11-04</td></tr>
+            <tr><td>奈斯女神膝枕</td><td>4层</td><td>无王座（地面）</td><td>俯视45°</td><td>插画自述 11-02</td></tr>
+          </tbody>
+        </table>
+        <p>层数多不一定压迫感强。奈斯女神膝枕只用了4层绷带，但通过俯视45°和膝部特写，制造出另一种“温柔压制”。这说明权力符号的强度取决于层数与视角、姿态的配合，而非单一数值。</p>
+
+        <h3>已公开事实与推测的边界</h3>
+        <p>目前能核实的公开信息包括：作品更新时间（VK帖文时间戳）、创作者自述的设定数据（绷带层数、王座尺寸）、以及评论区可查的互动量。无法核实的是“哪个构图最受欢迎”这类判断——因为VK的点赞和收藏数据不公开具体用户，只能看到总数。有帖子称“某构图被转发到其他平台”，但缺少截图或链接，属于转述而非事实。</p>
+        <p>在判断一个条目是否值得投入时间时，可以拆成可核对的几项：创作者是否附了草稿或设定说明（有说明的条目通常信息密度更高）、评论区是否有针对构图的具体讨论（而非只发表情）、更新频率是否稳定（周更或双周更比不定期更可靠）。</p>
+      </div>
+    </section>
+
+    <!-- 体验指南 -->
+    <section class="section-block" id="guide">
+      <h2>内容消费路径指南</h2>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <div class="step-content">
+            <h4>先看分镜或短片，建立动作理解</h4>
+            <p>坐脸场景的张力靠动作连贯性支撑。建议从《塞赫麦特之怒》分镜或《法老之膝》短片入手，这两件作品都标注了视线方向或帧率，能帮助理解姿势如何从站立过渡到压制。单幅插画虽然冲击力强，但缺少过程信息。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-content">
+            <h4>再读设定稿，核对创作者意图</h4>
+            <p>“阿努比斯之女”设定稿附有绷带层数与王座尺寸，适合判断某个构图是随意为之还是有设计逻辑。设定稿通常比成品插画多出注释文字，信息密度更高。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-content">
+            <h4>用图文解析做横向对比</h4>
+            <p>《石棺之下》解析文列出了7组不同画师的构图对比，包括镜头高度、绷带走向、色调。读完能分辨哪些处理是常见套路，哪些是个人风格。对比类文章的价值在于给出参照系，而非单向推荐。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-content">
+            <h4>最后按分类筛选，投入时间看连载</h4>
+            <p>连载作品如《冥府王座》适合追更，但需要评估更新稳定性。第1章到第4章间隔分别为12天、9天、14天，属于双周更节奏。如果偏好一次性看完，优先选择已完结的插画集或短片。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-block" id="faq">
+      <h2>常见问答</h2>
+      <div class="faq-list">
+        <details>
+          <summary>女王木乃伊强制坐脸场景最早出现在哪类作品里？</summary>
+          <div class="faq-answer">这类场景的早期形态多见于2010年代后期的同人插画，以埃及主题角色为原型。2023年后在VK等平台形成标签化传播，2026年出现《冥府王座》等连载作品，逐渐固定为独立分支。</div>
+        </details>
+        <details>
+          <summary>绷带层数越多，坐脸构图的压迫感越强吗？</summary>
+          <div class="faq-answer">层数与压迫感没有线性关系。奈斯女神膝枕只用4层绷带，但配合俯视45°和膝部特写，同样制造压迫。关键变量是镜头高度差和绷带垂落方向，层数更多影响视觉复杂度。</div>
+        </details>
+        <details>
+          <summary>《法老之膝》短片的28秒里，坐脸动作占多长时间？</summary>
+          <div class="faq-answer">根据创作者附的帧率说明，全片672帧，坐脸动作集中在最后144帧，约6秒。前22秒用于镜头从脚踝上摇和绷带飘动铺垫，属于延迟呈现的处理方式。</div>
+        </details>
+        <details>
+          <summary>如何判断一个女王木乃伊条目的设定是否认真？</summary>
+          <div class="faq-answer">看创作者是否附了草稿、设定数据或构图说明。有注释的条目通常比只有成品图的条目信息密度高。另一个指标是评论区是否有针对构图的具体讨论，而非只是表情或短句。</div>
+        </details>
+        <details>
+          <summary>塞赫麦特和奈斯在木乃伊题材里有什么区别？</summary>
+          <div class="faq-answer">塞赫麦特常被处理为狮首、更具攻击性的形象，坐脸构图偏重压制和力量感；奈斯多为温和的守护者形象，构图偏向膝枕、包裹和安抚。两者在绷带用法上也有差异，塞赫麦特多用纵向缠绕，奈斯多用横向垂落。</div>
+        </details>
+        <details>
+          <summary>这些作品在VK上一般用什么标签找？</summary>
+          <div class="faq-answer">常用标签包括#强制坐脸、#女王木乃伊、#绷带束缚、#王座压制。部分创作者会加#埃及神话或#角色设定。标签组合比单一标签更有效，例如“#强制坐脸 + #插画”能筛掉短片内容。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 用户评论 -->
+    <section class="section-block" id="comments">
+      <h2>用户评论 <span class="count">16 条</span></h2>
+      <div class="comment-list">
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">阿</span><span class="comment-name">阿蒙的沙</span><span class="comment-time">11-08 14:22</span></div><div class="comment-text">《冥府王座》第4章那个跨页，绷带从肩垂到跪者脸上的走向画得真细，但女王的脸裁得只剩下巴，有点想看看完整面部。</div><div class="comment-meta">赞 23 · 回复 4</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">K</span><span class="comment-name">Khet-Amun</span><span class="comment-time">11-08 13:05</span></div><div class="comment-text">塞赫麦特之怒分镜的第5格视线方向标错了，狮首应该俯视偏右，画成了平视。不过整体动作分解还是好用。</div><div class="comment-meta">赞 17 · 回复 2</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">黑</span><span class="comment-name">黑土与金</span><span class="comment-time">11-08 11:40</span></div><div class="comment-text">自己画的时候试过8层绷带，结果把坐脸动作遮没了。后来减到5层才看清楚膝盖位置。层数多不一定好看。</div><div class="comment-meta">赞 34 · 回复 6</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">绷</span><span class="comment-name">绷带绕三圈</span><span class="comment-time">11-07 22:18</span></div><div class="comment-text">法老之膝那个上摇速度，看第一遍觉得慢，看第二遍才觉得是在蓄力。6秒的坐脸刚好，再长就拖了。</div><div class="comment-meta">赞 12</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">石</span><span class="comment-name">石棺守夜人</span><span class="comment-time">11-07 19:02</span></div><div class="comment-text">石棺之下那篇解析列了7组对比，第3组和第7组的镜头高度差几乎一样，但观感完全不同，作者没解释原因，有点可惜。</div><div class="comment-meta">赞 9 · 回复 1</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">尼</span><span class="comment-name">尼罗河支流</span><span class="comment-time">11-07 15:33</span></div><div class="comment-text">奈斯女神那个膝枕构图其实更像膝枕而不是强制坐脸，但氛围到了，青金石色很舒服。</div><div class="comment-meta">赞 8</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">胡</span><span class="comment-name">胡狼耳收藏家</span><span class="comment-time">11-06 21:10</span></div><div class="comment-text">阿努比斯之女的设定稿写7层绷带、王座2.4米，这个数据挺敢标的。实际画出来王座看着没有2.4米，透视问题？</div><div class="comment-meta">赞 15 · 回复 3</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">沙</span><span class="comment-name">沙漏倒着放</span><span class="comment-time">11-06 18:44</span></div><div class="comment-text">最近翻到去年的一些坐脸插画，绷带画得跟绳子似的，还是今年的作品在质感上有进步。</div><div class="comment-meta">赞 6</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">图</span><span class="comment-name">图坦卡蒙的猫</span><span class="comment-time">11-06 10:12</span></div><div class="comment-text">投稿的那张速写被退回了，说绷带走向不明确。看了教程第二集才明白垂落引导线是什么意思，改了再投。</div><div class="comment-meta">赞 11 · 回复 2</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">王</span><span class="comment-name">王座扶手</span><span class="comment-time">11-05 23:50</span></div><div class="comment-text">冥府王座第3章到第4章隔了14天，比前两章都长。希望别拖成月更。</div><div class="comment-meta">赞 19 · 回复 5</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">青</span><span class="comment-name">青铜罐</span><span class="comment-time">11-05 16:27</span></div><div class="comment-text">评论区吵绷带层数吵了几十楼，其实看镜头高度差更直接。层数只是装饰。</div><div class="comment-meta">赞 7</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">夜</span><span class="comment-name">夜航尼罗河</span><span class="comment-time">11-05 11:08</span></div><div class="comment-text">短片循环看多了有点晕，24fps的循环点没接好，第672帧和第1帧之间有跳帧。</div><div class="comment-meta">赞 4 · 回复 1</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">圣</span><span class="comment-name">圣甲虫推球</span><span class="comment-time">11-04 20:15</span></div><div class="comment-text">这题材的创作者好像集中在几个账号，新面孔不多。黑土与金入驻算是个补充。</div><div class="comment-meta">赞 5</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">黄</span><span class="comment-name">黄金面具</span><span class="comment-time">11-04 14:40</span></div><div class="comment-text">塞赫麦特之怒的分镜第6格，绷带张力值标了但看不出跟第5格有什么区别。可能得配合草稿看。</div><div class="comment-meta">赞 3</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">沙</span><span class="comment-name">沙漠风蚀</span><span class="comment-time">11-03 09:22</span></div><div class="comment-text">投票那个本月最佳坐脸构图，候选里居然没有奈斯膝枕。有点意外。</div><div class="comment-meta">赞 6 · 回复 2</div></div>
+        <div class="comment-item"><div class="comment-head"><span class="comment-avatar">猫</span><span class="comment-name">猫与石棺</span><span class="comment-time">11-02 17:55</span></div><div class="comment-text">刚关注这个方向，分不清分镜和插画的区别，看了指南才明白分镜是动作过程。有用。</div><div class="comment-meta">赞 2</div></div>
+      </div>
+    </section>
+
+    <!-- 相关资讯 -->
+    <section class="section-block" id="news">
+      <h2>相关资讯</h2>
+      <div class="news-list">
+        <div class="news-item">
+          <img class="news-img" src="https://picsum.photos/seed/news1/600/400" alt="冥府王座第4章更新资讯配图" width="600" height="400" loading="lazy">
+          <div class="news-body">
+            <h4>《冥府王座·坐脸仪式》第4章更新，绷带密度提升40%</h4>
+            <div class="news-date">2026-11-08</div>
+            <div class="news-summary">创作者在帖文中附了第3章与第4章的绷带缠绕对比图，并注明王座背景新增圣甲虫浮雕，浮雕数量为7只。</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <img class="news-img" src="https://picsum.photos/seed/news2/600/400" alt="法老之膝短片播放量截图" width="600" height="400" loading="lazy">
+          <div class="news-body">
+            <h4>《法老之膝》短片播放量突破12.4万，创作者追加幕后手稿</h4>
+            <div class="news-date">2026-11-07</div>
+            <div class="news-summary">幕后手稿共6页，包含镜头高度变化曲线和坐脸动作的6个关键帧分解，已上传至VK相册。</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <img class="news-img" src="https://picsum.photos/seed/news3/600/400" alt="阿努比斯之女设定稿截图" width="600" height="400" loading="lazy">
+          <div class="news-body">
+            <h4>“阿努比斯之女”设定稿补充王座尺寸标注，高度2.4米</h4>
+            <div class="news-date">2026-11-06</div>
+            <div class="news-summary">更新后的设定稿增加了正面与侧面比例图，并注明坐脸时裙摆垂落3层，每层间距15厘米。</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <img class="news-img" src="https://picsum.photos/seed/news4/600/400" alt="塞赫麦特之怒分镜更新" width="600" height="400" loading="lazy">
+          <div class="news-body">
+            <h4>《塞赫麦特之怒》分镜上传第5-6格，标注视线方向</h4>
+            <div class="news-date">2026-11-05</div>
+            <div class="news-summary">第5格视线标注为俯视偏右30°，第6格改为平视。创作者在回复中解释改视角是为了突出狮首的正面威严。</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <img class="news-img" src="https://picsum.photos/seed/news5/600/400" alt="本月最佳坐脸构图投票" width="600" height="400" loading="lazy">
+          <div class="news-body">
+            <h4>本月最佳坐脸构图投票进行中，437人参与</h4>
+            <div class="news-date">2026-11-04</div>
+            <div class="news-summary">候选条目共9个，目前《冥府王座》第4章跨页暂列第一。投票截止11月10日，结果将在专题页公布。</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <img class="news-img" src="https://picsum.photos/seed/news6/600/400" alt="石棺之下解析文更新" width="600" height="400" loading="lazy">
+          <div class="news-body">
+            <h4>《石棺之下》解析文新增第7组对比案例，来自Khet-Amun</h4>
+            <div class="news-date">2026-11-03</div>
+            <div class="news-summary">新增案例的镜头高度差为仰视28cm，与第3组接近，但绷带垂落方向相反，作者用约400字分析了差异。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 相关推荐 -->
+    <section class="section-block" id="recommend">
+      <h2>相关推荐</h2>
+      <div class="tag-cloud">
+        <a href="/#featured">冥府王座·坐脸仪式</a>
+        <a href="/#featured">法老之膝 短片</a>
+        <a href="/#featured">塞赫麦特之怒 分镜</a>
+        <a href="/#featured">阿努比斯之女 设定</a>
+        <a href="/#categories">绷带束缚专题</a>
+        <a href="/#categories">王座权力符号</a>
+        <a href="/#guide">镜头高度差对比</a>
+        <a href="/#deepdive">权力语法解析</a>
+      </div>
+    </section>
+
+    <!-- 热门榜单 -->
+    <section class="section-block" id="rank">
+      <h2>热门榜单 <span class="count">按本周收藏量</span></h2>
+      <ol class="rank-list">
+        <li><span class="rank-title">冥府王座·坐脸仪式 第4章</span><span class="rank-score">收藏 890</span></li>
+        <li><span class="rank-title">法老之膝 短片</span><span class="rank-score">收藏 672</span></li>
+        <li><span class="rank-title">阿努比斯之女 设定稿</span><span class="rank-score">收藏 541</span></li>
+        <li><span class="rank-title">塞赫麦特之怒 分镜</span><span class="rank-score">收藏 488</span></li>
+        <li><span class="rank-title">石棺之下 图文解析</span><span class="rank-score">收藏 403</span></li>
+        <li><span class="rank-title">奈斯女神的膝枕 插画</span><span class="rank-score">收藏 356</span></li>
+        <li><span class="rank-title">绷带缠绕 画法教程</span><span class="rank-score">收藏 312</span></li>
+        <li><span class="rank-title">黑土与金 速写三则</span><span class="rank-score">收藏 287</span></li>
+      </ol>
+    </section>
+
+    <!-- 投稿交流 -->
+    <section class="section-block" id="submit">
+      <h2>投稿与交流</h2>
+      <div style="background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--radius-card);padding:24px;">
+        <p style="font-size:14px;color:var(--text-secondary);margin-bottom:12px;">接受女王木乃伊题材的插画、分镜、短片与设定稿投稿。投稿时请附至少一项可核对信息：草稿、设定数据或构图说明。审核周期通常为3个工作日。</p>
+        <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">每月下旬举办一次构图投票，参与人数上限500。11月投票正在进行，截止11月10日。</p>
+        <button class="btn-primary" type="button">提交作品</button>
+        <button class="btn-outline" type="button" style="margin-left:12px;">查看投稿规则</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右辅助栏 -->
+  <aside class="sidebar-right" aria-label="辅助信息">
+    <div class="side-panel">
+      <h3>本周热榜</h3>
+      <ul class="mini-list">
+        <li><a href="/#featured">冥府王座·第4章</a><span class="mini-meta"> · 热度2.3k</span></li>
+        <li><a href="/#featured">法老之膝 短片</a><span class="mini-meta"> · 播放12.4k</span></li>
+        <li><a href="/#featured">阿努比斯之女 设定</a><span class="mini-meta"> · 收藏541</span></li>
+        <li><a href="/#featured">塞赫麦特之怒 分镜</a><span class="mini-meta"> · 评分9.1</span></li>
+        <li><a href="/#featured">石棺之下 解析</a><span class="mini-meta"> · 阅读4.2k</span></li>
+      </ul>
+    </div>
+    <div class="side-panel">
+      <h3>最近更新</h3>
+      <ul class="mini-list">
+        <li><a href="/#updates">冥府王座·第4章</a><span class="mini-meta"> · 11-08</span></li>
+        <li><a href="/#updates">绷带与权杖 插画集</a><span class="mini-meta"> · 11-08</span></li>
+        <li><a href="/#updates">法老之膝 幕后手稿</a><span class="mini-meta"> · 11-07</span></li>
+        <li><a href="/#updates">阿努比斯之女 设定补充</a><span class="mini-meta"> · 11-07</span></li>
+      </ul>
+    </div>
+    <div class="side-panel">
+      <h3>常用标签</h3>
+      <div class="tag-cloud" style="gap:6px;">
+        <a href="/#categories" style="font-size:12px;padding:4px 10px;">强制坐脸</a>
+        <a href="/#categories" style="font-size:12px;padding:4px 10px;">女王木乃伊</a>
+        <a href="/#categories" style="font-size:12px;padding:4px 10px;">绷带束缚</a>
+        <a href="/#categories" style="font-size:12px;padding:4px 10px;">王座压制</a>
+        <a href="/#categories" style="font-size:12px;padding:4px 10px;">埃及神话</a>
+        <a href="/#categories" style="font-size:12px;padding:4px 10px;">分镜教程</a>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">女王木乃伊强制坐脸VK</div>
+      <p>覆盖2026年10月至11月更新的木乃伊题材视觉作品，条目类型以插画、分镜、短片和设定稿为主，保持周更节奏。所有条目信息来自创作者公开帖文与评论区可查内容。</p>
+    </div>
+    <div class="footer-col">
+      <h4>内容分类</h4>
+      <ul>
+        <li><a href="/#featured">女王插画</a></li>
+        <li><a href="/#featured">强制坐脸短片</a></li>
+        <li><a href="/#featured">分镜与动作分解</a></li>
+        <li><a href="/#featured">角色设定稿</a></li>
+        <li><a href="/#featured">图文解析</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>互动</h4>
+      <ul>
+        <li><a href="/#submit">投稿入口</a></li>
+        <li><a href="/#submit">构图投票</a></li>
+        <li><a href="/#comments">用户评论</a></li>
+        <li><a href="/#updates">最新动态</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>关于</h4>
+      <ul>
+        <li><a href="/#overview">领域概览</a></li>
+        <li><a href="/#deepdive">深度解析</a></li>
+        <li><a href="/#guide">消费指南</a></li>
+        <li><a href="/#faq">常见问答</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 女王木乃伊强制坐脸VK · 内容聚合示例页</span>
+    <span>页面内条目信息为示例数据，以创作者实际发布为准。最后更新：2026-11-08</span>
+  </div>
+</footer>
+
+<!-- 回到顶部 -->
+<button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "女王木乃伊强制坐脸VK",
+  "description": "聚焦木乃伊题材视觉作品的聚合页，收录强制坐脸、女王木乃伊、绷带束缚等场景的插画、短片与图文解析。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "女王木乃伊强制坐脸场景最早出现在哪类作品里？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "这类场景的早期形态多见于2010年代后期的同人插画，以埃及主题角色为原型。2023年后在VK等平台形成标签化传播，2026年出现《冥府王座》等连载作品，逐渐固定为独立分支。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "绷带层数越多，坐脸构图的压迫感越强吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "层数与压迫感没有线性关系。奈斯女神膝枕只用4层绷带，但配合俯视45°和膝部特写，同样制造压迫。关键变量是镜头高度差和绷带垂落方向，层数更多影响视觉复杂度。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "《法老之膝》短片的28秒里，坐脸动作占多长时间？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "根据创作者附的帧率说明，全片672帧，坐脸动作集中在最后144帧，约6秒。前22秒用于镜头从脚踝上摇和绷带飘动铺垫，属于延迟呈现的处理方式。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "如何判断一个女王木乃伊条目的设定是否认真？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "看创作者是否附了草稿、设定数据或构图说明。有注释的条目通常比只有成品图的条目信息密度高。另一个指标是评论区是否有针对构图的具体讨论，而非只是表情或短句。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "塞赫麦特和奈斯在木乃伊题材里有什么区别？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "塞赫麦特常被处理为狮首、更具攻击性的形象，坐脸构图偏重压制和力量感；奈斯多为温和的守护者形象，构图偏向膝枕、包裹和安抚。两者在绷带用法上也有差异，塞赫麦特多用纵向缠绕，奈斯多用横向垂落。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "这些作品在VK上一般用什么标签找？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "常用标签包括#强制坐脸、#女王木乃伊、#绷带束缚、#王座压制。部分创作者会加#埃及神话或#角色设定。标签组合比单一标签更有效，例如“#强制坐脸 + #插画”能筛掉短片内容。"
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function(){
+  // 移动端抽屉
+  var hamburger = document.getElementById('hamburgerBtn');
+  var drawer = document.getElementById('mobileDrawer');
+  var drawerClose = document.getElementById('drawerClose');
+
+  function openDrawer(){
+    drawer.classList.add('open');
+    hamburger.setAttribute('aria-expanded','true');
+    drawerClose.focus();
+  }
+  function closeDrawer(){
+    drawer.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+    hamburger.focus();
+  }
+  if(hamburger){ hamburger.addEventListener('click', openDrawer); }
+  if(drawerClose){ drawerClose.addEventListener('click', closeDrawer); }
+  if(drawer){ drawer.addEventListener('click', function(e){ if(e.target === drawer) closeDrawer(); }); }
+
+  // 抽屉内链接点击关闭
+  var drawerLinks = drawer ? drawer.querySelectorAll('a') : [];
+  drawerLinks.forEach(function(link){
+    link.addEventListener('click', function(){ closeDrawer(); });
+  });
+
+  // Esc关闭
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && drawer && drawer.classList.contains('open')){
+      closeDrawer();
+    }
+  });
+
+  // 回到顶部
+  var backBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > window.innerHeight){
+      backBtn.classList.add('visible');
+    } else {
+      backBtn.classList.remove('visible');
+    }
+  });
+  backBtn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 分类筛选（简化：点击分类高亮，不实际过滤卡片，但给出反馈）
+  var catItems = document.querySelectorAll('.category-item');
+  var noResult = document.getElementById('noResult');
+  catItems.forEach(function(item){
+    function activate(){
+      catItems.forEach(function(c){ c.classList.remove('filter-active'); });
+      item.classList.add('filter-active');
+      // 简单示意：如果分类是“设定”或“教程”，提示条目较少
+      var cat = item.getAttribute('data-category');
+      if(cat === '设定' || cat === '教程'){
+        noResult.classList.add('show');
+        noResult.textContent = '该分类条目较少，可先浏览精选内容。';
+      } else {
+        noResult.classList.remove('show');
+      }
+    }
+    item.addEventListener('click', activate);
+    item.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        activate();
+      }
+    });
+  });
+
+  // 侧栏频道高亮（滚动监听）
+  var sections = document.querySelectorAll('.section-block[id]');
+  var channelLinks = document.querySelectorAll('.channel-list a');
+  if(sections.length && channelLinks.length){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var id = entry.target.id;
+          channelLinks.forEach(function(link){
+            link.classList.toggle('current', link.getAttribute('href') === '/#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(function(sec){ observer.observe(sec); });
+  }
+
+  // 页头导航高亮（简化，仅点击时）
+  var headerLinks = document.querySelectorAll('.header-nav a');
+  headerLinks.forEach(function(link){
+    link.addEventListener('click', function(){
+      headerLinks.forEach(function(l){ l.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+            </html>
