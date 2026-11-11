@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>17吃瓜每日大赛 - 吃瓜赛道与热门排行聚合</title>
+<meta name="description" content="17吃瓜每日大赛聚合每日吃瓜赛道、参赛作品与热门排行，涵盖明星八卦、综艺名场面、网红翻车事件与网友神评，适合吃瓜群众和内容创作者追踪当日热点。">
+<meta name="keywords" content="17吃瓜每日大赛">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e8552f'/%3E%3Ctext x='16' y='23' font-size='18' font-weight='bold' fill='%23fff' text-anchor='middle'%3E17%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --primary:#e8552f;
+  --primary-light:#fbe8e1;
+  --primary-dark:#c03d1c;
+  --bg:#f7f5f2;
+  --panel:#ffffff;
+  --text-1:#1f1b18;
+  --text-2:#5c534c;
+  --text-3:#928880;
+  --border:#e8e2db;
+  --radius-card:14px;
+  --radius-btn:8px;
+  --radius-tag:6px;
+  --radius-banner:18px;
+  --shadow:0 2px 10px rgba(60,40,20,.06);
+  --shadow-hover:0 6px 20px rgba(60,40,20,.12);
+  --announce-h:40px;
+  --header-h:64px;
+  --stick-offset:calc(var(--announce-h) + var(--header-h));
+  --font:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--stick-offset) + 12px);}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text-1);
+  line-height:1.7;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+ul{list-style:none;}
+
+/* ===== 吸顶公告条 ===== */
+.announce-bar{
+  position:sticky;top:0;z-index:100;
+  height:var(--announce-h);
+  background:var(--primary-dark);
+  color:#fff;
+  display:flex;align-items:center;gap:16px;
+  padding:0 20px;
+  font-size:13px;
+  overflow:hidden;
+}
+.announce-bar .ann-tag{
+  background:var(--primary);
+  padding:2px 10px;
+  border-radius:var(--radius-tag);
+  font-weight:600;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.announce-bar .ann-items{
+  display:flex;gap:28px;
+  overflow:hidden;
+  white-space:nowrap;
+  color:#f7d9cf;
+}
+.announce-bar .ann-items strong{color:#fff;font-weight:600;}
+
+/* ===== 吸顶页头 ===== */
+.site-header{
+  position:sticky;top:var(--announce-h);z-index:99;
+  height:var(--header-h);
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  max-width:1360px;margin:0 auto;
+  height:100%;
+  display:flex;align-items:center;gap:28px;
+  padding:0 24px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.brand-mark{
+  width:38px;height:38px;
+  background:var(--primary);
+  border-radius:10px;
+  display:grid;place-items:center;
+  color:#fff;font-weight:800;font-size:16px;
+  letter-spacing:-.5px;
+}
+.brand-text{font-size:19px;font-weight:800;letter-spacing:.5px;color:var(--text-1);}
+.main-nav{display:flex;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none;}
+.main-nav::-webkit-scrollbar{display:none;}
+.main-nav a{
+  padding:8px 14px;
+  border-radius:var(--radius-btn);
+  font-size:14px;font-weight:500;
+  color:var(--text-2);
+  white-space:nowrap;
+  transition:background .18s,color .18s;
+}
+.main-nav a:hover,.main-nav a.active{background:var(--primary-light);color:var(--primary-dark);}
+.header-actions{display:flex;gap:10px;flex-shrink:0;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:8px 18px;
+  border-radius:var(--radius-btn);
+  font-size:14px;font-weight:600;
+  border:none;cursor:pointer;
+  transition:background .18s,box-shadow .18s,transform .18s;
+  font-family:inherit;
+}
+.btn-primary{background:var(--primary);color:#fff;}
+.btn-primary:hover{background:var(--primary-dark);box-shadow:var(--shadow-hover);}
+.btn-ghost{background:var(--primary-light);color:var(--primary-dark);}
+.btn-ghost:hover{background:#f5d3c8;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text-1);}
+.hamburger svg{width:24px;height:24px;}
+
+/* ===== 首屏 ===== */
+.hero{
+  position:relative;
+  max-width:1360px;margin:0 auto;
+  padding:48px 24px 40px;
+  display:grid;
+  grid-template-columns:1fr 380px;
+  gap:40px;
+  align-items:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 500px 300px at 85% 20%,rgba(232,85,47,.12),transparent),
+    radial-gradient(ellipse 400px 280px at 70% 90%,rgba(232,85,47,.08),transparent);
+  pointer-events:none;
+}
+.hero-content{position:relative;z-index:1;}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--primary-light);
+  color:var(--primary-dark);
+  font-size:13px;font-weight:600;
+  padding:5px 14px;border-radius:20px;
+  margin-bottom:18px;
+}
+.hero-kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--primary);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+.hero h1{
+  font-size:clamp(30px,4.2vw,46px);
+  font-weight:900;
+  letter-spacing:-.5px;
+  line-height:1.2;
+  margin-bottom:16px;
+  color:var(--text-1);
+}
+.hero-desc{
+  font-size:16px;color:var(--text-2);
+  max-width:560px;
+  margin-bottom:26px;
+  line-height:1.8;
+}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
+.hero-visual{
+  position:relative;z-index:1;
+  display:grid;gap:12px;
+  grid-template-columns:1fr 1fr;
+}
+.hero-card{
+  background:var(--panel);
+  border-radius:var(--radius-card);
+  padding:18px 16px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+}
+.hero-card .hc-num{font-size:26px;font-weight:800;color:var(--primary);line-height:1.1;}
+.hero-card .hc-label{font-size:12px;color:var(--text-3);margin-top:4px;}
+.hero-card:nth-child(1){grid-column:span 2;display:flex;align-items:center;gap:16px;}
+.hero-card:nth-child(1) .hc-num{font-size:32px;}
+.hero-card:nth-child(1) .hc-label{font-size:13px;}
+
+/* ===== 三栏布局 ===== */
+.layout{
+  max-width:1360px;margin:0 auto;
+  padding:0 24px 60px;
+  display:grid;
+  grid-template-columns:180px minmax(0,1fr) 280px;
+  gap:28px;
+  align-items:start;
+}
+/* 左频道栏 */
+.channel-aside{
+  position:sticky;top:calc(var(--stick-offset) + 16px);
+  background:var(--panel);
+  border-radius:var(--radius-card);
+  border:1px solid var(--border);
+  padding:16px 12px;
+  box-shadow:var(--shadow);
+}
+.channel-aside h2{
+  font-size:13px;font-weight:600;color:var(--text-3);
+  padding:0 10px 10px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.channel-aside nav{display:flex;flex-direction:column;gap:2px;}
+.channel-aside nav a{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 10px;
+  border-radius:var(--radius-btn);
+  font-size:14px;color:var(--text-2);
+  transition:background .16s,color .16s;
+}
+.channel-aside nav a:hover{background:var(--primary-light);color:var(--primary-dark);}
+.channel-aside nav a .ch-dot{width:6px;height:6px;border-radius:50%;background:var(--primary);opacity:.5;flex-shrink:0;}
+
+/* 主内容 */
+.main-content{min-width:0;display:flex;flex-direction:column;gap:40px;}
+
+/* 右辅助栏 */
+.side-aside{
+  display:flex;flex-direction:column;gap:20px;
+  position:sticky;top:calc(var(--stick-offset) + 16px);
+}
+.side-panel{
+  background:var(--panel);
+  border-radius:var(--radius-card);
+  border:1px solid var(--border);
+  padding:18px 16px;
+  box-shadow:var(--shadow);
+}
+.side-panel h3{
+  font-size:15px;font-weight:700;
+  margin-bottom:14px;
+  padding-bottom:10px;
+  border-bottom:2px solid var(--primary-light);
+  display:flex;align-items:center;gap:8px;
+}
+.side-panel h3::before{content:"";width:4px;height:16px;background:var(--primary);border-radius:2px;}
+
+/* 板块通用 */
+.section{scroll-margin-top:calc(var(--stick-offset) + 16px);}
+.section-head{margin-bottom:20px;}
+.section-head h2{
+  font-size:22px;font-weight:800;
+  letter-spacing:-.3px;
+  margin-bottom:6px;
+}
+.section-head p{font-size:14px;color:var(--text-3);}
+.section-head .sh-line{width:40px;height:3px;background:var(--primary);border-radius:2px;margin-top:10px;}
+
+/* 概览 */
+.overview-box{
+  background:var(--panel);
+  border-radius:var(--radius-banner);
+  border:1px solid var(--border);
+  padding:28px 30px;
+  box-shadow:var(--shadow);
+  font-size:15px;line-height:1.9;color:var(--text-2);
+}
+.overview-box p+p{margin-top:14px;}
+.overview-box strong{color:var(--text-1);}
+
+/* 卡片网格 */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+.card{
+  background:var(--panel);
+  border-radius:var(--radius-card);
+  border:1px solid var(--border);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:transform .2s,box-shadow .2s;
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);}
+.card-thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eee;}
+.card-thumb img{width:100%;height:100%;object-fit:cover;}
+.card-badge{
+  position:absolute;top:10px;left:10px;
+  background:var(--primary);color:#fff;
+  font-size:11px;font-weight:600;
+  padding:3px 9px;border-radius:var(--radius-tag);
+}
+.card-body{padding:16px 16px 18px;flex:1;display:flex;flex-direction:column;}
+.card-body h3{font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.4;}
+.card-body h3 a:hover{color:var(--primary-dark);}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.card-tags span{
+  font-size:11px;color:var(--primary-dark);
+  background:var(--primary-light);
+  padding:2px 8px;border-radius:var(--radius-tag);
+}
+.card-desc{font-size:13px;color:var(--text-2);line-height:1.65;flex:1;}
+.card-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:12px;padding-top:10px;
+  border-top:1px dashed var(--border);
+  font-size:12px;color:var(--text-3);
+}
+.card-meta .heat{color:var(--primary);font-weight:600;}
+
+/* 动态列表 */
+.dynamic-list{display:flex;flex-direction:column;gap:0;}
+.dynamic-item{
+  display:grid;
+  grid-template-columns:56px 1fr auto;
+  gap:14px;
+  align-items:start;
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+}
+.dynamic-item:last-child{border-bottom:none;}
+.dyn-date{
+  font-size:12px;color:var(--text-3);
+  line-height:1.4;
+  padding-top:2px;
+}
+.dyn-date strong{display:block;color:var(--text-2);font-weight:600;}
+.dyn-content h4{font-size:14.5px;font-weight:600;margin-bottom:3px;}
+.dyn-content p{font-size:13px;color:var(--text-2);line-height:1.6;}
+.dyn-tag{
+  font-size:11px;color:var(--text-3);
+  border:1px solid var(--border);
+  padding:2px 8px;border-radius:var(--radius-tag);
+  white-space:nowrap;
+}
+
+/* 分类入口 */
+.cat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.cat-item{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius-card);
+  padding:16px 14px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  transition:border-color .18s,box-shadow .18s,transform .18s;
+}
+.cat-item:hover{border-color:var(--primary);box-shadow:var(--shadow-hover);transform:translateY(-2px);}
+.cat-item .cat-icon{
+  width:40px;height:40px;margin:0 auto 8px;
+  background:var(--primary-light);
+  border-radius:10px;
+  display:grid;place-items:center;
+  color:var(--primary-dark);font-weight:800;font-size:16px;
+}
+.cat-item .cat-name{font-size:14px;font-weight:600;}
+.cat-item .cat-count{font-size:11px;color:var(--text-3);margin-top:2px;}
+
+/* 深度解析 */
+.deep-read{
+  background:var(--panel);
+  border-radius:var(--radius-banner);
+  border:1px solid var(--border);
+  padding:30px 32px;
+  box-shadow:var(--shadow);
+}
+.deep-read h3{
+  font-size:18px;font-weight:700;
+  margin:26px 0 12px;
+  padding-left:12px;
+  border-left:4px solid var(--primary);
+}
+.deep-read h3:first-child{margin-top:0;}
+.deep-read p{font-size:14.5px;line-height:1.9;color:var(--text-2);margin-bottom:12px;}
+.deep-read ul{margin:10px 0 14px 18px;list-style:disc;color:var(--text-2);font-size:14px;line-height:1.8;}
+.deep-read ul li{margin-bottom:4px;}
+.deep-read .callout{
+  background:var(--primary-light);
+  border-radius:var(--radius-btn);
+  padding:14px 18px;
+  font-size:13.5px;
+  color:var(--primary-dark);
+  margin:16px 0;
+  border-left:3px solid var(--primary);
+}
+
+/* 指南步骤 */
+.guide-steps{display:flex;flex-direction:column;gap:16px;}
+.guide-step{
+  display:grid;
+  grid-template-columns:48px 1fr;
+  gap:16px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius-card);
+  padding:18px 20px;
+  box-shadow:var(--shadow);
+}
+.step-num{
+  width:48px;height:48px;
+  background:var(--primary);
+  color:#fff;
+  border-radius:12px;
+  display:grid;place-items:center;
+  font-size:20px;font-weight:800;
+}
+.step-body h4{font-size:15.5px;font-weight:700;margin-bottom:5px;}
+.step-body p{font-size:13.5px;color:var(--text-2);line-height:1.7;}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:10px;}
+.faq-list details{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius-card);
+  padding:0 18px;
+  box-shadow:var(--shadow);
+  transition:border-color .18s;
+}
+.faq-list details[open]{border-color:var(--primary-light);}
+.faq-list summary{
+  cursor:pointer;
+  padding:16px 0;
+  font-size:15px;font-weight:600;
+  list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.faq-list summary::-webkit-details-marker{display:none;}
+.faq-list summary::after{
+  content:"+";
+  font-size:20px;color:var(--primary);
+  flex-shrink:0;
+  transition:transform .2s;
+}
+.faq-list details[open] summary::after{transform:rotate(45deg);}
+.faq-list .faq-answer{
+  padding:0 0 16px;
+  font-size:14px;color:var(--text-2);line-height:1.8;
+}
+
+/* 评论 */
+.comment-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.comment-card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius-card);
+  padding:14px 16px;
+  box-shadow:var(--shadow);
+}
+.comment-card .cm-head{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:8px;
+}
+.cm-avatar{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--primary-light);
+  display:grid;place-items:center;
+  font-size:12px;font-weight:700;color:var(--primary-dark);
+  flex-shrink:0;
+}
+.cm-name{font-size:13px;font-weight:600;}
+.cm-time{font-size:11px;color:var(--text-3);margin-left:auto;}
+.comment-card p{font-size:13px;color:var(--text-2);line-height:1.65;}
+
+/* 资讯 */
+.news-list{display:flex;flex-direction:column;gap:14px;}
+.news-item{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:16px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius-card);
+  padding:12px;
+  box-shadow:var(--shadow);
+  transition:box-shadow .18s;
+}
+.news-item:hover{box-shadow:var(--shadow-hover);}
+.news-thumb{aspect-ratio:3/2;border-radius:var(--radius-btn);overflow:hidden;background:#eee;}
+.news-thumb img{width:100%;height:100%;object-fit:cover;}
+.news-body h4{font-size:15px;font-weight:700;margin-bottom:4px;}
+.news-body h4 a:hover{color:var(--primary-dark);}
+.news-date{font-size:12px;color:var(--primary);font-weight:600;margin-bottom:4px;}
+.news-body p{font-size:13px;color:var(--text-2);line-height:1.6;}
+
+/* 相关推荐标签 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:10px;}
+.rec-tags a{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:7px 16px;
+  font-size:13.5px;
+  color:var(--text-2);
+  box-shadow:var(--shadow);
+  transition:background .18s,color .18s,border-color .18s;
+}
+.rec-tags a:hover{background:var(--primary);color:#fff;border-color:var(--primary);}
+
+/* 榜单 */
+.rank-list{display:flex;flex-direction:column;gap:0;}
+.rank-item{
+  display:grid;
+  grid-template-columns:28px 1fr auto;
+  gap:10px;
+  align-items:center;
+  padding:10px 0;
+  border-bottom:1px solid var(--border);
+  font-size:13.5px;
+}
+.rank-item:last-child{border-bottom:none;}
+.rank-num{
+  width:24px;height:24px;
+  border-radius:6px;
+  background:var(--bg);
+  display:grid;place-items:center;
+  font-size:12px;font-weight:700;color:var(--text-3);
+}
+.rank-item:nth-child(1) .rank-num{background:var(--primary);color:#fff;}
+.rank-item:nth-child(2) .rank-num{background:#f5a623;color:#fff;}
+.rank-item:nth-child(3) .rank-num{background:#f5c842;color:#fff;}
+.rank-name{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.rank-heat{font-size:12px;color:var(--primary);font-weight:600;}
+
+/* 页尾 */
+.site-footer{
+  background:#1f1b18;
+  color:#c9c0b8;
+  padding:48px 24px 28px;
+  margin-top:20px;
+}
+.footer-inner{max-width:1360px;margin:0 auto;}
+.footer-top{
+  display:grid;
+  grid-template-columns:1.4fr repeat(3,1fr);
+  gap:36px;
+  padding-bottom:32px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.footer-brand .fb-name{font-size:20px;font-weight:800;color:#fff;margin-bottom:10px;}
+.footer-brand p{font-size:13px;line-height:1.8;max-width:320px;color:#a89e96;}
+.footer-col h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:12px;}
+.footer-col a{display:block;font-size:13px;padding:4px 0;color:#a89e96;transition:color .16s;}
+.footer-col a:hover{color:var(--primary);}
+.footer-bottom{
+  padding-top:20px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-size:12px;color:#7d746c;
+}
+.footer-bottom .fb-update{color:#a89e96;}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:24px;bottom:28px;
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--primary);
+  color:#fff;
+  border:none;cursor:pointer;
+  display:grid;place-items:center;
+  box-shadow:var(--shadow-hover);
+  opacity:0;visibility:hidden;
+  transform:translateY(10px);
+  transition:opacity .25s,visibility .25s,transform .25s;
+  z-index:90;
+}
+.to-top.show{opacity:1;visibility:visible;transform:translateY(0);}
+.to-top:hover{background:var(--primary-dark);}
+
+/* 遮罩 */
+.menu-overlay{
+  position:fixed;inset:0;
+  background:rgba(20,15,10,.45);
+  z-index:98;
+  opacity:0;visibility:hidden;
+  transition:opacity .22s,visibility .22s;
+}
+.menu-overlay.show{opacity:1;visibility:visible;}
+
+/* 响应式 */
+@media(max-width:1100px){
+  .layout{grid-template-columns:160px minmax(0,1fr) 250px;gap:20px;}
+}
+@media(max-width:1024px){
+  .layout{grid-template-columns:minmax(0,1fr) 260px;}
+  .channel-aside{display:none;}
+  .hero{grid-template-columns:1fr;gap:28px;}
+  .hero-visual{grid-template-columns:repeat(3,1fr);}
+  .hero-card:nth-child(1){grid-column:span 3;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:740px){
+  .main-nav{display:none;}
+  .hamburger{display:block;}
+  .header-actions .btn-ghost{display:none;}
+  .layout{grid-template-columns:1fr;padding:0 16px 40px;}
+  .side-aside{position:static;}
+  .hero{padding:32px 16px 28px;}
+  .hero-visual{grid-template-columns:1fr 1fr;}
+  .hero-card:nth-child(1){grid-column:span 2;}
+  .card-grid{grid-template-columns:1fr;}
+  .comment-grid{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:repeat(2,1fr);}
+  .news-item{grid-template-columns:90px 1fr;}
+  .footer-top{grid-template-columns:1fr;gap:24px;}
+  .announce-bar .ann-items{gap:16px;font-size:12px;}
+  .announce-bar{padding:0 12px;}
+  .deep-read{padding:22px 18px;}
+  .overview-box{padding:22px 18px;}
+  .main-nav.mobile-open{
+    display:flex;flex-direction:column;
+    position:fixed;top:calc(var(--announce-h) + var(--header-h));
+    left:0;right:0;
+    background:#fff;
+    padding:12px 16px 20px;
+    z-index:97;
+    box-shadow:var(--shadow-hover);
+    max-height:calc(100vh - var(--stick-offset));
+    overflow-y:auto;
+  }
+  .main-nav.mobile-open a{padding:13px 12px;font-size:15px;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce-bar" role="status" aria-label="站内公告">
+  <span class="ann-tag">17吃瓜每日大赛</span>
+  <div class="ann-items">
+    <span><strong>11-08</strong> 新赛道「综艺名场面」上线</span>
+    <span><strong>11-07</strong> 榜单更新：吃瓜周榜第45期</span>
+    <span><strong>3.2万</strong> 条参赛作品</span>
+    <span><strong>11-08</strong> 话题「翻车现场」加开</span>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/#hero" class="brand" aria-label="17吃瓜每日大赛首页">
+      <span class="brand-mark">17</span>
+      <span class="brand-text">17吃瓜每日大赛</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="主导航">
+      <a href="/#overview" class="active">赛事概览</a>
+      <a href="/#featured">精选作品</a>
+      <a href="/#dynamics">最新动态</a>
+      <a href="/#categories">赛道分类</a>
+      <a href="/#deep-read">深度解析</a>
+      <a href="/#guide">参赛指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#comments">瓜友评论</a>
+    </nav>
+    <div class="header-actions">
+      <a href="/#submit" class="btn btn-ghost">我要投稿</a>
+      <a href="/#featured" class="btn btn-primary">看今日大赛</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mainNav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- 首屏 -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-kicker">每日更新 · 吃瓜赛道聚合</span>
+    <h1>17吃瓜每日大赛</h1>
+    <p class="hero-desc">汇聚明星八卦、综艺名场面、网红翻车事件与网友神评，每天一场吃瓜大赛。按赛道、热度和争议度筛选当日最值得追的瓜，追踪从爆料到回应的完整时间线。</p>
+    <div class="hero-cta">
+      <a href="/#featured" class="btn btn-primary">进入今日赛道</a>
+      <a href="/#submit" class="btn btn-ghost">投稿瓜料</a>
+    </div>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hero-card">
+      <div>
+        <div class="hc-num">3.2万</div>
+        <div class="hc-label">累计参赛作品</div>
+      </div>
+      <div>
+        <div class="hc-num">86</div>
+        <div class="hc-label">今日新增瓜帖</div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-num">12</div>
+      <div class="hc-label">吃瓜赛道</div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-num">45</div>
+      <div class="hc-label">周榜期数</div>
+    </div>
+  </div>
+</section>
+
+<!-- 三栏布局 -->
+<div class="layout">
+
+  <!-- 左频道栏 -->
+  <aside class="channel-aside" aria-label="频道索引">
+    <h2>吃瓜频道</h2>
+    <nav>
+      <a href="/#overview"><span class="ch-dot"></span>赛事概览</a>
+      <a href="/#featured"><span class="ch-dot"></span>精选作品</a>
+      <a href="/#dynamics"><span class="ch-dot"></span>最新动态</a>
+      <a href="/#categories"><span class="ch-dot"></span>赛道分类</a>
+      <a href="/#deep-read"><span class="ch-dot"></span>深度解析</a>
+      <a href="/#guide"><span class="ch-dot"></span>参赛指南</a>
+      <a href="/#faq"><span class="ch-dot"></span>常见问题</a>
+      <a href="/#comments"><span class="ch-dot"></span>瓜友评论</a>
+      <a href="/#news"><span class="ch-dot"></span>相关资讯</a>
+      <a href="/#rank"><span class="ch-dot"></span>热门榜单</a>
+      <a href="/#recommend"><span class="ch-dot"></span>相关推荐</a>
+      <a href="/#submit"><span class="ch-dot"></span>投稿互动</a>
+    </nav>
+  </aside>
+
+  <!-- 主内容 -->
+  <main class="main-content">
+
+    <!-- 1. 主题领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-head">
+        <h2>吃瓜大赛都在比什么</h2>
+        <p>从爆料速度到回应质量，一块瓜的完整生命周期</p>
+        <div class="sh-line"></div>
+      </div>
+      <div class="overview-box">
+        <p><strong>“吃瓜”在2026年已经形成一套完整的评判体系。</strong>明星恋情曝光、综艺剪辑冲突、网红带货翻车、品牌公关声明——每类事件都有固定的发酵路径和可对比的维度。17吃瓜每日大赛把当天分散在各平台的瓜料集中起来，按赛道归类，让同一类事件可以被横向比较。</p>
+        <p>目前站内常设的赛道包括<strong>明星恋情、综艺名场面、网红翻车、品牌公关、素人爆料、影视剧选角、音乐版权争议、体育圈八卦</strong>八类。其中“网红翻车”赛道11月新增投稿量最高，11月1日至7日共收录217条，比10月同期增长四成。增长主要来自直播带货翻车和探店博主虚假宣传两类事件。</p>
+        <p>值得关注的还有“回应质量”这个维度。同样是明星被拍到聚餐，有的工作室两小时内出声明，有的沉默三天才发律师函。吃瓜群众对后者的耐心明显更低——11月5日某演员被拍事件中，热评前十条有七条在催回应。这个信号比事件本身更有参考价值。</p>
+      </div>
+    </section>
+
+    <!-- 2. 精选内容推荐 -->
+    <section class="section" id="featured">
+      <div class="section-head">
+        <h2>今日精选参赛作品</h2>
+        <p>11月8日赛道内热度靠前的瓜帖与解析</p>
+        <div class="sh-line"></div>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/guagua01/400/300" alt="明星恋情曝光事件讨论帖配图" width="400" height="300" loading="lazy" style="object-fit:cover;">
+            <span class="card-badge">明星恋情</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="/#featured">某顶流被拍深夜聚餐：工作室两小时回应</a></h3>
+            <div class="card-tags"><span>恋情曝光</span><span>工作室声明</span><span>热榜第一</span></div>
+            <p class="card-desc">11月7日晚狗仔放出三段视频，工作室8日凌晨1点发声明否认，措辞罕见地写了“保留追究权利”。评论区对声明可信度分成两派。</p>
+            <div class="card-meta"><span class="heat">热度 9.8万</span><span>11-08 更新</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/guagua02/400/300" alt="综艺节目剪辑冲突讨论帖配图" width="400" height="300" loading="lazy" style="object-fit:cover;">
+            <span class="card-badge">综艺名场面</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="/#featured">《周末大乱斗》第六期剪辑争议：正片与花絮对不上</a></h3>
+            <div class="card-tags"><span>剪辑争议</span><span>花絮对比</span><span>节目组回应</span></div>
+            <p class="card-desc">网友逐帧对比正片和会员花絮，发现嘉宾争执镜头在正片中被调换了顺序。节目组11月6日回应称“叙事需要”，未解释具体调换原因。</p>
+            <div class="card-meta"><span class="heat">热度 7.2万</span><span>11-07 更新</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/guagua03/400/300" alt="直播带货翻车事件讨论帖配图" width="400" height="300" loading="lazy" style="object-fit:cover;">
+            <span class="card-badge">网红翻车</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="/#featured">探店博主“阿强吃遍城”被商家晒监控：没进店</a></h3>
+            <div class="card-tags"><span>虚假探店</span><span>商家反击</span><span>平台处理</span></div>
+            <p class="card-desc">11月5日杭州一家火锅店晒出监控，博主声称“排队两小时”的时间段店内空无一人。平台11月6日下架该博主三条视频，账号限流。</p>
+            <div class="card-meta"><span class="heat">热度 6.5万</span><span>11-06 更新</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/guagua04/400/300" alt="品牌公关声明讨论帖配图" width="400" height="300" loading="lazy" style="object-fit:cover;">
+            <span class="card-badge">品牌公关</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="/#featured">奶茶品牌“茶言观色”文案被指抄袭：道歉信改了两次</a></h3>
+            <div class="card-tags"><span>文案抄袭</span><span>道歉信</span><span>二次修改</span></div>
+            <p class="card-desc">11月4日被原创作者挂出对比图，品牌首版道歉信把责任推给“外包团队”，引发更大反弹。第二版才承认内部审核缺失，间隔19小时。</p>
+            <div class="card-meta"><span class="heat">热度 5.1万</span><span>11-05 更新</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/guagua05/400/300" alt="影视剧选角争议讨论帖配图" width="400" height="300" loading="lazy" style="object-fit:cover;">
+            <span class="card-badge">影视选角</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="/#featured">《长街行》女二换角：原定演员已进组两周</a></h3>
+            <div class="card-tags"><span>换角</span><span>进组记录</span><span>番位争议</span></div>
+            <p class="card-desc">11月3日有通告单流出，显示原定演员已完成两周拍摄。制片方称“档期协调”，但粉丝翻出该演员同期无其他行程。</p>
+            <div class="card-meta"><span class="heat">热度 4.8万</span><span>11-04 更新</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/guagua06/400/300" alt="音乐版权争议讨论帖配图" width="400" height="300" loading="lazy" style="object-fit:cover;">
+            <span class="card-badge">音乐版权</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="/#featured">说唱歌手“K-Bo”采样纠纷：原作者晒合同邮件</a></h3>
+            <div class="card-tags"><span>采样授权</span><span>合同邮件</span><span>平台下架</span></div>
+            <p class="card-desc">11月2日原作者公开2025年10月的邮件记录，显示授权谈判未完成。K-Bo团队称“以为口头同意即可”，歌曲11月3日在三个平台下架。</p>
+            <div class="card-meta"><span class="heat">热度 3.9万</span><span>11-03 更新</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. 最新更新 / 动态 -->
+    <section class="section" id="dynamics">
+      <div class="section-head">
+        <h2>赛道最新动态</h2>
+        <p>11月8日当天新开的瓜帖与进展</p>
+        <div class="sh-line"></div>
+      </div>
+      <div class="dynamic-list">
+        <div class="dynamic-item">
+          <div class="dyn-date"><strong>11-08</strong>08:42</div>
+          <div class="dyn-content"><h4>“明星恋情”赛道新增三条投稿</h4><p>均围绕11月7日晚的聚餐视频，其中一条逐帧分析视频拍摄角度，指出狗仔机位在对面楼栋。</p></div>
+          <span class="dyn-tag">新投稿</span>
+        </div>
+        <div class="dynamic-item">
+          <div class="dyn-date"><strong>11-08</strong>07:15</div>
+          <div class="dyn-content"><h4>“网红翻车”赛道热度反超“综艺名场面”</h4><p>探店博主事件持续发酵，11月7日单日新增讨论帖134条，超过综艺赛道的98条。</p></div>
+          <span class="dyn-tag">赛道变化</span>
+        </div>
+        <div class="dynamic-item">
+          <div class="dyn-date"><strong>11-07</strong>22:30</div>
+          <div class="dyn-content"><h4>周榜第45期截榜</h4><p>“顶流聚餐回应”以9.8万热度居首，第二名为《周末大乱斗》剪辑争议7.2万，第三名探店博主6.5万。</p></div>
+          <span class="dyn-tag">榜单</span>
+        </div>
+        <div class="dynamic-item">
+          <div class="dyn-date"><strong>11-07</strong>18:05</div>
+          <div class="dyn-content"><h4>“茶言观色”第二版道歉信全文公开</h4><p>新增了对外包团队的处理说明，但未提及是否向原创作者支付赔偿，评论区仍在追问这一点。</p></div>
+          <span class="dyn-tag">进展</span>
+        </div>
+        <div class="dynamic-item">
+          <div class="dyn-date"><strong>11-06</strong>14:20</div>
+          <div class="dyn-content"><h4>《长街行》剧组发布选角时间线</h4><p>制片方列出三次试镜日期，但通告单上的进组日期未在时间线中体现，粉丝继续追问。</p></div>
+          <span class="dyn-tag">回应</span>
+        </div>
+        <div class="dynamic-item">
+          <div class="dyn-date"><strong>11-06</strong>11:00</div>
+          <div class="dyn-content"><h4>“素人爆料”赛道新增审核规则</h4><p>涉及素人隐私的帖子需提供当事人同意截图，11月6日起执行，当日退回11条未附截图的投稿。</p></div>
+          <span class="dyn-tag">规则</span>
+        </div>
+        <div class="dynamic-item">
+          <div class="dyn-date"><strong>11-05</strong>20:45</div>
+          <div class="dyn-content"><h4>K-Bo采样纠纷新增第三方鉴定</h4><p>有音乐制作人发长文对比两段音轨的频谱图，结论是“采样比例超过合理引用范围”。</p></div>
+          <span class="dyn-tag">分析</span>
+        </div>
+        <div class="dynamic-item">
+          <div class="dyn-date"><strong>11-05</strong>09:30</div>
+          <div class="dyn-content"><h4>“品牌公关”赛道开设“声明质量打分”功能</h4><p>从响应速度、责任归属、补救措施三个维度打分，首日参与打分人数破4000。</p></div>
+          <span class="dyn-tag">新功能</span>
+        </div>
+        <div class="dynamic-item">
+          <div class="dyn-date"><strong>11-04</strong>16:12</div>
+          <div class="dyn-content"><h4>体育圈八卦赛道出现“赛后采访剪辑”争议</h4><p>某球员采访视频被截取，原话语境与传播版本不一致，完整版播放量在11月4日超过截取版。</p></div>
+          <span class="dyn-tag">新瓜</span>
+        </div>
+        <div class="dynamic-item">
+          <div class="dyn-date"><strong>11-04</strong>10:00</div>
+          <div class="dyn-content"><h4>“影视选角”赛道10月月榜公布</h4><p>月榜第一为“某古装剧换角风波”，累计讨论帖428条，第二、三名均为选角年龄争议。</p></div>
+          <span class="dyn-tag">月榜</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 分类入口 -->
+    <section class="section" id="categories">
+      <div class="section-head">
+        <h2>按赛道找瓜</h2>
+        <p>八类常设赛道，对应不同的事件类型和评判方式</p>
+        <div class="sh-line"></div>
+      </div>
+      <div class="cat-grid">
+        <a href="/#featured" class="cat-item"><div class="cat-icon">恋</div><div class="cat-name">明星恋情</div><div class="cat-count">1,284 条</div></a>
+        <a href="/#featured" class="cat-item"><div class="cat-icon">综</div><div class="cat-name">综艺名场面</div><div class="cat-count">962 条</div></a>
+        <a href="/#featured" class="cat-item"><div class="cat-icon">翻</div><div class="cat-name">网红翻车</div><div class="cat-count">1,517 条</div></a>
+        <a href="/#featured" class="cat-item"><div class="cat-icon">品</div><div class="cat-name">品牌公关</div><div class="cat-count">613 条</div></a>
+        <a href="/#featured" class="cat-item"><div class="cat-icon">素</div><div class="cat-name">素人爆料</div><div class="cat-count">445 条</div></a>
+        <a href="/#featured" class="cat-item"><div class="cat-icon">选</div><div class="cat-name">影视选角</div><div class="cat-count">728 条</div></a>
+        <a href="/#featured" class="cat-item"><div class="cat-icon">音</div><div class="cat-name">音乐版权</div><div class="cat-count">306 条</div></a>
+        <a href="/#featured" class="cat-item"><div class="cat-icon">体</div><div class="cat-name">体育圈八卦</div><div class="cat-count">389 条</div></a>
+      </div>
+    </section>
+
+    <!-- 5. 深度解析 -->
+    <section class="section" id="deep-read">
+      <div class="section-head">
+        <h2>一块瓜的完整生命周期</h2>
+        <p>从爆料到定论，中间有四个容易被跳过的环节</p>
+        <div class="sh-line"></div>
+      </div>
+      <div class="deep-read">
+        <h3>爆料源的可信度拆解</h3>
+        <p>同一个事件，不同爆料源的初始可信度差异极大。以11月7日聚餐视频为例：狗仔账号发布的是原始素材，带时间戳和连续画面；营销号转发时裁掉了前15秒，恰好把“剧组聚餐”的同行人员裁出画面。两个版本在11月8日凌晨同时传播，后者转发量是前者的3.2倍。</p>
+        <p>判断爆料源可以从三项缺失来找问题：</p>
+        <ul>
+          <li><strong>时间戳缺失</strong>——截图没有状态栏时间，无法确认拍摄日期</li>
+          <li><strong>上下文缺失</strong>——只截取对话中的一句，前后文被裁掉</li>
+          <li><strong>来源链缺失</strong>——转了三手以上的“朋友说”，找不到首发账号</li>
+        </ul>
+        <div class="callout">三项中缺两项，基本可以判定为需要等第二信源。11月5日探店博主事件中，最初的爆料帖缺时间戳、缺完整场景，商家11月5日晚晒出监控后才补上第一项。</div>
+
+        <h3>回应速度与回应质量是两回事</h3>
+        <p>工作室声明出得快不等于可信。11月7日聚餐事件，工作室两小时出声明，但声明全文只有47个字，没有说明同行人员身份。对比11月3日《长街行》制片方的回应，虽然拖了40小时，但附上了三次试镜的具体日期和在场人员名单。</p>
+        <p>把回应质量拆开看，有三个可核对的指标：是否回应了爆料中的具体细节、是否提供了可验证的证据、是否对后续动作做出承诺。三项全做到的回应急件，11月前七天只有两件。一件是K-Bo团队公开了与原作者2025年10月的邮件往来（虽然内容对己方不利），另一件是火锅店商家晒出完整监控。</p>
+
+        <h3>网友评论里的信息分层</h3>
+        <p>评论区不全是情绪。11月6日探店博主事件的热评前50条中，有11条给出了具体信息：有人贴出该博主三个月前在同一家店的视频做对比，有人整理出他近半年“排队”说法出现过的七次时间地点。这些信息后来被商家和平台分别引用。</p>
+        <p>另一类评论是推测。同样是探店事件，有用户根据博主视频里的窗外光线判断拍摄时间在下午三点，而商家监控显示下午三点店内确实有顾客。这条推测和事实存在矛盾，但被大量转发。区分“已公开事实”和“网友推测”，看的是有没有指向可核对的对象——时间、地点、画面、原文。</p>
+
+        <h3>为什么有些瓜三天就凉了</h3>
+        <p>11月1日到7日，站内收录的217条网红翻车帖中，持续讨论超过72小时的只有31条。剩下的186条在48小时内热度断崖式下跌。对比这31条和其余帖子，差异集中在两点：当事人是否在48小时内给出新信息、是否有第三方（平台、商家、监管方）介入。</p>
+        <p>“茶言观色”文案抄袭事件之所以拖到第五天还有讨论，是因为第二版道歉信在11月7日又引发了新争议——信里说“已下架相关文案”，但网友发现小程序里还能搜到。新信息不断产生，讨论就有燃料。反过来，K-Bo采样纠纷在11月4日之后讨论量下降，原因是双方都停了公开发言，没有新素材。</p>
+      </div>
+    </section>
+
+    <!-- 6. 参赛指南 / 消费路径 -->
+    <section class="section" id="guide">
+      <div class="section-head">
+        <h2>追瓜的顺序与判断依据</h2>
+        <p>先看什么、后看什么，怎么决定一块瓜值不值得投入时间</p>
+        <div class="sh-line"></div>
+      </div>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>先确认事件类型，再决定看哪个赛道</h4>
+            <p>明星恋情看的是回应速度和证据链，综艺名场面看的是正片与花絮的逐帧对比，网红翻车看的是商家或平台是否介入。类型不同，值得关注的节点完全不同。拿恋情赛道的标准去看综艺剪辑，会错过关键的花絮时间差。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>找首发源，不找转发量最大的</h4>
+            <p>11月7日聚餐视频的原始发布账号只有8万粉丝，转发量最大的营销号有340万粉丝。原始素材带完整时间戳和连续画面，营销号版本裁掉了开头15秒。先花一分钟找首发，比看十条转发省时间。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>看当事人或相关方有没有给出新信息</h4>
+            <p>48小时内没有新信息的事件，后续大概率是重复讨论。11月5日探店事件在商家晒监控后有实质进展，11月6日平台下架视频是第二个节点，11月7日博主小号回应是第三个。有节点的瓜才值得跟。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>同类事件横向比，比纵向追更有效</h4>
+            <p>把“茶言观色”道歉信和11月2日另一个品牌的声明放在一起看：前者首版推给外包，后者首版直接认错并给出赔偿方案。两个品牌的评论区情绪差异明显，说明用户对“责任归属”这一项的敏感度高于“响应速度”。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h4>区分事实、回应、转述与推测</h4>
+            <p>狗仔视频是已公开事实，工作室声明是当事人回应，营销号转述是媒体转述，评论区的时间推测是网友推测。四类信息在同一个话题里混着出现，逐条标注来源比笼统说“等反转”更有用。11月6日之后，站内开始给每条投稿标注信息层级。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section" id="faq">
+      <div class="section-head">
+        <h2>吃瓜常见问题</h2>
+        <p>关于赛道规则、投稿标准和事件判断的具体问答</p>
+        <div class="sh-line"></div>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>“17吃瓜每日大赛”的赛道是怎么分的？</summary>
+          <div class="faq-answer">按事件类型分八类：明星恋情、综艺名场面、网红翻车、品牌公关、素人爆料、影视选角、音乐版权、体育圈八卦。分类依据是事件的发酵路径——恋情类看回应，翻车类看平台处理，版权类看合同和授权记录。同一事件通常只归一类，跨类的情况会在标签里注明。</div>
+        </details>
+        <details>
+          <summary>投稿需要提供什么材料才算完整？</summary>
+          <div class="faq-answer">至少包含三样：事件发生的时间、可追溯的原始来源（首发链接或截图）、以及事件当前进展。缺时间戳的截图、转了三手以上的“朋友说”、没有当事人或相关方名称的匿名帖，会被退回。11月6日起素人爆料类还需附当事人同意截图。</div>
+        </details>
+        <details>
+          <summary>为什么有的瓜帖热度涨得快，有的很快沉底？</summary>
+          <div class="faq-answer">热度取决于48小时内是否有新节点。11月1日到7日，持续讨论超过72小时的31条帖子，全部在48小时内出现过新信息——当事人回应、平台处理、商家反击或第三方鉴定。没有新节点的帖子，热度曲线通常在24小时达到顶点然后回落。</div>
+        </details>
+        <details>
+          <summary>工作室声明和狗仔爆料哪个更可信？</summary>
+          <div class="faq-answer">不能按来源类型简单判断，要看具体内容。11月7日聚餐事件的工作室声明只有47字，没有回应同行人员身份；11月3日《长街行》制片方回应虽然慢，但附了三次试镜日期和名单。可核对的具体信息越多，可信度越高，与来源是狗仔还是工作室无关。</div>
+        </details>
+        <details>
+          <summary>剪辑争议怎么判断哪一版是真实的？</summary>
+          <div class="faq-answer">看会员花絮和正片的时间码。11月6日《周末大乱斗》争议中，花絮版嘉宾争执发生在录制第3小时，正片剪到了第1小时的位置。节目组回应称“叙事需要”，但未解释为什么调换顺序。判断依据是原始素材的连续时间码，而不是哪一版传播更广。</div>
+        </details>
+        <details>
+          <summary>品牌道歉信第一版和第二版差在哪里？</summary>
+          <div class="faq-answer">以“茶言观色”为例，第一版把责任推给“外包团队”，第二版承认内部审核缺失并给出处理方案，间隔19小时。两版的差异集中在责任归属和补救措施两项。11月5日之后，赛道内开设了声明质量打分功能，按响应速度、责任归属、补救措施三个维度打分。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-head">
+        <h2>瓜友评论</h2>
+        <p>来自赛道内的真实讨论，有夸有吐槽</p>
+        <div class="sh-line"></div>
+      </div>
+      <div class="comment-grid">
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">瓜</span><span class="cm-name">瓜田里的猹</span><span class="cm-time">11-08 09:12</span></div><p>顶流那个视频我看了三遍，狗仔机位在对面楼，距离少说80米，画质糊成那样还能认出来是谁，评论区人均列文虎克。</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">吃</span><span class="cm-name">吃瓜不吐皮</span><span class="cm-time">11-08 08:47</span></div><p>声明47个字，比我请假条还短。同行人员身份一个字不提，这回应跟没回有什么区别。</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">周</span><span class="cm-name">周末大乱斗老观众</span><span class="cm-time">11-07 23:30</span></div><p>花絮和正片对不上这事，节目组说是叙事需要，那花絮里第3小时的争执怎么解释？会员花钱看的就是完整版，调顺序好歹说一声。</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">探</span><span class="cm-name">探店雷达</span><span class="cm-time">11-07 20:15</span></div><p>阿强那个号我关注过，三个月前那期视频里他说排了两小时，结果窗外是晚上七点、桌上菜还没上齐。当时就觉得不对劲。</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">茶</span><span class="cm-name">奶茶续命选手</span><span class="cm-time">11-07 18:50</span></div><p>茶言观色第二版道歉信说下架文案，我去小程序搜了一下，还在。这叫下架？</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">长</span><span class="cm-name">长街行原著粉</span><span class="cm-time">11-07 16:22</span></div><p>选角时间线列了三次试镜，但通告单上原演员进组两周是实打实的。时间线里不提进组，这回应避重就轻。</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">K</span><span class="cm-name">K-Bo歌迷</span><span class="cm-time">11-06 22:08</span></div><p>采样这事团队说以为口头同意就行，邮件里明明写了“授权协议待签”，这不能算误会吧。</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">频</span><span class="cm-name">频谱分析员</span><span class="cm-time">11-06 19:41</span></div><p>那个制作人的频谱对比我看了，两段音轨在2000Hz以上的重合度确实高。不过采样比例合不合理还得看合同怎么写的，光看频谱说明不了全部。</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">体</span><span class="cm-name">球场边线</span><span class="cm-time">11-06 14:03</span></div><p>球员采访那个剪辑，原话是“这场我们踢得不好，但下周还有机会”，截出来只剩“踢得不好”。完整版播放量反超截取版，说明大家还是愿意看全的。</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">路</span><span class="cm-name">路过打酱油</span><span class="cm-time">11-05 21:37</span></div><p>今天瓜有点多，先收藏了慢慢看。</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">声</span><span class="cm-name">声明质检员</span><span class="cm-time">11-05 17:55</span></div><p>打分功能挺实用，我按三项给茶言观色第二版打了6分：响应速度给3分（19小时），责任归属给2分（承认了但没提赔偿），补救措施给1分（说下架没下架）。</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">素</span><span class="cm-name">素人爆料观察</span><span class="cm-time">11-05 11:20</span></div><p>新规要求素人爆料附同意截图，今天退回11条。有人觉得麻烦，但上周那条误伤素人的帖子确实该管管了。</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">火</span><span class="cm-name">火锅店常客</span><span class="cm-time">11-04 20:44</span></div><p>那家火锅店我去过，下午三点确实没什么人。博主说排队两小时，监控一放就露馅了。商家这波反击干脆。</p></div>
+        <div class="comment-card"><div class="cm-head"><span class="cm-avatar">冷</span><span class="cm-name">冷静看瓜</span><span class="cm-time">11-04 15:10</span></div><p>声明出得快不代表什么，47个字和40小时附名单的回应，我选后者。慢但能核对。</p></div>
+      </div>
+    </section>
+
+    <!-- 9. 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-head">
+        <h2>相关资讯</h2>
+        <p>11月1日至8日赛道内外的具体动态</p>
+        <div class="sh-line"></div>
+      </div>
+      <div class="news-list">
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/news01/600/400" alt="平台内容治理新规发布现场配图" width="600" height="400" loading="lazy" style="object-fit:cover;"></div>
+          <div class="news-body">
+            <div class="news-date">2026-11-08</div>
+            <h4><a href="/#news">短视频平台11月8日起对探店类内容加注“实地拍摄”标识</a></h4>
+            <p>首批接入的商家超过2000家，博主需上传门店定位和拍摄时间。未标注的视频在推荐页降权50%，11月8日当天已有37个账号收到提示。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/news02/600/400" alt="综艺节目制作方回应剪辑争议配图" width="600" height="400" loading="lazy" style="object-fit:cover;"></div>
+          <div class="news-body">
+            <div class="news-date">2026-11-06</div>
+            <h4><a href="/#news">《周末大乱斗》节目组承诺下期公开完整时间码</a></h4>
+            <p>制作方在11月6日的声明末尾提到，第七期正片将附录制时间码，供观众对照花絮。此前会员花絮的播放量在争议后上涨了62%。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/news03/600/400" alt="音乐平台版权下架通知配图" width="600" height="400" loading="lazy" style="object-fit:cover;"></div>
+          <div class="news-body">
+            <div class="news-date">2026-11-04</div>
+            <h4><a href="/#news">K-Bo采样歌曲在三个平台下架，版权方启动协商</a></h4>
+            <p>11月3日晚下架，11月4日版权方发声明称“愿在合理范围内协商补授权”。K-Bo团队尚未回应协商时间表，歌曲评论区保留但关闭新增。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/news04/600/400" alt="影视剧选角通告单流出配图" width="600" height="400" loading="lazy" style="object-fit:cover;"></div>
+          <div class="news-body">
+            <div class="news-date">2026-11-03</div>
+            <h4><a href="/#news">《长街行》制片方公开三次试镜日期，未回应进组记录</a></h4>
+            <p>三次试镜分别为9月12日、10月8日、10月21日。通告单显示原定演员10月20日已进组，制片方对此仅表示“档期协调”，未提供更多细节。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/news05/600/400" alt="品牌道歉信修改对比配图" width="600" height="400" loading="lazy" style="object-fit:cover;"></div>
+          <div class="news-body">
+            <div class="news-date">2026-11-02</div>
+            <h4><a href="/#news">另一茶饮品牌就海报文案致歉，首版即给出赔偿方案</a></h4>
+            <p>11月2日“山间茶事”海报文案与插画师作品高度相似，品牌在4小时内发布道歉信，提出按单张海报授权费的3倍赔偿，并公布内部审核流程调整时间表。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/news06/600/400" alt="体育采访完整版播放数据配图" width="600" height="400" loading="lazy" style="object-fit:cover;"></div>
+          <div class="news-body">
+            <div class="news-date">2026-11-01</div>
+            <h4><a href="/#news">球员采访完整版播放量破800万，超过截取版</a></h4>
+            <p>完整版时长4分12秒，截取版仅18秒。11月1日完整版播放量达到817万，截取版为623万。发布完整版的账号在简介里标注了“未剪辑”字样。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10. 相关推荐 -->
+    <section class="section" id="recommend">
+      <div class="section-head">
+        <h2>相关推荐</h2>
+        <p>按具体方向延伸的条目索引</p>
+        <div class="sh-line"></div>
+      </div>
+      <div class="rec-tags">
+        <a href="/#featured">工作室声明措辞对比</a>
+        <a href="/#featured">综艺花絮逐帧分析</a>
+        <a href="/#featured">探店视频定位核验</a>
+        <a href="/#featured">品牌道歉信修改记录</a>
+        <a href="/#featured">选角通告单时间线</a>
+        <a href="/#featured">采样授权邮件原文</a>
+        <a href="/#featured">采访剪辑完整版对照</a>
+        <a href="/#featured">48小时热度曲线</a>
+      </div>
+    </section>
+
+    <!-- 11. 补充板块：热门榜单 + 投稿互动 -->
+    <section class="section" id="rank">
+      <div class="section-head">
+        <h2>本周吃瓜热榜</h2>
+        <p>第45期（11月1日—11月7日）按赛道内热度排序</p>
+        <div class="sh-line"></div>
+      </div>
+      <div class="side-panel" style="position:static;">
+        <div class="rank-list">
+          <div class="rank-item"><span class="rank-num">1</span><span class="rank-name">顶流聚餐视频与工作室47字回应</span><span class="rank-heat">9.8万</span></div>
+          <div class="rank-item"><span class="rank-num">2</span><span class="rank-name">《周末大乱斗》第六期剪辑争议</span><span class="rank-heat">7.2万</span></div>
+          <div class="rank-item"><span class="rank-num">3</span><span class="rank-name">探店博主“阿强吃遍城”虚假排队</span><span class="rank-heat">6.5万</span></div>
+          <div class="rank-item"><span class="rank-num">4</span><span class="rank-name">茶言观色文案抄袭两版道歉信</span><span class="rank-heat">5.1万</span></div>
+          <div class="rank-item"><span class="rank-num">5</span><span class="rank-name">《长街行》女二换角与进组记录</span><span class="rank-heat">4.8万</span></div>
+          <div class="rank-item"><span class="rank-num">6</span><span class="rank-name">K-Bo采样纠纷与频谱对比</span><span class="rank-heat">3.9万</span></div>
+          <div class="rank-item"><span class="rank-num">7</span><span class="rank-name">球员采访剪辑完整版播放反超</span><span class="rank-heat">3.2万</span></div>
+          <div class="rank-item"><span class="rank-num">8</span><span class="rank-name">素人爆料审核新规首日退稿11条</span><span class="rank-heat">2.7万</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="submit">
+      <div class="section-head">
+        <h2>投稿与互动</h2>
+        <p>把你看到的瓜料按赛道提交，附上可核对的时间与来源</p>
+        <div class="sh-line"></div>
+      </div>
+      <div class="overview-box" style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;">
+        <div style="flex:1;min-width:240px;">
+          <p style="margin-bottom:10px;"><strong>投稿入口已开放。</strong>当前接受八类赛道的瓜帖，要求附事件时间、首发来源截图、当前进展三项。素人爆料类需额外提供当事人同意截图。</p>
+          <p style="font-size:13px;color:var(--text-3);">11月1日至7日共收到投稿642条，通过审核487条，退回155条。退回原因前两位是缺时间戳（72条）和来源链不完整（51条）。</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="/#featured" class="btn btn-primary">提交瓜帖</a>
+          <a href="/#comments" class="btn btn-ghost">参与讨论</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右辅助栏 -->
+  <aside class="side-aside" aria-label="辅助信息">
+    <div class="side-panel">
+      <h3>今日赛道热度</h3>
+      <div class="rank-list">
+        <div class="rank-item"><span class="rank-num">1</span><span class="rank-name">网红翻车</span><span class="rank-heat">134帖</span></div>
+        <div class="rank-item"><span class="rank-num">2</span><span class="rank-name">明星恋情</span><span class="rank-heat">98帖</span></div>
+        <div class="rank-item"><span class="rank-num">3</span><span class="rank-name">综艺名场面</span><span class="rank-heat">76帖</span></div>
+        <div class="rank-item"><span class="rank-num">4</span><span class="rank-name">品牌公关</span><span class="rank-heat">52帖</span></div>
+        <div class="rank-item"><span class="rank-num">5</span><span class="rank-name">影视选角</span><span class="rank-heat">41帖</span></div>
+      </div>
+    </div>
+    <div class="side-panel">
+      <h3>本周新开瓜帖</h3>
+      <div class="dynamic-list" style="padding:0;">
+        <div class="dynamic-item" style="grid-template-columns:1fr auto;padding:8px 0;">
+          <div class="dyn-content"><h4 style="font-size:13px;">顶流聚餐第二段视频</h4><p style="font-size:12px;">11-08 08:42</p></div>
+        </div>
+        <div class="dynamic-item" style="grid-template-columns:1fr auto;padding:8px 0;">
+          <div class="dyn-content"><h4 style="font-size:13px;">探店博主小号回应</h4><p style="font-size:12px;">11-07 21:10</p></div>
+        </div>
+        <div class="dynamic-item" style="grid-template-columns:1fr auto;padding:8px 0;">
+          <div class="dyn-content"><h4 style="font-size:13px;">茶言观色小程序仍可搜到</h4><p style="font-size:12px;">11-07 18:33</p></div>
+        </div>
+        <div class="dynamic-item" style="grid-template-columns:1fr auto;padding:8px 0;border-bottom:none;">
+          <div class="dyn-content"><h4 style="font-size:13px;">K-Bo版权方协商声明</h4><p style="font-size:12px;">11-04 10:12</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="side-panel">
+      <h3>投稿须知</h3>
+      <p style="font-size:13px;color:var(--text-2);line-height:1.7;">接受八类赛道瓜帖。需附事件时间、首发来源截屏、当前进展。素人类附加当事人同意截图。11月6日起执行，首日退稿11条。</p>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fb-name">17吃瓜每日大赛</div>
+        <p>覆盖2026年11月1日至8日的赛道动态，条目类型包括爆料帖、回应声明、平台处理结果与网友分析长文，每日8点前更新前一日榜单与当日新瓜。</p>
+      </div>
+      <div class="footer-col">
+        <h4>赛道入口</h4>
+        <a href="/#categories">明星恋情</a>
+        <a href="/#categories">网红翻车</a>
+        <a href="/#categories">综艺名场面</a>
+        <a href="/#categories">品牌公关</a>
+      </div>
+      <div class="footer-col">
+        <h4>内容栏目</h4>
+        <a href="/#featured">精选作品</a>
+        <a href="/#dynamics">最新动态</a>
+        <a href="/#deep-read">深度解析</a>
+        <a href="/#rank">热门榜单</a>
+      </div>
+      <div class="footer-col">
+        <h4>互动</h4>
+        <a href="/#submit">投稿瓜料</a>
+        <a href="/#comments">瓜友评论</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#guide">追瓜指南</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>本页内容为示例条目，人物、作品、品牌名称均用于赛道演示。</span>
+      <span class="fb-update">最近更新：2026-11-08 · 对应「今日精选参赛作品」与「赛道最新动态」</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function(){
+  var hamburger=document.getElementById('hamburgerBtn');
+  var nav=document.getElementById('mainNav');
+  var overlay=document.getElementById('menuOverlay');
+  var toTop=document.getElementById('toTop');
+
+  function closeMenu(){
+    nav.classList.remove('mobile-open');
+    overlay.classList.remove('show');
+    hamburger.setAttribute('aria-expanded','false');
+  }
+  function openMenu(){
+    nav.classList.add('mobile-open');
+    overlay.classList.add('show');
+    hamburger.setAttribute('aria-expanded','true');
+  }
+  hamburger.addEventListener('click',function(){
+    if(nav.classList.contains('mobile-open')){closeMenu();}else{openMenu();}
+  });
+  overlay.addEventListener('click',closeMenu);
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){closeMenu();}
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeMenu();}
+  });
+
+  // 回到顶部
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>600){toTop.classList.add('show');}else{toTop.classList.remove('show');}
+  },{passive:true});
+  toTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  // 导航高亮
+  var navLinks=document.querySelectorAll('.main-nav a');
+  var sections=[];
+  navLinks.forEach(function(link){
+    var id=link.getAttribute('href').split('#')[1];
+    if(id){var el=document.getElementById(id);if(el){sections.push({el:el,link:link});}}
+  });
+  function highlight(){
+    var scrollPos=window.scrollY+120;
+    var current=null;
+    sections.forEach(function(s){
+      if(s.el.offsetTop<=scrollPos){current=s;}
+    });
+    navLinks.forEach(function(l){l.classList.remove('active');});
+    if(current){current.link.classList.add('active');}
+  }
+  window.addEventListener('scroll',highlight,{passive:true});
+  highlight();
+})();
+</script>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"17吃瓜每日大赛",
+  "description":"聚合每日吃瓜赛道、参赛作品与热门排行，涵盖明星八卦、综艺名场面、网红翻车事件与网友神评。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"“17吃瓜每日大赛”的赛道是怎么分的？","acceptedAnswer":{"@type":"Answer","text":"按事件类型分八类：明星恋情、综艺名场面、网红翻车、品牌公关、素人爆料、影视选角、音乐版权、体育圈八卦。分类依据是事件的发酵路径。"}},
+    {"@type":"Question","name":"投稿需要提供什么材料才算完整？","acceptedAnswer":{"@type":"Answer","text":"至少包含三样：事件发生的时间、可追溯的原始来源、以及事件当前进展。缺时间戳的截图会被退回。"}},
+    {"@type":"Question","name":"为什么有的瓜帖热度涨得快，有的很快沉底？","acceptedAnswer":{"@type":"Answer","text":"热度取决于48小时内是否有新节点。持续讨论超过72小时的帖子，全部在48小时内出现过新信息。"}},
+    {"@type":"Question","name":"工作室声明和狗仔爆料哪个更可信？","acceptedAnswer":{"@type":"Answer","text":"不能按来源类型简单判断，要看具体内容。可核对的具体信息越多，可信度越高。"}},
+    {"@type":"Question","name":"剪辑争议怎么判断哪一版是真实的？","acceptedAnswer":{"@type":"Answer","text":"看会员花絮和正片的时间码。判断依据是原始素材的连续时间码，而不是哪一版传播更广。"}},
+    {"@type":"Question","name":"品牌道歉信第一版和第二版差在哪里？","acceptedAnswer":{"@type":"Answer","text":"以“茶言观色”为例，第一版把责任推给外包团队，第二版承认内部审核缺失并给出处理方案，间隔19小时。"}}
+  ]
+}
+</script>
+
+</body>
+                                                                                    </html>
