@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>136福利水平导航 - 精品福利资源聚合平台</title>
+<meta name="description" content="136福利水平导航汇聚福利资源导航、实用工具与可靠信息渠道，提供最新福利动态、精选站点推荐、分类索引与深度使用指南，适合寻找高效资源入口的用户。">
+<meta name="keywords" content="136福利水平导航">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f6f8f'/%3E%3Cpath d='M18 46V18h9.5c6.2 0 10.5 3.6 10.5 9.2 0 4.1-2.2 7.2-5.8 8.5L42 46h-8.3l-7.7-9.2H26V46h-8zm8-15.4h1.5c2.4 0 3.9-1.3 3.9-3.4 0-2.1-1.5-3.3-3.9-3.3H26v6.7z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --brand:#1f6f8f;
+    --brand-light:#e8f1f5;
+    --brand-deep:#134f66;
+    --bg:#f7f9fb;
+    --surface:#ffffff;
+    --text:#1c2b33;
+    --text-secondary:#4e656f;
+    --text-muted:#7a8f99;
+    --border:#dce5ea;
+    --radius-card:14px;
+    --radius-btn:10px;
+    --radius-tag:8px;
+    --radius-banner:18px;
+    --shadow:0 2px 8px rgba(0,0,0,.04);
+    --shadow-hover:0 8px 24px rgba(0,0,0,.08);
+    --font:system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+    --max-width:1320px;
+    --announce-h:36px;
+    --header-h:60px;
+    --sticky-offset:calc(var(--announce-h) + var(--header-h));
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--sticky-offset) + 12px);}
+  body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;font-size:15px;}
+  a{color:var(--brand);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img{max-width:100%;height:auto;display:block;}
+  button{cursor:pointer;font-family:inherit;}
+  .container{max-width:var(--max-width);margin:0 auto;padding:0 24px;}
+
+  /* ===== 吸顶公告条 ===== */
+  .announce-bar{
+    position:sticky;top:0;z-index:1001;
+    height:var(--announce-h);
+    background:var(--brand-deep);
+    color:#fff;
+    display:flex;align-items:center;
+    font-size:13px;
+    overflow:hidden;
+  }
+  .announce-inner{
+    display:flex;align-items:center;gap:16px;flex-wrap:nowrap;
+    max-width:var(--max-width);margin:0 auto;padding:0 24px;width:100%;
+    white-space:nowrap;overflow-x:auto;scrollbar-width:none;
+  }
+  .announce-inner::-webkit-scrollbar{display:none;}
+  .announce-badge{
+    background:rgba(255,255,255,.2);
+    padding:1px 10px;border-radius:20px;font-size:11px;flex-shrink:0;
+  }
+  .announce-item{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;}
+  .announce-item .date{color:rgba(255,255,255,.7);font-size:12px;}
+  .announce-item .name{font-weight:500;}
+
+  /* ===== 页头 ===== */
+  .site-header{
+    position:sticky;top:var(--announce-h);z-index:1000;
+    height:var(--header-h);
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .header-inner{
+    display:flex;align-items:center;gap:24px;
+    max-width:var(--max-width);margin:0 auto;padding:0 24px;height:100%;
+  }
+  .logo{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+  .logo svg{width:32px;height:32px;}
+  .logo-text{font-size:18px;font-weight:700;color:var(--brand-deep);letter-spacing:-.3px;}
+  .header-nav{display:flex;gap:4px;flex-wrap:wrap;align-items:center;}
+  .header-nav a{
+    padding:6px 12px;border-radius:var(--radius-btn);
+    font-size:14px;color:var(--text-secondary);transition:background .15s,color .15s;
+  }
+  .header-nav a:hover,.header-nav a.active{background:var(--brand-light);color:var(--brand-deep);text-decoration:none;}
+  .header-actions{margin-left:auto;display:flex;gap:10px;align-items:center;}
+  .search-box{position:relative;display:flex;align-items:center;}
+  .search-box input{
+    width:160px;padding:6px 12px;border:1px solid var(--border);border-radius:20px;
+    font-size:13px;outline:none;transition:width .2s,border-color .2s;background:#f9fbfc;
+  }
+  .search-box input:focus{width:200px;border-color:var(--brand);background:#fff;}
+  .search-box .no-result{
+    position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--border);
+    border-radius:8px;padding:10px;font-size:13px;color:var(--text-muted);display:none;margin-top:4px;
+  }
+  .search-box .no-result.show{display:block;}
+  .hamburger{display:none;background:none;border:none;padding:4px;flex-direction:column;gap:4px;}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;}
+
+  /* ===== 首屏 ===== */
+  .hero{
+    background:linear-gradient(135deg,var(--brand-light) 0%,#f0f6f9 50%,#eef4f7 100%);
+    padding:40px 0 36px;position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;right:-60px;top:-80px;width:320px;height:320px;
+    border-radius:50%;background:radial-gradient(circle,rgba(31,111,143,.08),transparent 70%);
+  }
+  .hero::after{
+    content:'';position:absolute;left:-40px;bottom:-100px;width:260px;height:260px;
+    border-radius:50%;background:radial-gradient(circle,rgba(31,111,143,.06),transparent 70%);
+  }
+  .hero-content{position:relative;z-index:1;max-width:760px;}
+  .hero-badge{
+    display:inline-block;background:var(--brand);color:#fff;font-size:12px;font-weight:600;
+    padding:2px 12px;border-radius:20px;margin-bottom:14px;
+  }
+  .hero h1{font-size:36px;font-weight:800;color:var(--brand-deep);line-height:1.25;letter-spacing:-.5px;margin-bottom:12px;}
+  .hero-desc{font-size:16px;color:var(--text-secondary);line-height:1.7;margin-bottom:20px;max-width:620px;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:9px 22px;border-radius:var(--radius-btn);
+    font-size:14px;font-weight:600;border:none;transition:background .15s,box-shadow .15s,transform .15s;
+  }
+  .btn-primary{background:var(--brand);color:#fff;}
+  .btn-primary:hover{background:var(--brand-deep);text-decoration:none;box-shadow:0 4px 14px rgba(31,111,143,.25);}
+  .btn-outline{background:transparent;border:1.5px solid var(--brand);color:var(--brand);}
+  .btn-outline:hover{background:var(--brand-light);text-decoration:none;}
+
+  /* ===== 三栏布局 ===== */
+  .page-layout{
+    display:grid;
+    grid-template-columns:170px 1fr 240px;
+    gap:28px;
+    padding:32px 0 48px;
+    align-items:start;
+  }
+  .layout-left{position:sticky;top:calc(var(--sticky-offset) + 16px);}
+  .layout-right{position:sticky;top:calc(var(--sticky-offset) + 16px);}
+
+  /* 左侧频道 */
+  .channel-nav{background:var(--surface);border-radius:var(--radius-card);box-shadow:var(--shadow);padding:16px 0;overflow:hidden;}
+  .channel-nav h2{font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;padding:0 16px 10px;border-bottom:1px solid var(--border);margin-bottom:6px;}
+  .channel-nav ul{list-style:none;}
+  .channel-nav li a{
+    display:block;padding:8px 16px;font-size:14px;color:var(--text-secondary);
+    border-left:3px solid transparent;transition:background .15s,color .15s,border-color .15s;
+  }
+  .channel-nav li a:hover,.channel-nav li a.active{
+    background:var(--brand-light);color:var(--brand-deep);border-left-color:var(--brand);text-decoration:none;
+  }
+
+  /* 主内容 */
+  .main-content{min-width:0;}
+  .section{margin-bottom:36px;}
+  .section:last-child{margin-bottom:0;}
+  .section-title{
+    font-size:20px;font-weight:700;color:var(--text);margin-bottom:16px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .section-title::before{
+    content:'';width:4px;height:20px;background:var(--brand);border-radius:2px;flex-shrink:0;
+  }
+
+  /* 概览 */
+  .overview-text{font-size:15px;color:var(--text-secondary);line-height:1.8;}
+  .overview-text p{margin-bottom:12px;}
+  .overview-text p:last-child{margin-bottom:0;}
+
+  /* 精选卡片 */
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+  .card{
+    background:var(--surface);border-radius:var(--radius-card);box-shadow:var(--shadow);
+    overflow:hidden;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;
+  }
+  .card:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px);}
+  .card-img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--brand-light);}
+  .card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px;}
+  .card-type{
+    display:inline-block;background:var(--brand-light);color:var(--brand-deep);
+    font-size:11px;font-weight:600;padding:1px 8px;border-radius:var(--radius-tag);align-self:flex-start;
+  }
+  .card-title{font-size:15px;font-weight:700;color:var(--text);line-height:1.4;}
+  .card-title:hover{color:var(--brand);text-decoration:none;}
+  .card-desc{font-size:13px;color:var(--text-secondary);line-height:1.6;flex:1;}
+  .card-tags{display:flex;gap:6px;flex-wrap:wrap;}
+  .tag{
+    display:inline-block;background:#f0f4f7;color:var(--text-muted);font-size:11px;
+    padding:1px 7px;border-radius:6px;
+  }
+  .card-meta{display:flex;gap:12px;font-size:12px;color:var(--text-muted);margin-top:4px;}
+
+  /* 最新更新 */
+  .update-list{list-style:none;display:flex;flex-direction:column;gap:0;}
+  .update-item{
+    display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);align-items:baseline;
+  }
+  .update-item:last-child{border-bottom:none;}
+  .update-date{font-size:12px;color:var(--text-muted);white-space:nowrap;min-width:76px;}
+  .update-name{font-weight:600;font-size:14px;color:var(--text);}
+  .update-name:hover{color:var(--brand);}
+  .update-desc{font-size:13px;color:var(--text-secondary);line-height:1.5;}
+
+  /* 分类入口 */
+  .category-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;}
+  .category-item{
+    display:flex;align-items:center;gap:8px;padding:12px 16px;
+    background:var(--surface);border-radius:var(--radius-btn);box-shadow:var(--shadow);
+    font-size:14px;font-weight:600;color:var(--text);transition:background .15s,color .15s,box-shadow .15s;
+    border:1px solid transparent;
+  }
+  .category-item:hover{background:var(--brand-light);color:var(--brand-deep);border-color:var(--brand);text-decoration:none;box-shadow:var(--shadow-hover);}
+  .category-item .count{font-size:12px;font-weight:400;color:var(--text-muted);margin-left:auto;}
+
+  /* 深度解析 */
+  .deep-dive{background:var(--surface);border-radius:var(--radius-card);box-shadow:var(--shadow);padding:24px 28px;}
+  .deep-dive h3{font-size:17px;font-weight:700;color:var(--brand-deep);margin:20px 0 8px;}
+  .deep-dive h3:first-child{margin-top:0;}
+  .deep-dive p{font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:10px;}
+  .deep-dive ul{padding-left:20px;margin-bottom:12px;}
+  .deep-dive li{font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:4px;}
+  .deep-dive strong{color:var(--text);}
+
+  /* 指南步骤 */
+  .guide-steps{display:flex;flex-direction:column;gap:14px;}
+  .guide-step{
+    display:flex;gap:14px;background:var(--surface);border-radius:var(--radius-card);
+    box-shadow:var(--shadow);padding:16px 18px;align-items:flex-start;
+  }
+  .step-num{
+    flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--brand);
+    color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  }
+  .step-body h4{font-size:14px;font-weight:700;margin-bottom:4px;}
+  .step-body p{font-size:13px;color:var(--text-secondary);line-height:1.6;}
+
+  /* FAQ */
+  .faq-list{display:flex;flex-direction:column;gap:8px;}
+  .faq-item{
+    background:var(--surface);border-radius:var(--radius-btn);box-shadow:var(--shadow);
+    overflow:hidden;border:1px solid transparent;
+  }
+  .faq-item[open]{border-color:var(--brand);}
+  .faq-item summary{
+    padding:13px 18px;font-size:14px;font-weight:600;cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;color:var(--text);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+';font-size:18px;color:var(--brand);font-weight:400;transition:transform .2s;}
+  .faq-item[open] summary::after{content:'−';}
+  .faq-answer{padding:0 18px 14px;font-size:13px;color:var(--text-secondary);line-height:1.7;}
+
+  /* 评论 */
+  .comments-list{display:flex;flex-direction:column;gap:10px;}
+  .comment-item{
+    background:var(--surface);border-radius:var(--radius-btn);box-shadow:var(--shadow);padding:12px 16px;
+  }
+  .comment-header{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+  .comment-nick{font-size:13px;font-weight:600;color:var(--brand-deep);}
+  .comment-time{font-size:11px;color:var(--text-muted);margin-left:auto;}
+  .comment-text{font-size:13px;color:var(--text-secondary);line-height:1.65;}
+
+  /* 资讯 */
+  .news-list{list-style:none;display:flex;flex-direction:column;gap:0;}
+  .news-item{padding:12px 0;border-bottom:1px solid var(--border);display:flex;gap:14px;align-items:baseline;}
+  .news-item:last-child{border-bottom:none;}
+  .news-date{font-size:12px;color:var(--text-muted);white-space:nowrap;min-width:76px;}
+  .news-title{font-size:14px;font-weight:600;color:var(--text);}
+  .news-title:hover{color:var(--brand);}
+  .news-summary{font-size:13px;color:var(--text-secondary);line-height:1.5;margin-top:2px;}
+
+  /* 相关推荐 */
+  .related-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .related-tag{
+    display:inline-block;padding:5px 14px;background:var(--surface);border-radius:20px;
+    font-size:13px;color:var(--text-secondary);box-shadow:var(--shadow);transition:background .15s,color .15s;
+    border:1px solid var(--border);
+  }
+  .related-tag:hover{background:var(--brand-light);color:var(--brand-deep);border-color:var(--brand);text-decoration:none;}
+
+  /* 补充板块——时间线 */
+  .timeline{position:relative;padding-left:20px;}
+  .timeline::before{content:'';position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:var(--border);border-radius:2px;}
+  .timeline-item{position:relative;padding:0 0 18px 18px;}
+  .timeline-item::before{content:'';position:absolute;left:-14px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--brand);border:2px solid var(--surface);box-shadow:0 0 0 2px var(--brand);}
+  .timeline-date{font-size:12px;color:var(--text-muted);margin-bottom:2px;}
+  .timeline-title{font-size:14px;font-weight:600;color:var(--text);}
+  .timeline-desc{font-size:13px;color:var(--text-secondary);line-height:1.5;}
+
+  /* 右栏 */
+  .sidebar-card{background:var(--surface);border-radius:var(--radius-card);box-shadow:var(--shadow);padding:16px 18px;margin-bottom:18px;}
+  .sidebar-card h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+  .hot-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .hot-list li{display:flex;gap:8px;align-items:baseline;font-size:13px;}
+  .hot-list .rank{font-weight:700;color:var(--brand);min-width:18px;font-size:12px;}
+  .hot-list a{color:var(--text-secondary);line-height:1.4;}
+  .hot-list a:hover{color:var(--brand);}
+  .sidebar-subscribe{text-align:center;padding:4px 0;}
+  .sidebar-subscribe p{font-size:12px;color:var(--text-muted);margin-bottom:8px;}
+  .sidebar-subscribe .btn{width:100%;justify-content:center;font-size:13px;padding:7px 0;}
+
+  /* 页尾 */
+  .site-footer{background:var(--brand-deep);color:rgba(255,255,255,.8);padding:36px 0 24px;margin-top:16px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;margin-bottom:24px;}
+  .footer-brand .logo-text{color:#fff;font-size:16px;}
+  .footer-brand p{font-size:13px;line-height:1.7;margin-top:8px;color:rgba(255,255,255,.65);}
+  .footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:10px;}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+  .footer-col a{font-size:13px;color:rgba(255,255,255,.65);}
+  .footer-col a:hover{color:#fff;text-decoration:none;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:16px;font-size:12px;color:rgba(255,255,255,.45);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  /* 回到顶部 */
+  .back-top{
+    position:fixed;bottom:28px;right:28px;z-index:999;
+    width:42px;height:42px;border-radius:50%;background:var(--brand);color:#fff;
+    border:none;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s,transform .25s;
+  }
+  .back-top.show{opacity:1;visibility:visible;}
+  .back-top:hover{background:var(--brand-deep);transform:translateY(-2px);}
+
+  /* 响应式 */
+  @media(max-width:1024px){
+    .page-layout{grid-template-columns:1fr 240px;}
+    .layout-left{display:none;}
+    .header-nav{display:none;}
+    .hamburger{display:flex;}
+    .hero h1{font-size:30px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:740px){
+    .page-layout{grid-template-columns:1fr;}
+    .layout-right{position:static;}
+    .hero h1{font-size:26px;}
+    .hero{padding:28px 0 24px;}
+    .card-grid{grid-template-columns:1fr;}
+    .category-grid{grid-template-columns:1fr 1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .header-actions .search-box input{width:110px;}
+    .header-actions .search-box input:focus{width:150px;}
+    .container{padding:0 16px;}
+    .deep-dive{padding:18px 16px;}
+  }
+
+  /* 移动端菜单 */
+  .mobile-nav{
+    display:none;position:fixed;top:var(--sticky-offset);left:0;right:0;bottom:0;
+    background:rgba(0,0,0,.35);z-index:1002;
+  }
+  .mobile-nav.open{display:block;}
+  .mobile-nav-panel{
+    background:var(--surface);width:78%;max-width:300px;height:100%;overflow-y:auto;
+    padding:20px 0;box-shadow:4px 0 20px rgba(0,0,0,.1);
+  }
+  .mobile-nav-panel h3{font-size:13px;font-weight:700;color:var(--text-muted);padding:0 20px 10px;border-bottom:1px solid var(--border);margin-bottom:6px;}
+  .mobile-nav-panel a{display:block;padding:10px 20px;font-size:14px;color:var(--text-secondary);}
+  .mobile-nav-panel a:hover{background:var(--brand-light);color:var(--brand-deep);text-decoration:none;}
+  .mobile-nav-close{
+    position:absolute;top:16px;right:16px;background:none;border:none;font-size:22px;color:#fff;
+    width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+  }
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce-bar">
+  <div class="announce-inner">
+    <span class="announce-badge">136福利水平导航</span>
+    <span class="announce-item"><span class="date">11月8日</span><span class="name">「菠菜导航」新增12个可用节点</span></span>
+    <span class="announce-item"><span class="date">11月7日</span><span class="name">「乐鱼体育」入口更新至v3.2</span></span>
+    <span class="announce-item"><span class="date">11月6日</span><span class="name">「凤凰娱乐」备用域名上线</span></span>
+    <span class="announce-item"><span class="date">11月5日</span><span class="name">导航工具「LinkChecker」修复误报</span></span>
+  </div>
+</div>
+
+<!-- 页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo" aria-label="136福利水平导航首页">
+      <svg viewBox="0 0 64 64" width="32" height="32" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1f6f8f"/>
+        <path d="M18 46V18h9.5c6.2 0 10.5 3.6 10.5 9.2 0 4.1-2.2 7.2-5.8 8.5L42 46h-8.3l-7.7-9.2H26V46h-8zm8-15.4h1.5c2.4 0 3.9-1.3 3.9-3.4 0-2.1-1.5-3.3-3.9-3.3H26v6.7z" fill="#fff"/>
+      </svg>
+      <span class="logo-text">136福利水平导航</span>
+    </a>
+    <nav class="header-nav" aria-label="主导航">
+      <a href="#overview" class="active">领域概览</a>
+      <a href="#featured">精选推荐</a>
+      <a href="#updates">最新更新</a>
+      <a href="#categories">分类入口</a>
+      <a href="#deep-dive">深度解析</a>
+      <a href="#guide">体验指南</a>
+      <a href="#faq">常见问答</a>
+      <a href="#comments">用户评论</a>
+      <a href="#news">相关资讯</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-box">
+        <input type="search" placeholder="搜索导航资源…" aria-label="搜索站内资源" id="searchInput">
+        <div class="no-result" id="noResult">没有找到匹配内容，试试其他关键词。</div>
+      </div>
+      <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 移动端导航 -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="移动端导航菜单">
+  <div class="mobile-nav-panel">
+    <h3>频道导航</h3>
+    <a href="#overview">领域概览</a>
+    <a href="#featured">精选推荐</a>
+    <a href="#updates">最新更新</a>
+    <a href="#categories">分类入口</a>
+    <a href="#deep-dive">深度解析</a>
+    <a href="#guide">体验指南</a>
+    <a href="#faq">常见问答</a>
+    <a href="#comments">用户评论</a>
+    <a href="#news">相关资讯</a>
+    <a href="#recommend">相关推荐</a>
+    <a href="#timeline">更新时间线</a>
+  </div>
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="关闭菜单">✕</button>
+</div>
+
+<!-- 首屏 -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">实时更新 · 2026年11月8日</span>
+      <h1>136福利水平导航</h1>
+      <p class="hero-desc">汇聚菠菜导航、乐鱼体育、凤凰娱乐等主流平台的可用入口与备用节点，提供导航工具下载、域名有效性检测和每日更新日志。找资源、查节点、验有效性，一站完成。</p>
+      <div class="hero-actions">
+        <a href="#featured" class="btn btn-primary">查看精选导航 →</a>
+        <a href="#updates" class="btn btn-outline">最新更新日志</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 主内容区：三栏门户 -->
+<div class="container">
+  <div class="page-layout">
+
+    <!-- 左栏：频道索引 -->
+    <aside class="layout-left">
+      <nav class="channel-nav" aria-label="频道索引">
+        <h2>频道索引</h2>
+        <ul>
+          <li><a href="#featured" class="active">精选导航</a></li>
+          <li><a href="#updates">更新日志</a></li>
+          <li><a href="#categories">分类索引</a></li>
+          <li><a href="#deep-dive">深度解析</a></li>
+          <li><a href="#guide">使用指南</a></li>
+          <li><a href="#faq">常见问答</a></li>
+          <li><a href="#comments">用户评论</a></li>
+          <li><a href="#news">相关资讯</a></li>
+          <li><a href="#recommend">相关推荐</a></li>
+          <li><a href="#timeline">更新时间线</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- 中栏：主内容 -->
+    <main class="main-content">
+
+      <!-- 板块1：领域概览 -->
+      <section class="section" id="overview">
+        <h2 class="section-title">福利导航领域概览</h2>
+        <div class="overview-text">
+          <p>福利导航这个领域，核心解决的是“入口在哪里”和“入口还能不能用”两个问题。围绕这两个问题，衍生出导航站、节点检测工具、域名备用库和社区反馈四条内容线。导航站提供分类目录和直达链接，节点检测负责定期验证域名存活状态，备用库记录每个平台的备用域名和IP，社区反馈则汇总用户在实际访问中遇到的异常。</p>
+          <p>2026年11月前后，行业里比较受关注的变化集中在三个方向。一是菠菜导航类平台开始提供“智能线路”功能，根据用户网络运营商自动分配最快节点，取代了以往手动切换线路的做法。二是乐鱼体育在11月3日更新了v3.2客户端，新增了线路延迟实时显示，用户可以在入口页直接看到各条线路的毫秒数。三是凤凰娱乐在11月6日上线了新的备用域名体系，将原本的8个备用域名缩减为5个，但每个域名增加了多IP轮询。</p>
+          <p>对于普通用户来说，值得关注的具体内容类型包括：每日更新的可用节点列表、各平台的备用域名对照表、导航工具的版本更新说明、以及用户实测反馈汇总。这些内容的价值在于时效性——一个链接今天有效，明天可能就被屏蔽，所以更新频率比内容丰富度更重要。</p>
+        </div>
+      </section>
+
+      <!-- 板块2：精选内容推荐 -->
+      <section class="section" id="featured">
+        <h2 class="section-title">精选导航资源</h2>
+        <div class="card-grid">
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/nav_bocai1/400/300" alt="菠菜导航智能线路选择界面示意图" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <span class="card-type">导航站</span>
+              <a href="#featured" class="card-title">菠菜导航 · 智能线路版</a>
+              <p class="card-desc">11月8日更新，新增12个可用节点，支持根据运营商自动分配最快线路。实测电信网络平均延迟42ms。</p>
+              <div class="card-tags"><span class="tag">智能线路</span><span class="tag">多节点</span><span class="tag">实时检测</span></div>
+              <div class="card-meta"><span>热度 9.2</span><span>更新于 11月8日</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/leyu_sport/400/300" alt="乐鱼体育v3.2客户端线路延迟显示界面" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <span class="card-type">体育平台</span>
+              <a href="#featured" class="card-title">乐鱼体育 v3.2 客户端</a>
+              <p class="card-desc">11月3日版本更新，主界面新增线路延迟实时显示条，绿色代表低于60ms，黄色60-120ms，红色高于120ms。</p>
+              <div class="card-tags"><span class="tag">客户端</span><span class="tag">延迟显示</span><span class="tag">线路测速</span></div>
+              <div class="card-meta"><span>热度 8.8</span><span>更新于 11月3日</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/fenghuang_domain/400/300" alt="凤凰娱乐备用域名对照表页面" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <span class="card-type">娱乐平台</span>
+              <a href="#featured" class="card-title">凤凰娱乐 · 备用域名对照表</a>
+              <p class="card-desc">11月6日缩减至5个备用域名，每个域名配置3组IP轮询。对照表标注了各域名最近一次检测通过的时间。</p>
+              <div class="card-tags"><span class="tag">备用域名</span><span class="tag">IP轮询</span><span class="tag">对照表</span></div>
+              <div class="card-meta"><span>热度 8.5</span><span>更新于 11月6日</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/linkchecker_tool/400/300" alt="LinkChecker导航工具检测结果面板" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <span class="card-type">检测工具</span>
+              <a href="#featured" class="card-title">LinkChecker 2.4</a>
+              <p class="card-desc">批量检测导航链接有效性的桌面工具，11月5日修复了HTTPS站点误报问题。支持导出CSV格式的检测报告。</p>
+              <div class="card-tags"><span class="tag">批量检测</span><span class="tag">误报修复</span><span class="tag">CSV导出</span></div>
+              <div class="card-meta"><span>热度 7.9</span><span>更新于 11月5日</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/tiyu_live/400/300" alt="体育直播线路聚合页多窗口预览" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <span class="card-type">直播聚合</span>
+              <a href="#featured" class="card-title">体育直播线路聚合页</a>
+              <p class="card-desc">汇总乐鱼体育、雷速体育、球探体育三个平台的直播线路，按赛事分类排列。11月7日新增英超联赛入口。</p>
+              <div class="card-tags"><span class="tag">直播聚合</span><span class="tag">赛事分类</span><span class="tag">英超</span></div>
+              <div class="card-meta"><span>热度 8.1</span><span>更新于 11月7日</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/bocai_mirror/400/300" alt="菠菜导航备用镜像站布局对比" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <span class="card-type">镜像站</span>
+              <a href="#featured" class="card-title">菠菜导航 · 备用镜像三站</a>
+              <p class="card-desc">主站之外提供三个镜像站，内容与主站同步延迟约3-5分钟。镜像站使用独立域名，检测频率为主站的一半。</p>
+              <div class="card-tags"><span class="tag">镜像站</span><span class="tag">同步延迟</span><span class="tag">独立域名</span></div>
+              <div class="card-meta"><span>热度 7.6</span><span>更新于 11月4日</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/nav_monitor/400/300" alt="导航监控面板显示各平台状态指示灯" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <span class="card-type">监控面板</span>
+              <a href="#featured" class="card-title">导航状态监控面板</a>
+              <p class="card-desc">以30分钟为间隔轮询各平台入口，状态灯分绿（可达）、黄（延迟高）、红（不可达）三档。11月8日数据显示菠菜导航可用率98.2%。</p>
+              <div class="card-tags"><span class="tag">状态监控</span><span class="tag">可用率</span><span class="tag">轮询</span></div>
+              <div class="card-meta"><span>热度 7.4</span><span>更新于 11月8日</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/community_fb/400/300" alt="社区用户反馈汇总表格截图" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <span class="card-type">社区反馈</span>
+              <a href="#featured" class="card-title">用户实测反馈汇总（11月第1周）</a>
+              <p class="card-desc">收集自三个导航交流群的137条反馈，按平台分类整理。高频问题集中在移动网络下的DNS解析失败。</p>
+              <div class="card-tags"><span class="tag">实测反馈</span><span class="tag">DNS解析</span><span class="tag">移动网络</span></div>
+              <div class="card-meta"><span>热度 7.2</span><span>更新于 11月8日</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 板块3：最新更新 -->
+      <section class="section" id="updates">
+        <h2 class="section-title">最新更新与动态</h2>
+        <ul class="update-list">
+          <li class="update-item">
+            <span class="update-date">11月8日 09:15</span>
+            <div><a href="#featured" class="update-name">菠菜导航新增12个可用节点</a><p class="update-desc">覆盖电信、联通、移动三网，其中电信节点平均延迟42ms，联通58ms，移动71ms。</p></div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">11月7日 16:40</span>
+            <div><a href="#featured" class="update-name">体育直播线路聚合页新增英超入口</a><p class="update-desc">本轮英超第11轮比赛全部纳入，包含曼城对热刺等6场赛事的直播线路。</p></div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">11月6日 11:20</span>
+            <div><a href="#featured" class="update-name">凤凰娱乐备用域名缩减至5个</a><p class="update-desc">原8个备用域名中3个因证书问题下线，剩余5个各增加2组备用IP。</p></div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">11月5日 14:05</span>
+            <div><a href="#featured" class="update-name">LinkChecker 2.4发布</a><p class="update-desc">修复HTTPS检测误报，新增CSV导出功能，单次可检测最多500条链接。</p></div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">11月4日 10:30</span>
+            <div><a href="#featured" class="update-name">菠菜导航备用镜像三站上线</a><p class="update-desc">镜像站内容同步延迟3-5分钟，适合主站访问异常时临时使用。</p></div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">11月3日 09:00</span>
+            <div><a href="#featured" class="update-name">乐鱼体育v3.2客户端推送更新</a><p class="update-desc">新增线路延迟实时显示条，支持手动刷新测速结果，旧版v3.1将于11月30日停止维护。</p></div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">11月2日 18:22</span>
+            <div><a href="#featured" class="update-name">导航状态监控面板上线</a><p class="update-desc">每30分钟轮询一次，首批接入菠菜导航、乐鱼体育、凤凰娱乐三个平台。</p></div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">11月1日 12:10</span>
+            <div><a href="#featured" class="update-name">社区实测反馈汇总第1期发布</a><p class="update-desc">收集137条用户反馈，DNS解析失败占问题总量的34%，集中在移动4G网络。</p></div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 板块4：分类入口 -->
+      <section class="section" id="categories">
+        <h2 class="section-title">按类别找入口</h2>
+        <div class="category-grid">
+          <a href="#featured" class="category-item">导航站点<span class="count">24个</span></a>
+          <a href="#featured" class="category-item">体育平台<span class="count">18个</span></a>
+          <a href="#featured" class="category-item">娱乐平台<span class="count">15个</span></a>
+          <a href="#featured" class="category-item">检测工具<span class="count">9个</span></a>
+          <a href="#featured" class="category-item">备用域名<span class="count">42条</span></a>
+          <a href="#featured" class="category-item">线路测速<span class="count">7个</span></a>
+          <a href="#featured" class="category-item">镜像站点<span class="count">11个</span></a>
+          <a href="#featured" class="category-item">社区反馈<span class="count">136条</span></a>
+        </div>
+      </section>
+
+      <!-- 板块5：深度解析 -->
+      <section class="section" id="deep-dive">
+        <h2 class="section-title">深度解析：导航质量怎么判断</h2>
+        <div class="deep-dive">
+          <h3>可用率数据背后：三个环节决定导航质量</h3>
+          <p>一个导航站标称“可用率98%”，这个数字本身说明不了太多问题。拆开看，可用率由三个环节决定：域名解析成功率、服务器响应速度、内容加载完整度。菠菜导航11月8日公布的98.2%可用率，拆解后是解析成功率99.1%、响应平均耗时1.3秒、内容加载完整度97.6%。三个数字里，响应耗时是用户感知最明显的——超过2秒的等待会让大部分人直接关掉页面。</p>
+          <p>乐鱼体育v3.2的线路延迟显示功能，本质上把响应速度这个环节透明化了。用户能看到每条线路的毫秒数，绿色低于60ms、黄色60到120ms、红色高于120ms。这个设计的好处是让“换线路”有了依据。之前用户碰到卡顿只能逐条试，现在至少知道该换哪一条。</p>
+
+          <h3>备用域名不是越多越好</h3>
+          <p>凤凰娱乐11月6日把备用域名从8个缩减到5个，这个动作值得细看。表面上是数量减少，实际是每个域名增加了2组备用IP，总可用入口数从8个变成15个。逻辑变了：以前是“多准备几个域名”，现在是“每个域名多准备几个IP”。两种策略的差别在于，域名被屏蔽的响应速度比IP被屏蔽慢，所以IP轮询在应对局部封锁时更灵活。</p>
+          <p>判断一个平台的备用体系靠不靠谱，可以查三个东西：备用域名最近一次检测通过的时间、每个域名下挂了几组IP、IP轮询的切换延迟。凤凰娱乐目前这三个数据的公开程度在同类平台里算高的——对照表上直接标注了检测时间，精确到分钟。</p>
+
+          <h3>社区反馈的可信度分层</h3>
+          <p>导航社区里每天产生大量反馈，但信息质量参差不齐。以11月第1周收集的137条反馈为例，可以分三层来看。第一层是带截图和时间戳的实测报告，大约23条，这类信息可信度最高，因为可以核对。第二层是文字描述加平台名和线路名，约61条，可信度中等，需要交叉验证。第三层是只说“打不开”“卡死了”但没有具体信息的，约53条，参考价值有限。</p>
+          <p>一个具体的例子：有用户反馈“移动网络下菠菜导航解析失败”，这条属于第二层。交叉核对后发现，同一时段另有4条类似反馈，都指向移动4G网络，且都发生在11月7日下午2点到4点之间。这就从单条模糊反馈变成了有时间和范围的具体问题，可以进一步排查是DNS污染还是局部网络故障。</p>
+        </div>
+      </section>
+
+      <!-- 板块6：体验指南 -->
+      <section class="section" id="guide">
+        <h2 class="section-title">使用顺序与判断依据</h2>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <span class="step-num">1</span>
+            <div class="step-body">
+              <h4>先看状态监控面板，再决定点哪个入口</h4>
+              <p>状态监控面板每30分钟更新一次，绿灯代表可达、黄灯延迟高、红灯不可达。直接点绿灯的入口，省去自己试错的时间。11月8日的数据里，菠菜导航三个入口亮绿灯，凤凰娱乐两个绿灯一个黄灯。</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <span class="step-num">2</span>
+            <div class="step-body">
+              <h4>用LinkChecker批量筛一遍备用域名</h4>
+              <p>手头如果有一批备用域名，先跑一遍批量检测。2.4版本单次最多检测500条，结果导出CSV。重点看“HTTPS证书”和“响应时间”两列，证书过期的直接划掉，响应超过3秒的放到备用列表末尾。</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <span class="step-num">3</span>
+            <div class="step-body">
+              <h4>比较同类平台时，盯住三个数据</h4>
+              <p>拿乐鱼体育和凤凰娱乐做对比，看三个数就够了：平均响应时间、备用入口数量、最近一次检测距今多久。乐鱼体育平均响应1.1秒、备用入口9个、检测更新间隔6小时；凤凰娱乐平均响应1.4秒、备用入口15个、检测更新间隔4小时。选哪个取决于你更在意速度还是冗余度。</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <span class="step-num">4</span>
+            <div class="step-body">
+              <h4>社区反馈交叉验证：找同时段同线路的报告</h4>
+              <p>碰到访问异常时，先别急着换平台。去反馈汇总里搜同一个时段、同一条线路名称。如果有多条报告指向同一个问题，说明是平台侧或线路侧的问题，换入口解决不了；如果只有你一个人报，大概率是本地网络问题。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 板块7：FAQ -->
+      <section class="section" id="faq">
+        <h2 class="section-title">常见问题</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>菠菜导航的智能线路分配准确吗？</summary>
+            <div class="faq-answer">11月8日的实测数据显示，电信网络下智能分配选择的是42ms的节点，手动测速最低的是39ms的节点，差距在3ms以内。联通网络下智能分配选58ms，手动最低54ms。移动网络下智能分配选71ms，手动最低63ms，差距稍大。整体看智能分配在电信和联通网络下接近最优，移动网络下还有优化空间。</div>
+          </details>
+          <details class="faq-item">
+            <summary>乐鱼体育v3.2的延迟显示为什么和实际体感不一样？</summary>
+            <div class="faq-answer">延迟显示测的是客户端到入口服务器的ICMP响应时间，不包含页面内视频流拉取的时间。所以会出现延迟显示绿色但视频仍然卡的情况。11月3日版本更新说明里写了，延迟数据每15秒刷新一次，视频卡顿要综合看线路负载，负载数据在客户端设置页的“高级信息”里。</div>
+          </details>
+          <details class="faq-item">
+            <summary>凤凰娱乐为什么把备用域名从8个减到5个？</summary>
+            <div class="faq-answer">11月6日的更新公告给出的原因是“证书统一管理”。原来8个域名里有3个用的是不同批次的证书，其中2个在10月底出现证书链不完整的告警。缩减到5个之后，所有域名共用同一套证书配置，维护成本降低。同时每个域名增加了2组备用IP，总入口数从8个变成15个，实际冗余度反而提高了。</div>
+          </details>
+          <details class="faq-item">
+            <summary>LinkChecker检测显示绿色，但浏览器打不开是什么原因？</summary>
+            <div class="faq-answer">LinkChecker检测的是HTTP状态码和证书有效性，不检测页面内容是否完整加载。常见的情况是：服务器返回200但页面依赖的CDN资源被拦截。11月5日修复的误报问题就和这个有关——之前HTTPS站点只要证书有效就报绿，2.4版本增加了“内容长度校验”，如果返回内容小于预期的30%会标记为黄色。</div>
+          </details>
+          <details class="faq-item">
+            <summary>导航状态监控面板的数据多久更新一次？</summary>
+            <div class="faq-answer">轮询间隔固定为30分钟，三个平台各有一个独立检测线程。面板上显示的时间戳是最后一次检测完成的时间。11月8日的数据显示，最近一次完整轮询在09:00完成，下一轮在09:30。如果某个平台连续两次检测不可达，面板会标红并在备注栏显示错误类型（超时、DNS解析失败、连接被重置）。</div>
+          </details>
+          <details class="faq-item">
+            <summary>社区反馈里说的“DNS污染”和“线路屏蔽”怎么区分？</summary>
+            <div class="faq-answer">最简单的判断方法：换一个DNS服务器再访问。如果换了DNS（比如从运营商默认DNS换成公共DNS）就能打开，说明是DNS污染；换了DNS还是打不开，说明是线路层面的屏蔽。11月7日下午那批移动4G的反馈，有用户换了公共DNS后恢复正常，所以归类为DNS问题而非线路屏蔽。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 板块8：用户评论 -->
+      <section class="section" id="comments">
+        <h2 class="section-title">用户评论</h2>
+        <div class="comments-list">
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">老猫烧须</span><span class="comment-time">11月8日 10:22</span></div><p class="comment-text">菠菜导航新加的12个节点里，电信那个42ms确实快，比之前用的镜像站稳定多了。移动的71ms也能用，看直播不卡。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">数据搬运工</span><span class="comment-time">11月8日 09:50</span></div><p class="comment-text">LinkChecker 2.4导出CSV挺好用的，一次跑了380条，标出来17个证书过期的。就是界面还是有点丑。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">南城旧事</span><span class="comment-time">11月7日 22:15</span></div><p class="comment-text">凤凰娱乐那个备用域名缩减，一开始以为缩水了，仔细看发现是5个域名每个挂3组IP，总共15个入口，比之前8个还多。这波操作可以。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">三分线外</span><span class="comment-time">11月7日 20:40</span></div><p class="comment-text">乐鱼v3.2的延迟显示有点用，但视频卡不卡跟这个延迟关系不大吧？我这边显示绿色照样卡。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">路人甲乙丙</span><span class="comment-time">11月7日 18:33</span></div><p class="comment-text">昨天下午移动4G死活打不开菠菜导航，换了DNS就好了。看来是DNS污染不是线路问题。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">键盘上的烟灰</span><span class="comment-time">11月7日 15:12</span></div><p class="comment-text">体育直播聚合页加了英超入口，这轮曼城对热刺的线路有四个，清晰度还行，就是解说声音有点小。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">不吃香菜</span><span class="comment-time">11月7日 11:05</span></div><p class="comment-text">镜像站延迟3-5分钟能接受，主站打不开的时候有个备用的就行。三个镜像站我测了一下，两个能打开，一个提示维护中。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">深夜修车铺</span><span class="comment-time">11月6日 23:48</span></div><p class="comment-text">状态监控面板挺直观的，绿灯点进去基本都能开。黄灯那个凤凰娱乐的入口，点进去确实慢，等了三四秒才出来。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">麦田守望</span><span class="comment-time">11月6日 19:20</span></div><p class="comment-text">反馈汇总里那53条没头没尾的“打不开”看着挺烦的，好歹写个平台名和网络环境吧。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">蓝白条纹</span><span class="comment-time">11月6日 14:10</span></div><p class="comment-text">乐鱼v3.1月底就停维护了？那得赶紧升3.2了，别到时候旧版直接连不上。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">一壶浊酒</span><span class="comment-time">11月5日 21:55</span></div><p class="comment-text">说实话导航站最重要的就是更新勤快，内容多不多反而是其次。一个链接失效了没人管，下次就不来了。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">山顶洞人</span><span class="comment-time">11月5日 16:30</span></div><p class="comment-text">LinkChecker之前版本确实有误报，明明能打开的站标红，2.4修了之后好多了。就是检测速度慢了点，500条跑了快6分钟。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">橘子汽水</span><span class="comment-time">11月5日 09:18</span></div><p class="comment-text">备用域名对照表那个“最近检测时间”挺实用的，一眼就能看出来哪些是刚验过的，哪些是几天前的。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">铁皮鼓</span><span class="comment-time">11月4日 22:40</span></div><p class="comment-text">菠菜那个镜像站，三个里两个能打开，同步延迟我没细测，反正内容看着是一样的。有一个一直显示维护中，不知道是不是已经废弃了。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">小楼昨夜</span><span class="comment-time">11月4日 17:05</span></div><p class="comment-text">体育直播线路多了也麻烦，选哪个好得一个个试。要是能加个推荐线路的标记就好了，省得自己测。</p></div>
+          <div class="comment-item"><div class="comment-header"><span class="comment-nick">风清扬</span><span class="comment-time">11月3日 20:30</span></div><p class="comment-text">v3.2那个延迟条颜色分档挺合理的，绿色黄色红色，一眼就知道该不该换线。之前全靠感觉，现在至少有数据参考。</p></div>
+        </div>
+      </section>
+
+      <!-- 板块9：相关资讯 -->
+      <section class="section" id="news">
+        <h2 class="section-title">相关资讯</h2>
+        <ul class="news-list">
+          <li class="news-item">
+            <span class="news-date">11月8日</span>
+            <div><a href="#news" class="news-title">菠菜导航11月8日节点更新：电信42ms、联通58ms、移动71ms</a><p class="news-summary">本轮更新覆盖三网共12个节点，较11月1日版本增加4个。移动节点首次进入70ms区间，此前最低为83ms。</p></div>
+          </li>
+          <li class="news-item">
+            <span class="news-date">11月7日</span>
+            <div><a href="#news" class="news-title">体育直播聚合页收录英超第11轮6场赛事线路</a><p class="news-summary">曼城对热刺的线路数量最多，共4条；布莱顿对西汉姆联仅2条。所有线路均标注了推流码率和帧率。</p></div>
+          </li>
+          <li class="news-item">
+            <span class="news-date">11月6日</span>
+            <div><a href="#news" class="news-title">凤凰娱乐备用域名从8个缩减至5个，单域名IP数增至3组</a><p class="news-summary">3个因证书链不完整下线的域名中，有1个在10月28日已出现告警但未处理。剩余5个域名共用同一套证书配置。</p></div>
+          </li>
+          <li class="news-item">
+            <span class="news-date">11月5日</span>
+            <div><a href="#news" class="news-title">LinkChecker 2.4增加内容长度校验，HTTPS误报率下降至2.1%</a><p class="news-summary">2.3版本误报率约为9.7%，主要原因是只检测证书不检测内容。新版本对返回内容小于预期30%的站点标记为黄色。</p></div>
+          </li>
+          <li class="news-item">
+            <span class="news-date">11月4日</span>
+            <div><a href="#news" class="news-title">菠菜导航备用镜像三站上线，同步延迟3-5分钟</a><p class="news-summary">三个镜像站使用独立域名，内容抓取频率为主站的一半。11月4日首次同步完成时间为14:32。</p></div>
+          </li>
+          <li class="news-item">
+            <span class="news-date">11月3日</span>
+            <div><a href="#news" class="news-title">乐鱼体育v3.2发布：新增线路延迟实时显示，旧版v3.1月底停维</a><p class="news-summary">延迟数据每15秒刷新一次，分绿黄红三档。v3.1用户将在11月30日后无法连接新版服务器。</p></div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 板块10：相关推荐 -->
+      <section class="section" id="recommend">
+        <h2 class="section-title">相关推荐</h2>
+        <div class="related-tags">
+          <a href="#featured" class="related-tag">菠菜导航智能线路</a>
+          <a href="#featured" class="related-tag">乐鱼体育线路延迟</a>
+          <a href="#featured" class="related-tag">凤凰娱乐备用域名</a>
+          <a href="#featured" class="related-tag">LinkChecker批量检测</a>
+          <a href="#featured" class="related-tag">体育直播线路聚合</a>
+          <a href="#featured" class="related-tag">导航状态监控</a>
+          <a href="#featured" class="related-tag">社区实测反馈</a>
+          <a href="#featured" class="related-tag">镜像站同步延迟</a>
+        </div>
+      </section>
+
+      <!-- 板块11：补充板块——更新时间线 -->
+      <section class="section" id="timeline">
+        <h2 class="section-title">11月更新时间线</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">11月8日</div>
+            <div class="timeline-title">菠菜导航新增12个可用节点</div>
+            <div class="timeline-desc">三网覆盖，电信节点平均延迟42ms，为近期最优数据。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">11月7日</div>
+            <div class="timeline-title">体育直播线路聚合页收录英超第11轮</div>
+            <div class="timeline-desc">6场赛事共18条线路，其中曼城对热刺占4条。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">11月6日</div>
+            <div class="timeline-title">凤凰娱乐备用域名体系调整</div>
+            <div class="timeline-desc">域名数量从8个减至5个，单域名IP数从2组增至3组。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">11月5日</div>
+            <div class="timeline-title">LinkChecker 2.4发布</div>
+            <div class="timeline-desc">修复HTTPS误报，新增内容长度校验和CSV导出。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">11月4日</div>
+            <div class="timeline-title">菠菜导航备用镜像三站上线</div>
+            <div class="timeline-desc">独立域名，同步延迟3-5分钟，抓取频率为主站一半。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">11月3日</div>
+            <div class="timeline-title">乐鱼体育v3.2客户端推送</div>
+            <div class="timeline-desc">新增线路延迟实时显示条，v3.1将于11月30日停维。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">11月2日</div>
+            <div class="timeline-title">导航状态监控面板上线</div>
+            <div class="timeline-desc">30分钟轮询间隔，首批接入三个平台。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">11月1日</div>
+            <div class="timeline-title">社区实测反馈汇总第1期发布</div>
+            <div class="timeline-desc">137条反馈中，DNS解析失败占34%，集中在移动4G网络。</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 右栏：辅助栏 -->
+    <aside class="layout-right">
+      <div class="sidebar-card">
+        <h3>今日热度榜</h3>
+        <ol class="hot-list">
+          <li><span class="rank">1</span><a href="#featured">菠菜导航智能线路版</a></li>
+          <li><span class="rank">2</span><a href="#featured">乐鱼体育v3.2客户端</a></li>
+          <li><span class="rank">3</span><a href="#featured">凤凰娱乐备用域名对照表</a></li>
+          <li><span class="rank">4</span><a href="#featured">LinkChecker 2.4</a></li>
+          <li><span class="rank">5</span><a href="#featured">体育直播线路聚合页</a></li>
+          <li><span class="rank">6</span><a href="#featured">导航状态监控面板</a></li>
+          <li><span class="rank">7</span><a href="#featured">菠菜导航备用镜像三站</a></li>
+          <li><span class="rank">8</span><a href="#featured">社区实测反馈汇总</a></li>
+        </ol>
+      </div>
+      <div class="sidebar-card">
+        <h3>投稿与互动</h3>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">发现新的可用节点或备用域名？欢迎提交实测报告，审核通过后展示在社区反馈汇总中。</p>
+        <a href="#comments" class="btn btn-outline" style="width:100%;justify-content:center;font-size:13px;padding:7px 0;">提交反馈</a>
+      </div>
+      <div class="sidebar-card sidebar-subscribe">
+        <h3 style="border:none;padding:0;margin-bottom:6px;">更新提醒</h3>
+        <p>节点变动频繁，建议每天查看一次更新日志。</p>
+        <a href="#updates" class="btn btn-primary" style="font-size:13px;">查看今日更新</a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-text">136福利水平导航</span>
+        <p>覆盖导航站、体育平台、娱乐平台三类入口，收录检测工具与备用域名体系。内容以日更节点、周更汇总和月度时间线构成。</p>
+      </div>
+      <div class="footer-col">
+        <h4>频道入口</h4>
+        <ul>
+          <li><a href="#featured">精选导航</a></li>
+          <li><a href="#updates">更新日志</a></li>
+          <li><a href="#categories">分类索引</a></li>
+          <li><a href="#deep-dive">深度解析</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>工具与反馈</h4>
+        <ul>
+          <li><a href="#featured">LinkChecker下载</a></li>
+          <li><a href="#timeline">更新时间线</a></li>
+          <li><a href="#comments">社区反馈</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>关于</h4>
+        <ul>
+          <li><a href="#overview">领域概览</a></li>
+          <li><a href="#guide">使用指南</a></li>
+          <li><a href="#news">相关资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>内容更新至 2026年11月8日 · 条目为示例数据，仅作导航参考</span>
+      <span>136福利水平导航 · 内容聚合展示</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 回到顶部 -->
+<button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  // 搜索过滤
+  var searchInput = document.getElementById('searchInput');
+  var noResult = document.getElementById('noResult');
+  if(searchInput){
+    searchInput.addEventListener('input', function(){
+      var q = this.value.trim().toLowerCase();
+      var cards = document.querySelectorAll('.card, .update-item, .faq-item, .news-item, .comment-item');
+      var found = 0;
+      cards.forEach(function(el){
+        var text = el.textContent.toLowerCase();
+        if(!q || text.indexOf(q) > -1){
+          el.style.display = '';
+          found++;
+        } else {
+          el.style.display = 'none';
+        }
+      });
+      noResult.classList.toggle('show', q.length > 0 && found === 0);
+    });
+  }
+
+  // 移动端菜单
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  var mobileClose = document.getElementById('mobileNavClose');
+  function openNav(){
+    mobileNav.classList.add('open');
+    hamburger.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNav(){
+    mobileNav.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  if(hamburger) hamburger.addEventListener('click', function(){ mobileNav.classList.contains('open') ? closeNav() : openNav(); });
+  if(mobileClose) mobileClose.addEventListener('click', closeNav);
+  if(mobileNav) mobileNav.addEventListener('click', function(e){ if(e.target === mobileNav) closeNav(); });
+  document.querySelectorAll('.mobile-nav-panel a').forEach(function(a){ a.addEventListener('click', closeNav); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && mobileNav.classList.contains('open')) closeNav(); });
+
+  // 回到顶部
+  var backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', function(){
+    backTop.classList.toggle('show', window.scrollY > window.innerHeight);
+  });
+  backTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // 频道高亮
+  var sections = document.querySelectorAll('.section[id]');
+  var navLinks = document.querySelectorAll('.channel-nav a, .header-nav a');
+  if(sections.length && navLinks.length){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var id = entry.target.id;
+          navLinks.forEach(function(link){
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, {rootMargin: '-20% 0px -60% 0px'});
+    sections.forEach(function(s){ observer.observe(s); });
+  }
+})();
+</script>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "136福利水平导航",
+  "description": "汇聚福利资源导航、实用工具与可靠信息渠道，提供最新福利动态、精选站点推荐、分类索引与深度使用指南。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "菠菜导航的智能线路分配准确吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "11月8日的实测数据显示，电信网络下智能分配选择的是42ms的节点，手动测速最低的是39ms的节点，差距在3ms以内。联通网络下智能分配选58ms，手动最低54ms。移动网络下智能分配选71ms，手动最低63ms，差距稍大。整体看智能分配在电信和联通网络下接近最优，移动网络下还有优化空间。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "乐鱼体育v3.2的延迟显示为什么和实际体感不一样？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "延迟显示测的是客户端到入口服务器的ICMP响应时间，不包含页面内视频流拉取的时间。所以会出现延迟显示绿色但视频仍然卡的情况。11月3日版本更新说明里写了，延迟数据每15秒刷新一次，视频卡顿要综合看线路负载，负载数据在客户端设置页的“高级信息”里。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "凤凰娱乐为什么把备用域名从8个减到5个？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "11月6日的更新公告给出的原因是“证书统一管理”。原来8个域名里有3个用的是不同批次的证书，其中2个在10月底出现证书链不完整的告警。缩减到5个之后，所有域名共用同一套证书配置，维护成本降低。同时每个域名增加了2组备用IP，总入口数从8个变成15个，实际冗余度反而提高了。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "LinkChecker检测显示绿色，但浏览器打不开是什么原因？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LinkChecker检测的是HTTP状态码和证书有效性，不检测页面内容是否完整加载。常见的情况是：服务器返回200但页面依赖的CDN资源被拦截。11月5日修复的误报问题就和这个有关——之前HTTPS站点只要证书有效就报绿，2.4版本增加了“内容长度校验”，如果返回内容小于预期的30%会标记为黄色。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "导航状态监控面板的数据多久更新一次？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "轮询间隔固定为30分钟，三个平台各有一个独立检测线程。面板上显示的时间戳是最后一次检测完成的时间。11月8日的数据显示，最近一次完整轮询在09:00完成，下一轮在09:30。如果某个平台连续两次检测不可达，面板会标红并在备注栏显示错误类型（超时、DNS解析失败、连接被重置）。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "社区反馈里说的“DNS污染”和“线路屏蔽”怎么区分？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "最简单的判断方法：换一个DNS服务器再访问。如果换了DNS（比如从运营商默认DNS换成公共DNS）就能打开，说明是DNS污染；换了DNS还是打不开，说明是线路层面的屏蔽。11月7日下午那批移动4G的反馈，有用户换了公共DNS后恢复正常，所以归类为DNS问题而非线路屏蔽。"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+  </html>
