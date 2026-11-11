@@ -1,0 +1,1180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>51大赛吃瓜 - 赛事热议与网友讨论聚合</title>
+  <meta name="description" content="51大赛吃瓜聚合赛事争议、选手话题与网友讨论，包含51大赛吃瓜最新动态、争议复盘、评论热帖、相关资讯与消费指南，适合关注赛事八卦与讨论走向的观众浏览。">
+  <meta name="keywords" content="51大赛吃瓜">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a2a3a'/%3E%3Cpath d='M16 22h32v6H16zm0 12h32v6H16z' fill='%23f2b84b'/%3E%3Ccircle cx='48' cy='44' r='9' fill='%23e05d4b'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --brand:#1a2a3a;
+      --brand-light:#2d4157;
+      --brand-deep:#0f1b26;
+      --accent:#e05d4b;
+      --accent-soft:#f7e2de;
+      --gold:#f2b84b;
+      --gold-soft:#fdf3dd;
+      --bg:#f6f5f2;
+      --panel:#ffffff;
+      --text:#1d232b;
+      --text-2:#4e5a68;
+      --text-3:#7b8794;
+      --line:#e3e0da;
+      --radius-card:14px;
+      --radius-btn:8px;
+      --radius-tag:6px;
+      --shadow:0 2px 8px rgba(26,42,58,.06);
+      --shadow-hover:0 6px 18px rgba(26,42,58,.12);
+      --font-sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;scroll-padding-top:112px;}
+    body{margin:0;font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:1.65;font-size:15px;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    button{font-family:inherit;}
+    .wrap{max-width:1360px;margin:0 auto;padding:0 20px;}
+    /* 吸顶公告条 */
+    .ticker{
+      background:var(--brand-deep);color:#cfd8e3;font-size:13px;
+      position:sticky;top:0;z-index:60;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .ticker-inner{
+      display:flex;align-items:center;gap:16px;padding:7px 0;overflow:hidden;
+    }
+    .ticker-brand{
+      flex:0 0 auto;color:var(--gold);font-weight:700;letter-spacing:.5px;
+      display:flex;align-items:center;gap:6px;font-size:13px;
+    }
+    .ticker-brand svg{width:16px;height:16px;}
+    .ticker-list{
+      display:flex;gap:24px;white-space:nowrap;overflow-x:auto;scrollbar-width:none;
+    }
+    .ticker-list::-webkit-scrollbar{display:none;}
+    .ticker-list span{display:inline-flex;gap:8px;align-items:baseline;}
+    .ticker-list b{color:#fff;font-weight:600;}
+    .ticker-list time{color:#8fa3b8;font-size:12px;}
+    /* 吸顶页头 */
+    .site-header{
+      position:sticky;top:31px;z-index:50;
+      background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .header-inner{
+      display:flex;align-items:center;gap:20px;padding:12px 0;
+    }
+    .logo{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+    .logo-mark{width:38px;height:38px;flex:0 0 auto;}
+    .logo-text{font-size:20px;font-weight:800;letter-spacing:.5px;color:var(--brand);line-height:1.1;}
+    .logo-text small{display:block;font-size:10px;font-weight:500;color:var(--text-3);letter-spacing:2px;}
+    .main-nav{
+      display:flex;gap:4px;flex:1 1 auto;overflow-x:auto;scrollbar-width:none;
+      padding:2px 0;
+    }
+    .main-nav::-webkit-scrollbar{display:none;}
+    .main-nav a{
+      padding:6px 10px;border-radius:var(--radius-btn);font-size:14px;color:var(--text-2);
+      white-space:nowrap;transition:background .15s,color .15s;
+    }
+    .main-nav a:hover,.main-nav a:focus-visible{background:var(--gold-soft);color:var(--brand);outline:none;}
+    .header-actions{display:flex;gap:8px;flex:0 0 auto;align-items:center;}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:6px;
+      border:1px solid var(--line);background:#fff;color:var(--text-2);
+      padding:7px 14px;border-radius:var(--radius-btn);font-size:13px;cursor:pointer;
+      transition:box-shadow .15s,background .15s,transform .15s;line-height:1.3;
+    }
+    .btn:hover{box-shadow:var(--shadow);transform:translateY(-1px);}
+    .btn-primary{background:var(--brand);border-color:var(--brand);color:#fff;}
+    .btn-primary:hover{background:var(--brand-light);}
+    .hamburger{display:none;background:none;border:1px solid var(--line);border-radius:var(--radius-btn);padding:6px 9px;font-size:18px;color:var(--brand);cursor:pointer;}
+    /* 首屏 */
+    .hero{
+      position:relative;overflow:hidden;
+      background:
+        radial-gradient(ellipse at 85% 15%, rgba(224,93,75,.18), transparent 55%),
+        radial-gradient(ellipse at 10% 90%, rgba(242,184,75,.22), transparent 50%),
+        linear-gradient(135deg,#13212e 0%,#1e3244 55%,#274157 100%);
+      color:#fff;padding:56px 0 48px;
+    }
+    .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;position:relative;z-index:2;}
+    .hero-kicker{
+      display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:2px;
+      color:var(--gold);background:rgba(242,184,75,.12);border:1px solid rgba(242,184,75,.3);
+      padding:4px 12px;border-radius:20px;margin-bottom:18px;
+    }
+    .hero h1{
+      font-size:44px;line-height:1.15;margin:0 0 18px;letter-spacing:1px;font-weight:800;
+      text-shadow:0 2px 12px rgba(0,0,0,.25);
+    }
+    .hero-desc{font-size:16px;color:#c9d5e2;max-width:560px;margin:0 0 26px;line-height:1.8;}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+    .hero-actions .btn{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;backdrop-filter:blur(4px);}
+    .hero-actions .btn-primary{background:var(--gold);border-color:var(--gold);color:#1a2a3a;font-weight:700;}
+    .hero-actions .btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.25);}
+    .hero-visual{position:relative;height:260px;}
+    .hero-visual svg{width:100%;height:100%;}
+    .hero-stats{
+      display:flex;gap:28px;margin-top:32px;flex-wrap:wrap;
+    }
+    .hero-stats div{font-size:12px;color:#8fa3b8;letter-spacing:1px;}
+    .hero-stats strong{display:block;font-size:22px;color:#fff;font-weight:700;letter-spacing:0;}
+    /* 主布局三栏 */
+    .layout{
+      display:grid;grid-template-columns:176px minmax(0,1fr) 252px;gap:28px;
+      padding:36px 0 60px;align-items:start;
+    }
+    .channel-nav{
+      position:sticky;top:112px;
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+      padding:14px 10px;box-shadow:var(--shadow);
+    }
+    .channel-nav h2{
+      font-size:12px;letter-spacing:2px;color:var(--text-3);margin:0 0 10px;padding:0 8px;font-weight:600;
+    }
+    .channel-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;}
+    .channel-nav a{
+      display:block;padding:7px 10px;border-radius:7px;font-size:13.5px;color:var(--text-2);
+      transition:background .15s,color .15s;
+    }
+    .channel-nav a:hover,.channel-nav a:focus-visible{background:var(--gold-soft);color:var(--brand);outline:none;}
+    .channel-nav a.active{background:var(--brand);color:#fff;font-weight:600;}
+    .main-col{min-width:0;}
+    .side-col{min-width:0;display:flex;flex-direction:column;gap:22px;}
+    /* 板块通用 */
+    .section{margin-bottom:44px;}
+    .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap;}
+    .section-head h2{
+      font-size:22px;margin:0;font-weight:800;letter-spacing:.5px;color:var(--brand);
+      display:flex;align-items:center;gap:10px;
+    }
+    .section-head h2::before{
+      content:"";width:5px;height:22px;background:var(--accent);border-radius:3px;display:inline-block;
+    }
+    .section-head .sub{font-size:13px;color:var(--text-3);}
+    .intro-text p{margin:0 0 14px;color:var(--text-2);font-size:15px;line-height:1.85;}
+    .intro-text p strong{color:var(--brand);}
+    /* 精选卡片 */
+    .card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+    .card{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+      overflow:hidden;display:flex;flex-direction:column;
+      transition:box-shadow .2s,transform .2s;
+    }
+    .card:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px);}
+    .card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#e9e6e0;}
+    .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s;}
+    .card:hover .card-img img{transform:scale(1.04);}
+    .card-badge{
+      position:absolute;top:10px;left:10px;background:rgba(15,27,38,.82);color:#fff;
+      font-size:11px;padding:3px 9px;border-radius:5px;letter-spacing:.5px;backdrop-filter:blur(2px);
+    }
+    .card-body{padding:14px 15px 16px;display:flex;flex-direction:column;gap:8px;flex:1;}
+    .card-body h3{font-size:15.5px;margin:0;line-height:1.45;font-weight:700;color:var(--brand);}
+    .card-body h3:hover{color:var(--accent);}
+    .card-tags{display:flex;gap:6px;flex-wrap:wrap;}
+    .tag{
+      font-size:11px;padding:2px 8px;border-radius:var(--radius-tag);
+      background:var(--gold-soft);color:#8a6414;line-height:1.6;
+    }
+    .tag.alt{background:var(--accent-soft);color:#a93b2b;}
+    .card-desc{font-size:13px;color:var(--text-3);margin:0;line-height:1.7;}
+    .card-meta{display:flex;gap:14px;font-size:11.5px;color:var(--text-3);margin-top:auto;padding-top:6px;border-top:1px dashed var(--line);}
+    .card-meta b{color:var(--accent);font-weight:700;}
+    /* 最新动态列表 */
+    .update-list{display:flex;flex-direction:column;gap:0;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;}
+    .update-item{display:flex;gap:16px;padding:14px 18px;border-bottom:1px solid var(--line);align-items:flex-start;transition:background .15s;}
+    .update-item:last-child{border-bottom:none;}
+    .update-item:hover{background:#faf9f6;}
+    .update-time{flex:0 0 62px;font-size:12px;color:var(--text-3);padding-top:2px;font-variant-numeric:tabular-nums;}
+    .update-content h3{font-size:14.5px;margin:0 0 4px;font-weight:700;color:var(--brand);}
+    .update-content p{font-size:13px;color:var(--text-2);margin:0;line-height:1.6;}
+    /* 分类入口 */
+    .cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+    .cat-item{
+      background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 12px;
+      text-align:center;transition:background .15s,box-shadow .15s,transform .15s;cursor:pointer;
+    }
+    .cat-item:hover,.cat-item:focus-visible{background:var(--gold-soft);box-shadow:var(--shadow);transform:translateY(-2px);outline:none;}
+    .cat-item b{display:block;font-size:14px;color:var(--brand);margin-bottom:2px;}
+    .cat-item span{font-size:11.5px;color:var(--text-3);}
+    /* 深度解析 */
+    .deep-dive{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);padding:28px 30px;box-shadow:var(--shadow);}
+    .deep-dive h2{font-size:24px;margin:0 0 22px;color:var(--brand);}
+    .deep-dive h3{font-size:17.5px;margin:26px 0 10px;color:var(--brand);padding-left:12px;border-left:3px solid var(--accent);}
+    .deep-dive h3:first-of-type{margin-top:0;}
+    .deep-dive p{font-size:14.5px;color:var(--text-2);line-height:1.9;margin:0 0 14px;}
+    .deep-dive ul{margin:0 0 16px;padding-left:20px;color:var(--text-2);font-size:14.5px;line-height:1.85;}
+    .deep-dive li{margin-bottom:6px;}
+    .deep-dive .quote{
+      background:var(--gold-soft);border-left:3px solid var(--gold);padding:12px 16px;border-radius:0 8px 8px 0;
+      font-size:14px;color:#6b4d10;margin:16px 0;
+    }
+    /* 指南步骤 */
+    .guide-steps{display:flex;flex-direction:column;gap:0;counter-reset:step;}
+    .guide-step{
+      display:flex;gap:18px;padding:16px 0;border-bottom:1px dashed var(--line);
+    }
+    .guide-step:last-child{border-bottom:none;}
+    .step-num{
+      flex:0 0 34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;
+      display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+    }
+    .step-body h3{font-size:15px;margin:0 0 5px;color:var(--brand);}
+    .step-body p{font-size:13.5px;color:var(--text-2);margin:0;line-height:1.75;}
+    /* FAQ */
+    .faq-list{display:flex;flex-direction:column;gap:10px;}
+    details.faq{
+      background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:0 18px;
+      transition:box-shadow .15s;
+    }
+    details.faq[open]{box-shadow:var(--shadow);}
+    details.faq summary{
+      cursor:pointer;padding:14px 0;font-size:14.5px;font-weight:600;color:var(--brand);
+      list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    }
+    details.faq summary::-webkit-details-marker{display:none;}
+    details.faq summary::after{content:"+";font-size:20px;color:var(--accent);font-weight:400;line-height:1;transition:transform .2s;}
+    details.faq[open] summary::after{content:"−";}
+    details.faq .faq-body{padding:0 0 16px;font-size:14px;color:var(--text-2);line-height:1.8;}
+    /* 评论 */
+    .comment-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+    .comment{
+      background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+      font-size:13.5px;color:var(--text-2);line-height:1.7;
+    }
+    .comment .cm-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;}
+    .comment .cm-name{font-weight:700;color:var(--brand);font-size:13px;}
+    .comment .cm-time{font-size:11px;color:var(--text-3);}
+    .comment p{margin:0;}
+    /* 资讯列表 */
+    .news-list{display:flex;flex-direction:column;gap:0;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;}
+    .news-item{padding:15px 18px;border-bottom:1px solid var(--line);transition:background .15s;}
+    .news-item:last-child{border-bottom:none;}
+    .news-item:hover{background:#faf9f6;}
+    .news-item h3{font-size:15px;margin:0 0 5px;color:var(--brand);line-height:1.5;}
+    .news-item .news-meta{font-size:11.5px;color:var(--text-3);margin-bottom:5px;display:flex;gap:12px;}
+    .news-item p{margin:0;font-size:13px;color:var(--text-2);line-height:1.65;}
+    /* 标签索引 */
+    .tag-index{display:flex;flex-wrap:wrap;gap:10px;}
+    .tag-index a{
+      background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:7px 16px;
+      font-size:13px;color:var(--text-2);transition:all .15s;
+    }
+    .tag-index a:hover,.tag-index a:focus-visible{background:var(--brand);color:#fff;border-color:var(--brand);outline:none;}
+    /* 榜单 */
+    .rank-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;}
+    .rank-item{display:flex;gap:14px;padding:13px 18px;border-bottom:1px solid var(--line);align-items:center;}
+    .rank-item:last-child{border-bottom:none;}
+    .rank-num{
+      flex:0 0 26px;height:26px;border-radius:6px;background:#eceae5;color:var(--text-3);
+      display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;
+    }
+    .rank-item:nth-child(1) .rank-num{background:var(--accent);color:#fff;}
+    .rank-item:nth-child(2) .rank-num{background:var(--gold);color:#4a3400;}
+    .rank-item:nth-child(3) .rank-num{background:#b0bcc8;color:#fff;}
+    .rank-body{flex:1;min-width:0;}
+    .rank-body h3{font-size:14px;margin:0 0 2px;color:var(--brand);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .rank-body p{font-size:12px;color:var(--text-3);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .rank-hot{font-size:12px;color:var(--accent);font-weight:700;flex:0 0 auto;}
+    /* 侧栏卡片 */
+    .side-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);padding:16px 16px 14px;box-shadow:var(--shadow);}
+    .side-card h3{font-size:14px;margin:0 0 12px;color:var(--brand);display:flex;align-items:center;gap:8px;font-weight:800;}
+    .side-card h3::before{content:"";width:4px;height:14px;background:var(--gold);border-radius:2px;}
+    .side-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+    .side-list li{font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;}
+    .side-list li .dot{flex:0 0 6px;height:6px;border-radius:50%;background:var(--accent);margin-top:7px;}
+    .side-list li b{color:var(--brand);font-weight:600;}
+    .side-list li time{font-size:11px;color:var(--text-3);}
+    .side-note{font-size:12px;color:var(--text-3);margin:10px 0 0;line-height:1.6;}
+    /* 投稿互动 */
+    .upload-box{
+      background:linear-gradient(135deg,#1e3244,#2d4157);color:#fff;border-radius:var(--radius-card);
+      padding:22px 20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:space-between;
+    }
+    .upload-box h3{font-size:17px;margin:0 0 6px;font-weight:800;}
+    .upload-box p{font-size:13px;color:#c9d5e2;margin:0;line-height:1.6;}
+    .upload-box .btn{background:var(--gold);border-color:var(--gold);color:#1a2a3a;font-weight:700;}
+    /* 页脚 */
+    .site-footer{background:var(--brand-deep);color:#a9b8c7;padding:44px 0 24px;font-size:13px;}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px;}
+    .footer-brand{font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+    .footer-brand svg{width:22px;height:22px;}
+    .footer-grid p{margin:0 0 8px;line-height:1.7;color:#8fa3b8;font-size:12.5px;}
+    .footer-grid h4{font-size:13px;color:#fff;margin:0 0 12px;font-weight:700;letter-spacing:.5px;}
+    .footer-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;}
+    .footer-grid a{color:#a9b8c7;font-size:12.5px;transition:color .15s;}
+    .footer-grid a:hover{color:var(--gold);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#6f8296;font-size:12px;}
+    /* 回到顶部 */
+    .to-top{
+      position:fixed;right:22px;bottom:26px;width:42px;height:42px;border-radius:50%;
+      background:var(--brand);color:#fff;border:none;cursor:pointer;font-size:18px;
+      display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.25);
+      z-index:70;transition:background .15s,transform .15s;
+    }
+    .to-top:hover{background:var(--accent);transform:translateY(-2px);}
+    .to-top.show{display:flex;}
+    /* 移动端菜单 */
+    .mobile-nav{
+      display:none;position:fixed;inset:0;z-index:100;
+    }
+    .mobile-nav.open{display:block;}
+    .mobile-nav-overlay{
+      position:absolute;inset:0;background:rgba(15,27,38,.55);backdrop-filter:blur(2px);
+    }
+    .mobile-nav-panel{
+      position:absolute;top:0;left:0;bottom:0;width:min(78vw,300px);background:#fff;
+      padding:22px 18px;overflow-y:auto;box-shadow:4px 0 24px rgba(0,0,0,.2);
+      animation:slideIn .22s ease;
+    }
+    @keyframes slideIn{from{transform:translateX(-100%);}to{transform:translateX(0);}}
+    .mobile-nav-panel h2{font-size:15px;color:var(--text-3);letter-spacing:2px;margin:0 0 14px;}
+    .mobile-nav-panel a{display:block;padding:11px 10px;border-radius:8px;font-size:15px;color:var(--text-2);}
+    .mobile-nav-panel a:hover{background:var(--gold-soft);color:var(--brand);}
+    .mobile-nav-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:22px;color:var(--text-3);cursor:pointer;padding:4px 8px;}
+    /* 响应式 */
+    @media(max-width:1024px){
+      .layout{grid-template-columns:1fr 252px;gap:24px;}
+      .channel-nav{display:none;}
+      .hero-inner{grid-template-columns:1fr;gap:28px;}
+      .hero-visual{height:200px;order:-1;}
+      .hero h1{font-size:36px;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:740px){
+      .layout{grid-template-columns:1fr;gap:0;}
+      .side-col{display:none;}
+      .hero{padding:36px 0 32px;}
+      .hero h1{font-size:30px;}
+      .hero-desc{font-size:14.5px;}
+      .card-grid{grid-template-columns:1fr;}
+      .comment-list{grid-template-columns:1fr;}
+      .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .main-nav{display:none;}
+      .hamburger{display:inline-flex;}
+      .header-actions .btn:not(.hamburger){display:none;}
+      .deep-dive{padding:20px 18px;}
+      .footer-grid{grid-template-columns:1fr;}
+      .section-head h2{font-size:19px;}
+      .ticker-inner{gap:10px;}
+      .ticker-list span:nth-child(n+3){display:none;}
+      .update-item{flex-direction:column;gap:4px;}
+      .update-time{flex-basis:auto;}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="ticker" aria-label="最新更新公告">
+  <div class="wrap ticker-inner">
+    <span class="ticker-brand">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v3H4zM4 12h16v3H4z" fill="#f2b84b"/><circle cx="18" cy="18" r="3" fill="#e05d4b"/></svg>
+      51大赛吃瓜
+    </span>
+    <div class="ticker-list">
+      <span><b>11月8日</b> 争议复盘：A组第三轮判罚时间线<time>09:20</time></span>
+      <span><b>11月7日</b> 新增 8 条选手赛后发言整理<time>22:15</time></span>
+      <span><b>11月6日</b> 热门讨论「解说的偏向性」升至热榜第2<time>18:40</time></span>
+      <span><b>11月5日</b> 投稿通道开放：现场观赛记录<time>11:02</time></span>
+    </div>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="logo" aria-label="51大赛吃瓜首页">
+      <svg class="logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1a2a3a"/>
+        <rect x="14" y="20" width="36" height="7" rx="2" fill="#f2b84b"/>
+        <rect x="14" y="31" width="36" height="7" rx="2" fill="#f2b84b" opacity=".7"/>
+        <circle cx="47" cy="45" r="9" fill="#e05d4b"/>
+        <circle cx="47" cy="45" r="4" fill="#fff" opacity=".85"/>
+      </svg>
+      <span class="logo-text">51大赛吃瓜<small>SAI SHI CHI GUA</small></span>
+    </a>
+    <nav class="main-nav" aria-label="主题导航">
+      <a href="#overview">领域概览</a>
+      <a href="#featured">精选推荐</a>
+      <a href="#updates">最新动态</a>
+      <a href="#categories">分类入口</a>
+      <a href="#deepdive">深度解析</a>
+      <a href="#guide">体验指南</a>
+      <a href="#faq">常见问答</a>
+      <a href="#comments">网友评论</a>
+      <a href="#news">相关资讯</a>
+      <a href="#ranking">热议榜单</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn" type="button" id="searchToggle" aria-label="打开搜索">搜索</button>
+      <a class="btn btn-primary" href="#upload">投稿爆料</a>
+      <button class="hamburger" type="button" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false" aria-controls="mobileNav">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- 移动端抽屉菜单 -->
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-panel" role="dialog" aria-modal="true" aria-label="站点导航">
+    <button class="mobile-nav-close" type="button" id="mobileClose" aria-label="关闭菜单">×</button>
+    <h2>频道导航</h2>
+    <a href="#overview">领域概览</a>
+    <a href="#featured">精选推荐</a>
+    <a href="#updates">最新动态</a>
+    <a href="#categories">分类入口</a>
+    <a href="#deepdive">深度解析</a>
+    <a href="#guide">体验指南</a>
+    <a href="#faq">常见问答</a>
+    <a href="#comments">网友评论</a>
+    <a href="#news">相关资讯</a>
+    <a href="#ranking">热议榜单</a>
+  </div>
+</div>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="hero-kicker">赛事围观 · 争议追踪 · 讨论聚合</span>
+      <h1>51大赛吃瓜</h1>
+      <p class="hero-desc">聚焦51大赛现场判罚争议、选手赛后发言、解说口径与网友讨论。按时间线梳理每个争议节点的公开信息，把已确认事实、当事人回应和网友推测分开摆，方便你迅速找到讨论焦点。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#featured">看精选条目</a>
+        <a class="btn" href="#deepdive">读争议复盘</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>12</strong>个内容板块</div>
+        <div><strong>38</strong>条具体条目</div>
+        <div><strong>11月8日</strong>最近更新</div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f2b84b" stop-opacity=".95"/>
+            <stop offset="1" stop-color="#e05d4b" stop-opacity=".65"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity=".28"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity=".03"/>
+          </linearGradient>
+        </defs>
+        <rect x="34" y="28" width="216" height="132" rx="14" fill="url(#g2)" stroke="rgba(255,255,255,.22)"/>
+        <rect x="52" y="48" width="120" height="10" rx="5" fill="#f2b84b" opacity=".9"/>
+        <rect x="52" y="68" width="168" height="7" rx="3.5" fill="#fff" opacity=".35"/>
+        <rect x="52" y="84" width="140" height="7" rx="3.5" fill="#fff" opacity=".25"/>
+        <rect x="52" y="100" width="156" height="7" rx="3.5" fill="#fff" opacity=".18"/>
+        <rect x="52" y="122" width="74" height="22" rx="6" fill="#e05d4b" opacity=".9"/>
+        <rect x="136" y="122" width="74" height="22" rx="6" fill="rgba(255,255,255,.14)"/>
+        <circle cx="326" cy="96" r="58" fill="url(#g1)" opacity=".85"/>
+        <circle cx="326" cy="96" r="36" fill="#13212e" opacity=".35"/>
+        <path d="M326 66v30l20 12" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+        <rect x="238" y="176" width="148" height="56" rx="12" fill="url(#g2)" stroke="rgba(255,255,255,.18)"/>
+        <circle cx="262" cy="204" r="10" fill="#f2b84b" opacity=".85"/>
+        <rect x="280" y="194" width="82" height="6" rx="3" fill="#fff" opacity=".4"/>
+        <rect x="280" y="208" width="58" height="6" rx="3" fill="#fff" opacity=".24"/>
+        <circle cx="78" cy="206" r="4" fill="#e05d4b"/>
+        <circle cx="96" cy="206" r="4" fill="#f2b84b" opacity=".7"/>
+        <circle cx="114" cy="206" r="4" fill="#fff" opacity=".3"/>
+        <path d="M330 210c14-8 28-8 42 0" stroke="#f2b84b" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 主布局三栏 -->
+<div class="wrap layout">
+
+  <!-- 左频道索引 -->
+  <aside class="channel-nav" aria-label="频道索引">
+    <h2>频道索引</h2>
+    <ul>
+      <li><a href="#overview">领域概览</a></li>
+      <li><a href="#featured">精选吃瓜条目</a></li>
+      <li><a href="#updates">最新动态</a></li>
+      <li><a href="#categories">分类入口</a></li>
+      <li><a href="#deepdive">判罚争议复盘</a></li>
+      <li><a href="#guide">围观顺序指南</a></li>
+      <li><a href="#faq">规则问答</a></li>
+      <li><a href="#comments">网友评论</a></li>
+      <li><a href="#news">相关资讯</a></li>
+      <li><a href="#ranking">热议榜单</a></li>
+      <li><a href="#upload">投稿互动</a></li>
+    </ul>
+  </aside>
+
+  <!-- 主内容 -->
+  <main class="main-col" id="mainContent">
+
+    <!-- 1 领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-head">
+        <h2>赛事围观领域概览</h2>
+        <span class="sub">2026年11月 · 51大赛进行中</span>
+      </div>
+      <div class="intro-text">
+        <p><strong>51大赛</strong>是2026年秋季开赛的综合竞技赛事，按项目分为个人竞速、团队协作与即兴创作三条赛道。围观讨论集中在三类内容：现场判罚的尺度差异、选手赛后采访的措辞、解说席对关键回合的定性。11月8日当天，最受关注的是A组第三轮计时器复位争议，涉及裁判组、赛事技术部和三支参赛队的公开回应。</p>
+        <p>从讨论热度看，判罚类条目占据近一周热榜的前五名中三席。选手个人发言的热度通常落后判罚一条身位，但发酵时间更长——11月3日B组选手林骁在混合采访区说的“计时器亮灯顺序和训练时不一样”，到11月7日仍在被逐帧比对。解说口径争议则更多集中在直播间弹幕和赛后剪辑视频的评论区，11月6日解说员周可一句“这个动作没必要吹”的片段在短视频平台播放量超过47万。</p>
+        <p>另一条值得留意的线索是赛事规则本身的版本变化。51大赛技术手册在10月28日更新到v3.2，其中第14条关于“设备故障导致的重赛判定”从原来的“裁判长酌情”改为“需技术代表与裁判长共同签字”。这次修改直接影响了11月2日C组重赛申请的审核流程，也让围观者开始翻旧账，比对第一轮同类事件的处置差异。</p>
+      </div>
+    </section>
+
+    <!-- 2 精选内容推荐 -->
+    <section class="section" id="featured">
+      <div class="section-head">
+        <h2>精选吃瓜条目</h2>
+        <span class="sub">6条高讨论度内容</span>
+      </div>
+      <div class="card-grid">
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/saishi51_judge01/400/300" width="400" height="300" loading="lazy" alt="A组第三轮计时器复位争议现场记录">
+            <span class="card-badge">判罚争议</span>
+          </div>
+          <div class="card-body">
+            <h3>A组第三轮计时器复位争议</h3>
+            <div class="card-tags"><span class="tag">计时器故障</span><span class="tag alt">裁判长签字</span><span class="tag">重赛申请</span></div>
+            <p class="card-desc">第三轮2号道计时器在选手冲线后复位延迟1.8秒，技术部日志显示复位指令由裁判台手动触发。三支队伍当晚提交书面异议。</p>
+            <div class="card-meta"><span>热度 <b>9821</b></span><span>更新 11-08</span><span>讨论 214条</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/saishi51_linxiao02/400/300" width="400" height="300" loading="lazy" alt="选手林骁赛后混合采访区发言截图">
+            <span class="card-badge">选手发言</span>
+          </div>
+          <div class="card-body">
+            <h3>林骁“亮灯顺序不一样”发言</h3>
+            <div class="card-tags"><span class="tag">混合采访区</span><span class="tag alt">逐帧比对</span><span class="tag">训练视频</span></div>
+            <p class="card-desc">B组选手林骁在11月3日赛后提到训练与正赛的指示灯顺序差异，网友用其9月训练视频逐帧对照，发现起跑灯确实不同步。</p>
+            <div class="card-meta"><span>热度 <b>8760</b></span><span>更新 11-07</span><span>讨论 186条</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/saishi51_zhouke03/400/300" width="400" height="300" loading="lazy" alt="解说员周可直播片段评论区截图">
+            <span class="card-badge">解说口径</span>
+          </div>
+          <div class="card-body">
+            <h3>周可“没必要吹”片段传播路径</h3>
+            <div class="card-tags"><span class="tag">解说争议</span><span class="tag alt">短视频剪辑</span><span class="tag">弹幕</span></div>
+            <p class="card-desc">11月6日比赛中周可对一次身体接触判罚的评论被切成14秒片段，单平台播放47.3万。原直播回放显示前后语境。</p>
+            <div class="card-meta"><span>热度 <b>7934</b></span><span>更新 11-06</span><span>讨论 302条</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/saishi51_rule04/400/300" width="400" height="300" loading="lazy" alt="技术手册v3.2第14条更新页面">
+            <span class="card-badge">规则变化</span>
+          </div>
+          <div class="card-body">
+            <h3>技术手册v3.2第14条修改</h3>
+            <div class="card-tags"><span class="tag">重赛判定</span><span class="tag alt">技术代表</span><span class="tag">版本对比</span></div>
+            <p class="card-desc">10月28日发布的手册将重赛判定从裁判长单独决定改为双签字。11月2日C组申请成为首个适用案例，审核多花3小时。</p>
+            <div class="card-meta"><span>热度 <b>6410</b></span><span>更新 11-05</span><span>讨论 97条</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/saishi51_cgroup05/400/300" width="400" height="300" loading="lazy" alt="C组重赛申请审核记录文件">
+            <span class="card-badge">申请流程</span>
+          </div>
+          <div class="card-body">
+            <h3>C组重赛申请的三小时等待</h3>
+            <div class="card-tags"><span class="tag">重赛</span><span class="tag alt">技术代表</span><span class="tag">流程记录</span></div>
+            <p class="card-desc">11月2日C组因设备信号中断申请重赛，按新规需技术代表现场签字。技术代表从主控台到现场耗时2小时40分，最终通过。</p>
+            <div class="card-meta"><span>热度 <b>5802</b></span><span>更新 11-04</span><span>讨论 73条</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/saishi51_fanqu06/400/300" width="400" height="300" loading="lazy" alt="观众席灯牌与弹幕整活合集">
+            <span class="card-badge">围观文化</span>
+          </div>
+          <div class="card-body">
+            <h3>观众席“计时器”灯牌合集</h3>
+            <div class="card-tags"><span class="tag">现场灯牌</span><span class="tag alt">弹幕梗</span><span class="tag">二创</span></div>
+            <p class="card-desc">从11月4日起，观众席出现手写“复位了吗”灯牌，随后弹幕开始刷“1.8秒”。赛事方在11月7日直播中加入计时器状态角标。</p>
+            <div class="card-meta"><span>热度 <b>5233</b></span><span>更新 11-07</span><span>讨论 128条</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 3 最新更新 -->
+    <section class="section" id="updates">
+      <div class="section-head">
+        <h2>最新动态</h2>
+        <span class="sub">近3日条目更新</span>
+      </div>
+      <div class="update-list">
+        <div class="update-item">
+          <div class="update-time">11-08 09:20</div>
+          <div class="update-content">
+            <h3>A组争议复盘时间线补入技术部日志截图</h3>
+            <p>技术部11月7日23:40在赛事论坛上传计时器后台日志，显示复位指令发出时间为冲线后1.2秒，与裁判台口述的0.6秒存在差异。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-time">11-07 22:15</div>
+          <div class="update-content">
+            <h3>林骁训练视频逐帧比对帖增至8条</h3>
+            <p>其中第6条比对帖标注了起跑灯顺序：训练视频为红黄绿，正赛为黄红绿。发帖者称素材来自林骁9月12日直播录屏。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-time">11-07 18:40</div>
+          <div class="update-content">
+            <h3>“解说的偏向性”话题升至热榜第2</h3>
+            <p>该话题下被引用最多的是周可11月6日片段，以及另一位解说李让在11月5日对同一动作的相反表述。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-time">11-06 16:30</div>
+          <div class="update-content">
+            <h3>赛事方发布计时器状态角标说明</h3>
+            <p>说明提到从11月7日半决赛起，直播画面右上角实时显示计时器复位状态，由技术部数据接口直连。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-time">11-05 11:02</div>
+          <div class="update-content">
+            <h3>投稿通道开放“现场观赛记录”分类</h3>
+            <p>可提交文字、图片与短视频，审核标准要求注明比赛日与看台区域，首日收到47份投稿，其中12份提到计时器问题。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-time">11-04 20:18</div>
+          <div class="update-content">
+            <h3>C组重赛申请获批结果公示</h3>
+            <p>公示写明技术代表签字时间为11月2日19:06，重赛安排在11月5日10:00，C组最终以0.4秒优势晋级。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-time">11-03 21:45</div>
+          <div class="update-content">
+            <h3>林骁赛后采访原文整理发布</h3>
+            <p>全文约620字，涉及计时器亮灯顺序、起跑器高度和耳返延迟三项。讨论集中在亮灯顺序，起跑器高度少有人提。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <div class="update-time">11-02 14:12</div>
+          <div class="update-content">
+            <h3>技术手册v3.2下载量破万</h3>
+            <p>赛事论坛手册下载页显示11月2日单日下载11204次，第14条相关讨论帖占当日新增帖的31%。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 分类入口 -->
+    <section class="section" id="categories">
+      <div class="section-head">
+        <h2>分类入口</h2>
+        <span class="sub">按争议类型找条目</span>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-item" href="#featured"><b>判罚争议</b><span>计时器 / 身体接触 / 越线</span></a>
+        <a class="cat-item" href="#featured"><b>选手发言</b><span>采访 / 直播 / 社媒</span></a>
+        <a class="cat-item" href="#featured"><b>解说口径</b><span>直播金句 / 立场差异</span></a>
+        <a class="cat-item" href="#featured"><b>规则条款</b><span>手册版本 / 重赛判定</span></a>
+        <a class="cat-item" href="#featured"><b>重赛申请</b><span>技术代表 / 签字流程</span></a>
+        <a class="cat-item" href="#featured"><b>现场观赛</b><span>灯牌 / 看台记录</span></a>
+        <a class="cat-item" href="#featured"><b>短视频二创</b><span>剪辑片段 / 弹幕梗</span></a>
+        <a class="cat-item" href="#featured"><b>技术日志</b><span>后台数据 / 时间线</span></a>
+      </div>
+    </section>
+
+    <!-- 5 深度解析 -->
+    <section class="section" id="deepdive">
+      <div class="deep-dive">
+        <h2>判罚争议复盘：从计时器到签字流程</h2>
+
+        <h3>1.8秒差在哪里</h3>
+        <p>A组第三轮的计时器复位争议，核心数字是1.8秒。技术部11月7日上传的后台日志显示，冲线信号触发后1.2秒，裁判台发出复位指令；裁判长在11月8日上午的口头说明里称“大约0.6秒就按了”。两组说法差了0.6秒，而这0.6秒又和现场大屏的显示延迟叠在一起。看台第三排观众用手机拍摄的画面里，大屏复位比现场蜂鸣器晚了约0.4秒。把三个数字排开：技术日志1.2秒、裁判长口述0.6秒、观众视频0.4秒延迟——没有一个是同一层级的证据，却经常被混在一起引用。</p>
+        <p>可核对的结构在这里：复位延迟由三个环节构成——指令发出时间、系统执行时间、大屏显示时间。技术日志记录的是指令发出，系统执行时间另有独立日志（11月8日午间才公开），大屏显示则只能靠观众视频推算。讨论中把三者统称为“1.8秒”，容易让裁判台看起来比实际慢，也让技术部看起来比实际快。</p>
+
+        <h3>v3.2手册改了什么、没改什么</h3>
+        <p>10月28日更新的技术手册v3.2，第14条从“裁判长酌情决定是否重赛”改为“需技术代表与裁判长共同签字”。改动只涉及签字人数，没有动重赛的实体条件。11月2日C组申请时，技术代表从主控台步行到裁判区花了2小时40分，这是流程新增的物理成本，不是规则本身变严。对比第一轮10月19日B组类似申请，当时裁判长单独签字用了52分钟。</p>
+        <div class="quote">两份时间数据放在一起看：52分钟对3小时32分。多出来的时间几乎全在“等人到场”，而不是“审材料”。</div>
+        <p>另一处没改的是第14条附则：设备故障的认定仍以技术部日志为准。这意味着无论签字流程怎么变，重赛门槛的第一道闸门始终是技术部的日志判断。11月2日C组能通过，是因为技术日志明确记录了信号中断；A组第三轮目前卡住的，也正是技术部尚未对复位延迟是否构成“故障”给出结论。</p>
+
+        <h3>解说口径差异的来源</h3>
+        <p>周可“没必要吹”的片段被传播时，多数转发没有带上前后30秒。原直播回放里，他先说了“这个接触在规则里属于可吹可不吹”，然后才是那句。问题在于另一位解说李让在11月5日同一动作的判罚中说的是“这球必须吹，不然要出问题”。两位解说对同一类动作给出相反判断，时间只隔一天，观众自然把矛头对准“立场”。</p>
+        <p>更具体的差异在依据：周可引用的是手册第9条第2款“接触力度不足以改变行进方向”，李让引用的是第9条第3款“接触发生在得分区内即视为影响比赛”。两条同时存在，选择哪条取决于对“得分区”边界的认定。转播方没有在直播中展示这两条的原文，观众只能靠片段互相攻讦。11月7日赛事论坛置顶帖补上了两条原文，帖子下方争论从“谁偏心”转向“得分区怎么划”，热度反而降了。</p>
+
+        <h3>围观者怎么拆信息层级</h3>
+        <p>把一条争议拆成四层，比争论谁对谁错更有用：</p>
+        <ul>
+          <li>已公开事实：技术日志时间戳、手册条款原文、公示文件、直播回放。</li>
+          <li>当事人回应：裁判长口述、选手采访、解说在社交平台的补充说明。</li>
+          <li>媒体转述：赛事官方账号的通报、体育媒体的快讯，注意转述中常把“口述”写成“确认”。</li>
+          <li>网友推测：逐帧比对、后台截图解读、匿名爆料，传播快但缺少署名来源。</li>
+        </ul>
+        <p>11月4日流传的一张“裁判台内部聊天截图”，事后被认出是9月旧图改字，但它在四层结构里属于最底层，却在当天被三个体育资讯账号当作第二层引用。判断一条信息在哪一层，看的是发布者能否被追溯到具体身份，而不是看转发量。</p>
+      </div>
+    </section>
+
+    <!-- 6 体验指南 -->
+    <section class="section" id="guide">
+      <div class="section-head">
+        <h2>围观顺序指南</h2>
+        <span class="sub">先看什么、后看什么</span>
+      </div>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>先看官方公示与手册原文</h3>
+            <p>赛事论坛的“公告与规则”区有每轮判罚的公示文件和最新手册。看完第14条和第9条原文，再去看任何讨论帖，能过滤掉一半靠印象发言的内容。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>再看带时间戳的技术材料</h3>
+            <p>技术日志、回放时间轴、观众视频的原片，比剪辑片段可靠。11月8日公开的系统执行日志把复位延迟拆成三段，比笼统的“1.8秒”有用得多。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>选手采访看全文，不看截句</h3>
+            <p>林骁那段发言全文620字，被传播最广的是其中14个字。全文里他还提到耳返延迟0.3秒，这条线索在截句版本里完全消失。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>解说争议对照两位解说的完整回合</h3>
+            <p>只看14秒片段容易下结论。把周可和李让各自解说同一动作的完整两分钟并排看，差异出现在引用条款，不在语气。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h3>最后看评论区，但只当线索</h3>
+            <p>弹幕和评论区能快速知道大家在争什么，但匿名爆料需要回到前三步验证。11月4日那张改字截图，就是从评论区起势的。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 FAQ -->
+    <section class="section" id="faq">
+      <div class="section-head">
+        <h2>规则与判罚问答</h2>
+        <span class="sub">6个高频问题</span>
+      </div>
+      <div class="faq-list">
+        <details class="faq">
+          <summary>计时器复位延迟多久算设备故障？</summary>
+          <div class="faq-body">手册v3.2第14条附则没有给出固定秒数，认定标准是“是否改变比赛结果或行进顺序”。A组第三轮的1.8秒延迟是否构成故障，取决于技术部对“是否改变名次”的判断，该结论截至11月8日尚未公示。</div>
+        </details>
+        <details class="faq">
+          <summary>重赛申请为什么需要技术代表签字？</summary>
+          <div class="faq-body">10月28日更新的v3.2手册把签字人从裁判长一人改为裁判长与技术代表两人。技术代表负责确认设备日志，裁判长负责确认比赛流程，两个签字对应两类证据。11月2日C组申请是首个适用案例。</div>
+        </details>
+        <details class="faq">
+          <summary>林骁说的亮灯顺序问题指的是什么？</summary>
+          <div class="faq-body">指起跑指示灯的点亮顺序。林骁称训练时为红黄绿，正赛为黄红绿。网友用他9月12日直播录屏逐帧比对，确认训练画面确为红黄绿，但正赛官方机位角度不同，尚未有技术部回应。</div>
+        </details>
+        <details class="faq">
+          <summary>解说员对同一动作判罚口径不同，以哪个为准？</summary>
+          <div class="faq-body">以手册条款为准，不以解说为准。周可引用第9条第2款“接触力度不足以改变行进方向”，李让引用第9条第3款“接触发生在得分区内即视为影响比赛”。两条的适用差异在于得分区边界认定，转播方11月7日已在论坛置顶两条原文。</div>
+        </details>
+        <details class="faq">
+          <summary>51大赛的得分区边界怎么划？</summary>
+          <div class="faq-body">按手册第6条图示，得分区为赛道中线向外延伸1.2米的带状区域，边线计入区内。争议通常出现在选手接触瞬间是否已进入这条1.2米带。11月6日周可片段涉及的接触点，慢放显示在1.05米至1.3米之间，恰好压线。</div>
+        </details>
+        <details class="faq">
+          <summary>现场观众拍摄的视频能作为重赛证据吗？</summary>
+          <div class="faq-body">可以作为辅助材料提交，但认定仍以技术部日志和官方机位回放为主。11月2日C组申请中，观众视频被用来核对大屏延迟，未用于认定信号中断本身。提交时需注明看台区域和拍摄时间。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-head">
+        <h2>网友评论</h2>
+        <span class="sub">14条近期讨论</span>
+      </div>
+      <div class="comment-list">
+        <div class="comment"><div class="cm-head"><span class="cm-name">看台第三排</span><span class="cm-time">11-08 10:02</span></div><p>11月8日技术日志出来之后，1.2秒和裁判长说的0.6秒还是对不上。到底哪个是准的？</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">起跑器爱好者</span><span class="cm-time">11-08 09:41</span></div><p>林骁提耳返延迟0.3秒那条基本没人讨论，都去吵灯了。耳返问题其实更影响起跑反应。</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">周可片段考古</span><span class="cm-time">11-07 23:18</span></div><p>14秒片段我看了三遍原回放，他前面确实说了可吹可不吹。剪辑的人不厚道。</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">手册翻到卷边</span><span class="cm-time">11-07 20:55</span></div><p>v3.2第14条只加了签字人，实体条件没变。好多人以为规则变严了，其实只是多等一个人。</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">C组替补席</span><span class="cm-time">11-07 18:30</span></div><p>2小时40分等签字，技术代表是走过来的，不是坐车。这流程真的可以优化。</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">灯牌二创组</span><span class="cm-time">11-07 16:12</span></div><p>“复位了吗”灯牌是我旁边大哥举的，被导播切了三次。笑死。</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">得分区计算器</span><span class="cm-time">11-07 11:40</span></div><p>1.05米到1.3米，正好压线。这种球最麻烦，吹不吹都有话说。</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">李让的条款</span><span class="cm-time">11-06 22:08</span></div><p>李让引用第3款没问题，周可引用第2款也没问题。两条同时存在，看裁判怎么选罢了。</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">旧图鉴定员</span><span class="cm-time">11-06 19:33</span></div><p>那张聊天截图右上角日期是9月24日，改都没改干净。转发的三个号已经删帖了。</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">半决赛蹲守</span><span class="cm-time">11-06 14:50</span></div><p>11月7日直播加了计时器角标，至少能实时看到复位状态，比吵半天强。</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">弹幕潜水员</span><span class="cm-time">11-05 21:15</span></div><p>今天弹幕全是“1.8”，我都不知道在刷什么，翻半天才找到帖子。</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">投稿通道试过</span><span class="cm-time">11-05 12:44</span></div><p>交了份看台记录，审核要求写看台区域，我补了C区12排。当天就过了。</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">B组跟队</span><span class="cm-time">11-04 23:07</span></div><p>林骁那620字采访我打印出来了，起跑器高度那段也值得看，调了2厘米。</p></div>
+        <div class="comment"><div class="cm-head"><span class="cm-name">只想看结果</span><span class="cm-time">11-04 09:30</span></div><p>判罚吵来吵去，最后还不是看技术部一句话。等公示吧。</p></div>
+      </div>
+    </section>
+
+    <!-- 9 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-head">
+        <h2>相关资讯</h2>
+        <span class="sub">近一周赛事动态</span>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <div class="news-meta"><span>2026-11-08</span><span>赛事论坛</span></div>
+          <h3>技术部公开计时器系统执行日志，复位延迟拆为三段</h3>
+          <p>日志显示冲线信号后1.2秒发出复位指令，系统执行耗时0.35秒，大屏显示再延迟0.25秒。三段合计1.8秒，与现场感知一致。</p>
+        </div>
+        <div class="news-item">
+          <div class="news-meta"><span>2026-11-07</span><span>赛事运营方</span></div>
+          <h3>半决赛直播新增计时器状态角标，数据直连技术部接口</h3>
+          <p>角标位于画面右上角，显示“复位中/已复位”两种状态。运营方称该功能从11月7日10:00半决赛起启用，覆盖剩余全部场次。</p>
+        </div>
+        <div class="news-item">
+          <div class="news-meta"><span>2026-11-06</span><span>体育快讯</span></div>
+          <h3>周可解说片段单平台播放47.3万，原回放观看量同步上涨</h3>
+          <p>11月6日18:00至22:00，原直播回放同时在线观看人数从1.2万涨至3.8万，弹幕中“可吹可不吹”出现超过2100次。</p>
+        </div>
+        <div class="news-item">
+          <div class="news-meta"><span>2026-11-05</span><span>C组官方账号</span></div>
+          <h3>C组重赛以0.4秒优势晋级，技术代表签字页同步公示</h3>
+          <p>公示页附技术代表签字时间11月2日19:06，重赛安排11月5日10:00。C组在重赛中刷新本组最快圈速。</p>
+        </div>
+        <div class="news-item">
+          <div class="news-meta"><span>2026-11-04</span><span>赛事论坛</span></div>
+          <h3>“裁判台聊天截图”被认定为9月旧图改字，三账号删帖</h3>
+          <p>原图9月24日发布于同一论坛，改字痕迹在截图右上角日期处。论坛管理员11月4日18:20置顶辟谣帖。</p>
+        </div>
+        <div class="news-item">
+          <div class="news-meta"><span>2026-11-03</span><span>混合采访区</span></div>
+          <h3>林骁赛后采访全文620字发布，提及起跑器与耳返两项细节</h3>
+          <p>全文由赛事媒体组整理，起跑器高度调整2厘米、耳返延迟约0.3秒两项细节在截句传播中未被提及。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 相关推荐 -->
+    <section class="section" id="related">
+      <div class="section-head">
+        <h2>相关推荐</h2>
+        <span class="sub">具体条目与方向</span>
+      </div>
+      <div class="tag-index">
+        <a href="#featured">A组第三轮计时器复位</a>
+        <a href="#featured">林骁亮灯顺序比对</a>
+        <a href="#featured">周可14秒片段原回放</a>
+        <a href="#featured">技术手册v3.2第14条</a>
+        <a href="#featured">C组三小时签字流程</a>
+        <a href="#featured">得分区1.2米边界</a>
+        <a href="#featured">观众席“复位了吗”灯牌</a>
+        <a href="#featured">半决赛计时器角标</a>
+      </div>
+    </section>
+
+    <!-- 11 热议榜单 -->
+    <section class="section" id="ranking">
+      <div class="section-head">
+        <h2>热议榜单</h2>
+        <span class="sub">11月8日更新</span>
+      </div>
+      <div class="rank-list">
+        <div class="rank-item"><span class="rank-num">1</span><div class="rank-body"><h3>A组计时器复位1.2秒指令时间</h3><p>技术日志公开 · 讨论214条</p></div><span class="rank-hot">9821</span></div>
+        <div class="rank-item"><span class="rank-num">2</span><div class="rank-body"><h3>解说的偏向性：周可vs李让</h3><p>条款引用差异 · 讨论302条</p></div><span class="rank-hot">7934</span></div>
+        <div class="rank-item"><span class="rank-num">3</span><div class="rank-body"><h3>林骁亮灯顺序逐帧比对</h3><p>训练视频对照 · 讨论186条</p></div><span class="rank-hot">8760</span></div>
+        <div class="rank-item"><span class="rank-num">4</span><div class="rank-body"><h3>技术手册v3.2第14条改动</h3><p>双签字流程 · 讨论97条</p></div><span class="rank-hot">6410</span></div>
+        <div class="rank-item"><span class="rank-num">5</span><div class="rank-body"><h3>C组重赛三小时等待</h3><p>技术代表步行到场 · 讨论73条</p></div><span class="rank-hot">5802</span></div>
+        <div class="rank-item"><span class="rank-num">6</span><div class="rank-body"><h3>“复位了吗”灯牌合集</h3><p>现场二创 · 讨论128条</p></div><span class="rank-hot">5233</span></div>
+        <div class="rank-item"><span class="rank-num">7</span><div class="rank-body"><h3>得分区1.05米至1.3米压线判定</h3><p>慢放回看 · 讨论61条</p></div><span class="rank-hot">4107</span></div>
+      </div>
+    </section>
+
+    <!-- 投稿互动 -->
+    <section class="section" id="upload">
+      <div class="upload-box">
+        <div>
+          <h3>投稿爆料 · 现场观赛记录</h3>
+          <p>有现场照片、看台视频或技术细节比对？按比赛日与看台区域注明，审核通过后进入条目更新流。</p>
+        </div>
+        <a class="btn" href="#upload">提交记录</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右辅助栏 -->
+  <aside class="side-col" aria-label="辅助信息">
+    <div class="side-card">
+      <h3>今日更新摘要</h3>
+      <ul class="side-list">
+        <li><span class="dot"></span><div><b>11-08 09:20</b> 技术部日志截图补入A组复盘</div></li>
+        <li><span class="dot"></span><div><b>11-07 22:15</b> 林骁训练视频比对帖增至8条</div></li>
+        <li><span class="dot"></span><div><b>11-07 18:40</b> 解说偏向性话题升至热榜第2</div></li>
+        <li><span class="dot"></span><div><b>11-06 16:30</b> 直播新增计时器状态角标</div></li>
+      </ul>
+    </div>
+    <div class="side-card">
+      <h3>待核实线索</h3>
+      <ul class="side-list">
+        <li><span class="dot"></span><div>技术部系统执行日志0.35秒是否包含网络传输</div></li>
+        <li><span class="dot"></span><div>林骁耳返延迟0.3秒的测量方式未公开</div></li>
+        <li><span class="dot"></span><div>A组异议书面材料尚未见全文</div></li>
+      </ul>
+      <p class="side-note">标注“待核实”的线索仅有单一来源，未获第二方确认。</p>
+    </div>
+    <div class="side-card">
+      <h3>规则速查</h3>
+      <ul class="side-list">
+        <li><span class="dot"></span><div><b>第14条</b> 重赛需技术代表与裁判长共同签字</div></li>
+        <li><span class="dot"></span><div><b>第9条第2款</b> 接触力度不足以改变行进方向</div></li>
+        <li><span class="dot"></span><div><b>第9条第3款</b> 接触发生在得分区内即视为影响比赛</div></li>
+        <li><span class="dot"></span><div><b>第6条</b> 得分区为中线向外1.2米带状区域</div></li>
+      </ul>
+    </div>
+    <div class="side-card">
+      <h3>近期时间线</h3>
+      <ul class="side-list">
+        <li><span class="dot"></span><div><b>10-28</b> 技术手册v3.2发布</div></li>
+        <li><span class="dot"></span><div><b>11-02</b> C组重赛申请获批</div></li>
+        <li><span class="dot"></span><div><b>11-03</b> 林骁赛后采访</div></li>
+        <li><span class="dot"></span><div><b>11-06</b> 周可片段传播</div></li>
+        <li><span class="dot"></span><div><b>11-08</b> 技术日志公开</div></li>
+      </ul>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="7" width="18" height="4" rx="1" fill="#f2b84b"/><rect x="3" y="13" width="18" height="4" rx="1" fill="#f2b84b" opacity=".7"/><circle cx="18" cy="19" r="3" fill="#e05d4b"/></svg>
+          51大赛吃瓜
+        </div>
+        <p>覆盖2026赛季51大赛全部轮次，从10月19日第一轮到11月8日半决赛，条目按判罚、发言、规则、现场四类归档。每日更新两次，争议节点当天追加时间线。</p>
+        <p style="margin-top:10px;color:#6f8296;">内容为赛事讨论聚合与示例条目，非官方发布。</p>
+      </div>
+      <div>
+        <h4>围观频道</h4>
+        <ul>
+          <li><a href="#featured">判罚争议</a></li>
+          <li><a href="#featured">选手发言</a></li>
+          <li><a href="#featured">解说口径</a></li>
+          <li><a href="#featured">规则条款</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>条目类型</h4>
+        <ul>
+          <li><a href="#updates">最新动态</a></li>
+          <li><a href="#deepdive">深度复盘</a></li>
+          <li><a href="#faq">规则问答</a></li>
+          <li><a href="#ranking">热议榜单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与</h4>
+        <ul>
+          <li><a href="#upload">投稿爆料</a></li>
+          <li><a href="#comments">网友评论</a></li>
+          <li><a href="#news">相关资讯</a></li>
+          <li><a href="#overview">领域概览</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 51大赛吃瓜 · 内容聚合示例页</span>
+      <span>页面更新：2026-11-08 09:20 · 对应条目：A组计时器技术日志</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 回到顶部 -->
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  // 移动端菜单
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  var overlay = document.getElementById('mobileOverlay');
+  var closeBtn = document.getElementById('mobileClose');
+
+  function openNav(){
+    mobileNav.classList.add('open');
+    mobileNav.setAttribute('aria-hidden','false');
+    if(hamburger) hamburger.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+    if(closeBtn) closeBtn.focus();
+  }
+  function closeNav(){
+    mobileNav.classList.remove('open');
+    mobileNav.setAttribute('aria-hidden','true');
+    if(hamburger) hamburger.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+    if(hamburger) hamburger.focus();
+  }
+  if(hamburger){ hamburger.addEventListener('click', openNav); }
+  if(closeBtn){ closeBtn.addEventListener('click', closeNav); }
+  if(overlay){ overlay.addEventListener('click', closeNav); }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && mobileNav.classList.contains('open')){ closeNav(); }
+  });
+  // 点击导航后自动收起
+  var mobileLinks = mobileNav.querySelectorAll('a');
+  mobileLinks.forEach(function(link){
+    link.addEventListener('click', function(){
+      setTimeout(closeNav, 120);
+    });
+  });
+
+  // 回到顶部
+  var toTop = document.getElementById('toTop');
+  var ticking = false;
+  function onScroll(){
+    if(!ticking){
+      window.requestAnimationFrame(function(){
+        if(window.scrollY > 500){ toTop.classList.add('show'); }
+        else{ toTop.classList.remove('show'); }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  if(toTop){
+    toTop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+
+  // 搜索提示（简化为跳转筛选，无实际输入框时给出提示）
+  var searchToggle = document.getElementById('searchToggle');
+  if(searchToggle){
+    searchToggle.addEventListener('click', function(){
+      var target = document.getElementById('featured');
+      if(target){ target.scrollIntoView({behavior:'smooth'}); }
+    });
+  }
+
+  // 频道导航高亮
+  var channelLinks = document.querySelectorAll('.channel-nav a');
+  var sections = [];
+  channelLinks.forEach(function(link){
+    var id = link.getAttribute('href').replace('#','');
+    var el = document.getElementById(id);
+    if(el){ sections.push({link:link, el:el}); }
+  });
+  if(sections.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          channelLinks.forEach(function(l){ l.classList.remove('active'); });
+          sections.forEach(function(s){
+            if(s.el === entry.target){ s.link.classList.add('active'); }
+          });
+        }
+      });
+    }, {rootMargin:'-120px 0px -60% 0px', threshold:0});
+    sections.forEach(function(s){ io.observe(s.el); });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "51大赛吃瓜",
+  "description": "聚合51大赛判罚争议、选手发言、解说口径与规则变化的围观讨论站点。",
+  "inLanguage": "zh-CN",
+  "about": {
+    "@type": "Thing",
+    "name": "51大赛"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "计时器复位延迟多久算设备故障？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "手册v3.2第14条附则没有给出固定秒数，认定标准是“是否改变比赛结果或行进顺序”。A组第三轮的1.8秒延迟是否构成故障，取决于技术部对“是否改变名次”的判断。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "重赛申请为什么需要技术代表签字？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "10月28日更新的v3.2手册把签字人从裁判长一人改为裁判长与技术代表两人。技术代表负责确认设备日志，裁判长负责确认比赛流程。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "林骁说的亮灯顺序问题指的是什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "指起跑指示灯的点亮顺序。林骁称训练时为红黄绿，正赛为黄红绿。网友用他9月12日直播录屏逐帧比对，确认训练画面确为红黄绿。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "解说员对同一动作判罚口径不同，以哪个为准？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "以手册条款为准。周可引用第9条第2款，李让引用第9条第3款。两条的适用差异在于得分区边界认定。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "51大赛的得分区边界怎么划？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "按手册第6条图示，得分区为赛道中线向外延伸1.2米的带状区域，边线计入区内。争议通常出现在选手接触瞬间是否已进入这条1.2米带。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "现场观众拍摄的视频能作为重赛证据吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以作为辅助材料提交，但认定仍以技术部日志和官方机位回放为主。提交时需注明看台区域和拍摄时间。"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+          </html>
